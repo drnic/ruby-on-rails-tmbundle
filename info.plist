@@ -17,7 +17,7 @@
 		<string>854EF1DA-875B-11D9-897C-000393CBCE2E</string>
 	</array>
 	<key>description</key>
-	<string>&lt;a href="http://www.rubyonrails.com/"&gt;Rails&lt;/a&gt; is a full-stack framework for developing database-backed web applications, in Ruby, according to the Model-View-Control pattern.</string>
+	<string>&lt;a href="http://www.rubyonrails.com/"&gt;Ruby on Rails&lt;/a&gt; is a full-stack framework for developing database-backed web applications, in Ruby, according to the Model-View-Control pattern.</string>
 	<key>mainMenu</key>
 	<dict>
 		<key>excludedItems</key>
@@ -264,7 +264,7 @@
 		</dict>
 	</dict>
 	<key>name</key>
-	<string>Rails</string>
+	<string>Ruby on Rails</string>
 	<key>ordering</key>
 	<array>
 		<string>1970AE74-3949-40B3-B263-727AA3FF167A</string>
