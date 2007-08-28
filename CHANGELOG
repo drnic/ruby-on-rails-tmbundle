@@ -1,0 +1,27 @@
+2006-09-28 Added "Rake Migrate to Version", changed "rake migrate" to "rake db:migrate" to remove warning message.
+2006-02-22 Changed key bindings to TextMate conventions (http://macromates.com/textmate/manual/key_bindings#conventions)
+2006-02-22 Footnotes can be turned off for specific pages:
+            e.g. render :action => 'whatever', :footnotes => false [Duane]
+2006-02-22 intelligent go to file now asks for a view file name if it doesn't exist before going there [Duane]
+2006-02-22 Fixed that intelligent go to file was not recognizing view files other than rhtml [Duane]
+2006-02-21 Generated files open automatically [Duane, Sami Samhuri]
+2006-02-21 Generate migrations works (has to be chdir to rails_root to work) [Duane]
+2006-02-21 Fixed that the footnotes plugin was doubling the /controllers/ segment [Duane, Cliff Matthews]
+2006-02-21 Fixed that the footnotes plugin was rendering for rxml and rjs pages [Duane]
+
+0.9.1 Released
+
+2006-02-21 Fixed that the footnotes plugin was breaking on redirects [Duane]
+
+0.9 Released
+
+2006-02-20 Added Migration Snippets [Sami Samhuri]
+2006-02-20 Added Rails Engines plugin [Duane]
+2006-02-20 Added double quotes around call to CocoaDialog [Kent Siblev]
+2006-02-20 Intelligent Go To File will now go to the file nearest the caret for stylesheet and javascript tags with multiple files [Cliff Matthews]
+2006-02-20 Added plugin install script bound to ctrl-option-command-\ [Duane]
+2006-02-20 Added 'plugins' directory to Support, and included textmate_footnotes plugin. [Duane]
+2006-02-20 More intelligent argument regexps for javascripts and stylesheets [Cliff Matthews]
+2006-02-20 Generate command is now a background process [Duane]
+
+0.8 Released

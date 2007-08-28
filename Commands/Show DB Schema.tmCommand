@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+require "#{ENV['TM_SUPPORT_PATH']}/lib/progress"
+TextMate.call_with_progress(:title =&gt; "Contacting SQL Server", :message =&gt; "Fetching database schema…") do
+
+  project = ENV['TM_PROJECT_DIRECTORY']
+  word = ENV['TM_CURRENT_WORD']
+
+  require "#{project}/config/boot"
+  require "#{project}/config/environment"
+
+  klass = Object.const_get(word) rescue nil
+  if klass and klass.class == Class and klass.ancestors.include?(ActiveRecord::Base)
+    columns = klass.columns_hash
+
+    data = []
+    data += [%w[column primary sql_type default]]
+    data += [%w[------ ------- -------- -------]]
+    data += columns.collect { |col, attrs| [col, attrs.primary.to_s, attrs.sql_type.to_s, attrs.default.to_s] }
+
+    STDOUT &lt;&lt; data.inject('') do |output, array| 
+      output + array.inject('') { |row_str, value| row_str + value.ljust(20) } + "\n"
+    end
+  elsif klass and klass.class == Class and not klass.ancestors.include?(ActiveRecord::Base)
+    STDOUT &lt;&lt; "#{word} is not an Active Record derived class"
+  else
+    STDOUT &lt;&lt; "#{word} was not recognised as a class"
+  end
+
+end
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^@S</string>
+	<key>name</key>
+	<string>Show DB Schema for Current Class</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>uuid</key>
+	<string>1970AE74-3949-40B3-B263-727AA3FF167A</string>
+</dict>
+</plist>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>drop_table :${1:table}
+$0</string>
+	<key>name</key>
+	<string>Drop Table</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>mtab</string>
+	<key>uuid</key>
+	<string>C3ED4A88-B9CF-4F2B-B195-3C582ED58C5F</string>
+</dict>
+</plist>
