@@ -124,22 +124,25 @@ class RailsPath
     #  end
     #end
   end
+  
+  # This is used in :file_type and :rails_path_for_view
+  VIEW_EXTENSIONS = %w( rhtml rxhtml rxml rjs erb builder )
 
   def file_type
     return @file_type if @file_type
     
     @file_type =
       case @filepath
-      when %r{/controllers/(.+_controller\.(rb))$}   then :controller
-      when %r{/controllers/(application\.(rb))$}     then :controller
-      when %r{/helpers/(.+_helper\.rb)$}             then :helper
-      when %r{/views/(.+\.(rhtml|rxml|rxhtml|rjs|erb))$} then :view
-      when %r{/models/(.+\.(rb))$}                   then :model
-      when %r{/test/fixtures/(.+\.(yml|csv))$}       then :fixture
-      when %r{/test/functional/(.+\.(rb))$}          then :functional_test
-      when %r{/test/unit/(.+\.(rb))$}                then :unit_test
-      when %r{/public/javascripts/(.+\.(js))$}       then :javascript
-      when %r{/public/stylesheets/(.+\.(css))$}      then :stylesheet
+      when %r{/controllers/(.+_controller\.(rb))$}      then :controller
+      when %r{/controllers/(application\.(rb))$}        then :controller
+      when %r{/helpers/(.+_helper\.rb)$}                then :helper
+      when %r{/views/(.+\.(#{VIEW_EXTENSIONS * '|'}))$} then :view
+      when %r{/models/(.+\.(rb))$}                      then :model
+      when %r{/test/fixtures/(.+\.(yml|csv))$}          then :fixture
+      when %r{/test/functional/(.+\.(rb))$}             then :functional_test
+      when %r{/test/unit/(.+\.(rb))$}                   then :unit_test
+      when %r{/public/javascripts/(.+\.(js))$}          then :javascript
+      when %r{/public/stylesheets/(.+\.(css))$}         then :stylesheet
       else nil
       end
     # Store the tail (modules + file) after the regexp
@@ -195,7 +198,7 @@ class RailsPath
     case type
     when :javascript then '.js'
     when :stylesheet then '.css'
-    when :view       then '.rhtml' # Default extension for view
+    when :view       then '.rhtml'
     else '.rb'
     end
   end
@@ -212,10 +215,8 @@ class RailsPath
   def rails_path_for_view
     return nil if action_name.nil?
     
-    # Look for a view file with any of the following extensions
-    candidate_extensions = %w(rhtml rxhtml rxml rjs)
     file_exists = false
-    candidate_extensions.each do |e|
+    VIEW_EXTENSIONS.each do |e|
       filename_with_extension = action_name + "." + e
       existing_view = File.join(rails_root, stubs[:view], modules, controller_name, filename_with_extension)
       return RailsPath.new(existing_view) if File.exist?(existing_view)
