@@ -198,7 +198,7 @@ class RailsPath
     case type
     when :javascript then '.js'
     when :stylesheet then '.css'
-    when :view       then '.rhtml'
+    when :view       then '.html.erb'
     else '.rb'
     end
   end

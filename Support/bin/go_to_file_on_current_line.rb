@@ -40,7 +40,7 @@ case TextMate.current_line
       modules = pieces
     end
 
-    partial = File.join(current_file.rails_root, 'app', 'views', modules, "_#{partial_name}.rhtml")
+    partial = File.join(current_file.rails_root, 'app', 'views', modules, "_#{partial_name}.html.erb")
     TextMate.open(partial)
 
   # Example: render :action => 'login'

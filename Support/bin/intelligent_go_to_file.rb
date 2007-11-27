@@ -47,7 +47,7 @@ end
 
 def find_or_name_view_file(filename, current_file)
   # Look for a view file with any of the following extensions
-  extensions = %w(rhtml rxhtml rxml rjs)
+  extensions = %w(html.erb xml.builder rhtml rxhtml rxml rjs)
   file_exists = false
   extensions.each do |e|
     filename_with_extension = filename + "." + e
@@ -56,7 +56,7 @@ def find_or_name_view_file(filename, current_file)
   end
   
   # No view files found, so ask for the name of a new one
-  if filename = TextMate.input("Enter the name of the new view file:", filename + '.rhtml')
+  if filename = TextMate.input("Enter the name of the new view file:", filename + '.html.erb')
     view_file = File.join(current_file.rails_root, 'app', 'views', current_file.modules, current_file.controller_name, filename)
     # Create the file and notify TextMate of its existence
     f = File.open(view_file, "w"); f.close
@@ -85,7 +85,7 @@ case TextMate.current_line
       modules = pieces
     end
 
-    partial = File.join(current_file.rails_root, 'app', 'views', modules, current_file.controller_name, "_#{partial_name}.rhtml")
+    partial = File.join(current_file.rails_root, 'app', 'views', modules, current_file.controller_name, "_#{partial_name}.html.erb")
     TextMate.open(partial)
 
   # Example: render :action => 'login'
@@ -203,7 +203,7 @@ case TextMate.current_line
     elsif current_file.file_type == :model
       if current_file.buffer.text.include?("ActionMailer::Base")
         if result = current_file.buffer.find_method(:direction => :backwards)
-          full_path = File.join(current_file.rails_root, 'app', 'views', current_file.model_name, result[0] + ".rhtml")
+          full_path = File.join(current_file.rails_root, 'app', 'views', current_file.model_name, result[0] + ".html.erb")
           TextMate.open full_path
         else
           TextMate.message "No action found"
