@@ -5,6 +5,8 @@
 	<key>fileTypes</key>
 	<array>
 		<string>rhtml</string>
+		<string>erb</string>
+		<string>html.erb</string>
 	</array>
 	<key>foldingStartMarker</key>
 	<string>(?x)
