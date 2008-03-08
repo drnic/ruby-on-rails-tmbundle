@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>contactEmailRot13</key>
@@ -24,9 +24,6 @@
 		<array>
 			<string>A2135370-67A1-488D-B43C-B4F221127C2F</string>
 			<string>809BCA42-5C49-4B08-B3C4-BB773036C086</string>
-			<string>EB781D86-84C5-11D9-A094-000D932CD5BA</string>
-			<string>F8EE4249-84C5-11D9-A094-000D932CD5BA</string>
-			<string>060DC5CD-84C6-11D9-A094-000D932CD5BA</string>
 		</array>
 		<key>items</key>
 		<array>
@@ -44,9 +41,9 @@
 			<string>6E2BC67D-4CC8-47F1-AF7C-341D74E0F803</string>
 			<string>5CCEA099-4B20-4BC3-96B9-BD9BF57279F5</string>
 			<string>E34453D0-68EB-408C-AE49-990663DE18F7</string>
+			<string>------------------------------------</string>
 			<string>EE4BA904-F727-4C6B-A2CB-602E30537E38</string>
 			<string>054985A5-E001-462A-8674-47C02C751A80</string>
-			<string>EDB6B7B9-E2BA-44EE-A344-24117C636D96</string>
 		</array>
 		<key>submenus</key>
 		<dict>
@@ -144,6 +141,9 @@
 					<string>A3B09AFE-40B5-4623-8B85-E9F369ECE22D</string>
 					<string>97C0992D-715F-4322-A3E0-DD4D2B7E2FC2</string>
 					<string>4F636977-F7A6-4BF5-B09B-7F087683C3B9</string>
+					<string>EB781D86-84C5-11D9-A094-000D932CD5BA</string>
+					<string>F8EE4249-84C5-11D9-A094-000D932CD5BA</string>
+					<string>060DC5CD-84C6-11D9-A094-000D932CD5BA</string>
 					<string>------------------------------------</string>
 					<string>9ECBF20C-003E-41D9-A881-4BAC0656F9DC</string>
 					<string>7BBD3F57-57A5-4CD0-8E79-B931021FC110</string>
@@ -228,9 +228,6 @@
 				<array>
 					<string>CD60F800-850D-47CF-BE32-3DE665DD5C68</string>
 					<string>2BD82DCB-1F19-4C8F-BC70-C0BBB06A2138</string>
-					<string>30BEA6FB-301C-4460-93EC-FA3404688962</string>
-					<string>5C6F4462-70E6-40B4-B3F2-F371656E7784</string>
-					<string>------------------------------------</string>
 				</array>
 				<key>name</key>
 				<string>Unit Tests</string>
