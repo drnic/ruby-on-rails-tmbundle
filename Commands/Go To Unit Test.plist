@@ -16,7 +16,7 @@
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>meta.rails.model, meta.rails.helper</string>
+	<string>meta.rails.controller, meta.rails.helper, meta.rails.model, meta.rails.functional_test, source.yaml</string>
 	<key>uuid</key>
 	<string>BDBB15A4-2824-4BEC-93A5-7475F9C46A39</string>
 </dict>

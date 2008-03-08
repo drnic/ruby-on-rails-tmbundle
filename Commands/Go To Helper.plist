@@ -16,7 +16,7 @@
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>text.html.ruby, source.ruby.rails.embedded.html, meta.rails.controller, meta.rails.unit_test</string>
+	<string>text.html.ruby, source.ruby.rails.embedded.html, meta.rails.controller, meta.rails.model, meta.rails.unit_test, meta.rails.functional_test, text.haml</string>
 	<key>uuid</key>
 	<string>51C9C27A-D931-49F9-B6D8-C0E7ABEC992D</string>
 </dict>

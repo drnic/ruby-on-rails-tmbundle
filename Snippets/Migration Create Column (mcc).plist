@@ -3,11 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>t.column :${1:title}, :${2:string}$0</string>
+	<string>t.column ${1:title}, :${2:string}
+$0</string>
 	<key>name</key>
 	<string>Create Column in Table</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>meta.rails.migration.create_table</string>
 	<key>tabTrigger</key>
 	<string>mcol</string>
 	<key>uuid</key>

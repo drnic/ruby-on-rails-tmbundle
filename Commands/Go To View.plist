@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
@@ -16,7 +16,7 @@
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>meta.rails.controller, meta.rails.mailer, source.js, source.css, meta.rails.functional_test</string>
+	<string>meta.rails.controller, meta.rails.mailer, source.js, source.css</string>
 	<key>uuid</key>
 	<string>EE862691-A624-4797-90CF-EDD39EFB2D8E</string>
 </dict>

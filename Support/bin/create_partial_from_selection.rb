@@ -28,7 +28,7 @@ if TextMate.selected_text
   if partial_name
     path = current_file.dirname
     partial = File.join(path, "_#{partial_name}.html.erb")
-  
+
     # Create the partial file
     if File.exist?(partial)
       unless TextMate.message_ok_cancel("The partial file already exists.", "Do you want to overwrite it?")
@@ -37,7 +37,8 @@ if TextMate.selected_text
     end
 
     file = File.open(partial, "w") { |f| f.write(TextMate.selected_text) }
-  
+    TextMate.refresh_project_drawer
+
     # Return the new render :partial line
     print "<%= render :partial => '#{partial_name}' %>\n"
   else

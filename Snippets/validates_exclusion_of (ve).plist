@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>validates_exclusion_of :${1:attribute}${2:, :in =&gt; ${3:enumerable}, :on =&gt; :${4:create}, :message =&gt; "${5:is not allowed}"}</string>
+	<string>validates_exclusion_of :${1:attribute}${2:, :in =&gt; ${3:%w( ${4:mov avi} )}, :on =&gt; :${5:create}, :message =&gt; "${6:extension %s is not allowed}"}</string>
 	<key>name</key>
 	<string>validates_exclusion_of</string>
 	<key>scope</key>

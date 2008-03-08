@@ -41,12 +41,12 @@ module TextMate
     def selected_text
       env(:selected_text)
     end
-    
+
     # Make line_number 0-base index
     def line_number
       env(:line_number).to_i - 1
     end
-    
+
     # Make column_number 0-base as well
     def column_number
       env(:column_number).to_i - 1
@@ -55,11 +55,11 @@ module TextMate
     def project_directory
       env(:project_directory)
     end
-    
+
     def env(var)
       ENV['TM_' + var.to_s.upcase]
     end
-    
+
     # Forward to the TM_* environment variables if method is missing.  Some useful variables include:
     #   selected_text, current_line, column_number, line_number, support_path
     def method_missing(method, *args)
@@ -71,15 +71,15 @@ module TextMate
     end
 
     # TODO: Move cocoa dialog stuff to its own class or module
-    
+
     def cocoa_dialog_command
       "#{support_path}/bin/CocoaDialog.app/Contents/MacOS/CocoaDialog"
     end
-    
+
     # See http://cocoadialog.sourceforge.net/documentation.html for documentation
     def cocoa_dialog(command, options = {})
       options_list = []
-      options.each_pair do |k, v| 
+      options.each_pair do |k, v|
         k = k.to_s.gsub('_', '-')
         value = v.is_a?(Array) ? %Q{"#{v.join('" "')}"} : "\"#{v}\""
         if v
@@ -94,7 +94,7 @@ module TextMate
       # $logger.debug "Dialog command: #{dialog_command}"
       `#{dialog_command}`.to_a.map { |v| v.strip }
     end
-    
+
     # Shows an information bubble with a nice gradient background
     #
     def message(text, options = {})
@@ -126,7 +126,7 @@ module TextMate
         return nil
       end
     end
-    
+
     def choose(text, choices = ["none"], options = {})
       options = {:title => "Choose", :text => text, :items => choices, :button1 => 'Ok', :button2 => 'Cancel'}.update(options)
       button, choice = cocoa_dialog('dropdown', options)
@@ -144,10 +144,10 @@ module TextMate
 
 	def TextMate.call_with_progress( args, &block )
 		output_filepath	= args[:output_filepath]		# path to open after execution
-		
+
 		title			= args[:title] || 'Progress'
 		message			= args[:message] || 'Frobbing the widget...'
-		
+
 		cocoa_dialog	= "#{ENV['TM_SUPPORT_PATH']}/bin/CocoaDialog.app/Contents/MacOS/CocoaDialog"
 
 		tempdir = "/tmp/TextMate_progress_cmd_tmp.#{$PID}"
@@ -164,7 +164,7 @@ module TextMate
 		end
 
 		sleep 0.1
-		
+
 	end
 
 end

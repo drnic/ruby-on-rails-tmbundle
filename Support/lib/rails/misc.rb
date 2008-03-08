@@ -3,7 +3,7 @@ class String
   def line_from_index(i)
     slice(0..i).count("\n")
   end
-  
+
   # Gets the index of the beginning of line number +l+ (0-base index)
   def index_from_line(l)
     to_a.slice(0...l).join.length
@@ -44,7 +44,7 @@ class String
     end
     (nearest_token.nil?) ? nil : [nearest_token, nearest_index]
   end
-  
+
   def underscore
     gsub(/::/, '/').
       gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
@@ -52,7 +52,7 @@ class String
       tr("-", "_").
       downcase
   end
-  
+
   def camelize
     gsub(/\/(.?)/) { "::" + $1.upcase }.gsub(/(^|_)(.)/) { $2.upcase }
   end

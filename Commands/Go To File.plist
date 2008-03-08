@@ -16,7 +16,7 @@
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>source.ruby.rails, text.html.ruby, source.ruby.rails.embedded.html</string>
+	<string>source.ruby.rails, text.html.ruby, source.ruby.rails.embedded.html, source.yaml, text.haml, source.css, source.js, source.sass</string>
 	<key>uuid</key>
 	<string>0CCC8443-40F3-4BAB-9440-D737562B5F45</string>
 </dict>

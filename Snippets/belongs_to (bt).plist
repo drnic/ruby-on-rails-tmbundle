@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>belongs_to :${1:object}${2:, :class_name =&gt; "${3:ClassName}", :foreign_key =&gt; "${4:${1}_id}"}</string>
+	<string>belongs_to :${1:object}${2:, :class_name =&gt; "${3:${1/[[:alpha:]]+|(_)/(?1::\u$0)/g}}", :foreign_key =&gt; "${4:${1}_id}"}</string>
 	<key>name</key>
 	<string>belongs_to</string>
 	<key>scope</key>

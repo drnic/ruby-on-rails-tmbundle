@@ -1,4 +1,8 @@
-== TODO ==
+== TODO - From Dr Nic ==
+
+- Call Generate Script - dynamically load generator names (bin/generate.rb)
+
+== TODO - From Duane ==
 - Let RailsPath recognize application.rb as a controller
 - Remove extraneous dirname from setting each RUBYLIB -- remove from plugins too?
 - License for footnotes?
@@ -13,8 +17,7 @@
 - Use scope hints to make more intelligent actions:
   - e.g. if inside source.css.embedded.html create a css file instead of a partial with create-from-selection
   - source.ruby.rails: unit tests, controllers, models
-  - 
-  
+
 - Make the backtracer find "extracted source" lines as well [done]
 - Make go-to-file go to unit test (esp. from models)
 - List common rake tasks in a pop-up menu and execute? db_schema_import db_schema_dump migrate

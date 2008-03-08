@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>logger.debug "${1:message}"$0</string>
+	<string>logger.debug { "${1:message}" }$0</string>
 	<key>name</key>
 	<string>logger.debug</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>log</string>
+	<string>logd</string>
 	<key>uuid</key>
 	<string>D975E5C1-42C2-40F1-8960-0DA533B18113</string>
 </dict>

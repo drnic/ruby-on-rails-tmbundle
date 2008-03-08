@@ -33,7 +33,7 @@
 	<key>name</key>
 	<string>Rename / Rename Column</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>meta.rails.migration - meta.rails.migration.create_table</string>
 	<key>scopeType</key>
 	<string>local</string>
 	<key>tabTrigger</key>

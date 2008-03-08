@@ -9,52 +9,24 @@
 
 require 'rails_bundle_tools'
 require 'fileutils'
+require File.dirname(__FILE__) + "/../lib/rails/generate"
 
 # Look for (created) files and return an array of them
 def files_from_generator_output(output, type = 'create')
   output.to_a.map { |line| line.scan(/#{type}\s+([^\s]+)$/).flatten.first }.compact.select { |f| File.exist?(f) and !File.directory?(f) }
 end
 
-def ruby(command)
-  `/usr/bin/env ruby #{command}`
-end
+Generator.setup
 
-class Generator
-  @@list = []
-  attr_accessor :name, :question, :default_answer
-  
-  def initialize(name, question, default_answer = "")
-    @@list << self
-    @name, @question, @default_answer = name, question, default_answer
-  end
-  
-  def self.[](name, question, default_answer = "")
-    g = new(name, question, default_answer)
-  end
-
-  # Collect the names from each generator
-  def self.names
-    @@list.map { |g| g.name.capitalize }
-  end
-end
-
-generators = [
-  Generator["scaffold",   "Name of the model to scaffold:", "User"],
-  Generator["controller", "Name the new controller:",       "admin/user_accounts"],
-  Generator["model",      "Name the new model:",            "User"],
-  Generator["mailer",     "Name the new mailer:",           "Notify"],
-  Generator["migration",  "Name the new migration:",        "CreateUserTable"],
-  Generator["plugin",     "Name the new plugin:",           "ActsAsPlugin"]
-]
-
-if choice = TextMate.choose("Generate:", Generator.names, :title => "Rails Generator")
-  name =
+if choice = TextMate.choose("Generate:", Generator.names.map { |name| Inflector.humanize name }, :title => "Rails Generator")
+  arguments =
     TextMate.input(
-      generators[choice].question, generators[choice].default_answer,
-      :title => "#{generators[choice].name.capitalize} Generator")
-  if name
+      Generator.generators[choice].question,
+      Generator.generators[choice].default_answer,
+      :title => "#{Inflector.humanize Generator.generators[choice].name} Generator")
+  if arguments
     options = ""
-    
+
     case choice
     when 0
       options = TextMate.input("Name the new controller for the scaffold:", "", :title => "Scaffold Controller Name")
@@ -63,7 +35,7 @@ if choice = TextMate.choose("Generate:", Generator.names, :title => "Rails Gener
       options = TextMate.input("List any actions you would like created for the controller:",
         "index new create edit update destroy", :title => "Controller Actions")
     end
-    
+
     # add the --svn option, if needed
     proj_dir = ENV["TM_PROJECT_DIRECTORY"]
     if proj_dir and File.exist?(File.join(proj_dir, ".svn"))
@@ -72,14 +44,14 @@ if choice = TextMate.choose("Generate:", Generator.names, :title => "Rails Gener
 
     rails_root = RailsPath.new.rails_root
     FileUtils.cd rails_root
-    command = "\"script/generate\" #{generators[choice].name} #{name} #{options}"
+    command = "script/generate #{Generator.generators[choice].name} #{arguments} #{options}"
     $logger.debug "Command: #{command}"
-    
+
     output = ruby(command)
     $logger.debug "Output: #{output}"
     TextMate.refresh_project_drawer
     files = files_from_generator_output(output)
     files.each { |f| TextMate.open(File.join(rails_root, f)) }
-    TextMate.textbox("Done generating #{generators[choice].name}", output, :title => "Done")
+    TextMate.textbox("Done generating #{Generator.generators[choice].name}", output, :title => "Done")
   end
 end

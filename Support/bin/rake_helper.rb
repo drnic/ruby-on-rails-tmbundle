@@ -33,7 +33,7 @@ OptionParser.new do |opts|
   opts.on("-a", "--answer [ANSWER TEXT]", "Default answer for the question.") do |answer|
     options[:answer] = answer
   end
-  
+
   opts.on("-v", "--variable [VARIABLE]", "Variable to assign the ANSWER to.") do |variable|
     options[:variable] = variable
   end

@@ -19,7 +19,7 @@
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>scope</key>
-	<string>source.ruby.rails, text.html.ruby</string>
+	<string>source.ruby.rails, text.html.ruby, text.haml</string>
 	<key>uuid</key>
 	<string>1DD8A214-1C97-45BA-ADEE-8F888DDE8570</string>
 </dict>

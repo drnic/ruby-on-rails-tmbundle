@@ -1,6 +1,6 @@
 class Exception
   alias :original_clean_backtrace :clean_backtrace
-  
+
   def add_links_to_backtrace(lines)
     lines.collect do |line|
       expanded = line.gsub '#{RAILS_ROOT}', RAILS_ROOT
@@ -38,6 +38,5 @@ protected
       backtracer_original_template_path_for_local_rescue(exception)
     end
   end
-  
+
 end
-  
