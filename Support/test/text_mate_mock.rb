@@ -38,9 +38,6 @@ module TextMate
       "open \"#{url}\""
     end
 
-    def refresh_project_drawer
-    end
-
     def env(var)
       TextMate.class_eval("@@#{var}")
     end

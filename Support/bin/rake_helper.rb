@@ -44,7 +44,12 @@ OptionParser.new do |opts|
 end.parse!
 
 if options[:question]
-  unless options[:answer] = TextMate.input(options[:question], options[:answer] || "", :title => options[:title] || "Rake")
+  unless options[:answer] = TextMate::UI.request_string(
+    :title => options[:title] || "Rake", 
+    :default => options[:answer] || "",
+    :prompt => options[:question],
+    :button1 => 'Continue'
+  )
     TextMate.exit_discard
   end
 end

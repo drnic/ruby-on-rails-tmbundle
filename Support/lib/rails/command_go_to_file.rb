@@ -12,7 +12,7 @@ class CommandGoToFile
         if rails_path.nil?
           TextMate.exit_discard
         end
-        TextMate.refresh_project_drawer
+        TextMate.rescan_project
       end
 
       TextMate.open rails_path, openatline, openatcol
@@ -145,15 +145,25 @@ class CommandGoToFile
   # new file. Returns nil when no new file is created.
   def self.create_file(rails_path, choice)       
     return nil if rails_path.exists?
-    if choice == :view 
-      filename = TextMate.input("Enter the name of the new view file:", rails_path.basename)
+    if choice == :view
+      filename = TextMate::UI.request_string(
+        :title => "View File Not Found", 
+        :default => rails_path.basename,
+        :prompt => "Enter the name of the new view file:",
+        :button1 => 'Create'
+      )
       return nil if !filename
       rails_path = RailsPath.new(File.join(rails_path.dirname, filename))
       rails_path.touch
       return [rails_path, 0, 0]
     end
-  
-    if !TextMate.message_ok_cancel("Create missing #{rails_path.basename}?")
+    
+    unless TextMate::UI.request_confirmation(
+      :button1 => "Create",
+      :button2 => "Cancel",
+      :title => "Missing #{rails_path.basename}",
+      :prompt => "Create missing #{rails_path.basename}?"
+    )
       return nil
     end
 

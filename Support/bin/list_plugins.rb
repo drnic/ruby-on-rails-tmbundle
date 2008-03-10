@@ -27,7 +27,7 @@ root = RailsPath.new.rails_root
 script = File.join(root, "script", "plugin")
 enable_install = true
 unless File.exist? script
-  TextMate.message "The 'plugin' script was not found in #{script}. Plugins will not be able to be installed."
+  TextMate::UI.alert(:warning, "Plugin Script Not Found", "The 'plugin' script was not found in #{script}. Plugins will not be able to be installed.", 'OK')
   enable_install = false
 end
 

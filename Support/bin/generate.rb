@@ -19,21 +19,31 @@ end
 Generator.setup
 
 if choice = TextMate.choose("Generate:", Generator.names.map { |name| Inflector.humanize name }, :title => "Rails Generator")
-  arguments =
-    TextMate.input(
-      Generator.generators[choice].question,
-      Generator.generators[choice].default_answer,
-      :title => "#{Inflector.humanize Generator.generators[choice].name} Generator")
+  arguments = TextMate::UI.request_string(
+    :title => "#{Inflector.humanize Generator.generators[choice].name} Generator", 
+    :default => Generator.generators[choice].default_answer,
+    :prompt => Generator.generators[choice].question,
+    :button1 => 'Generate'
+  )
+
   if arguments
     options = ""
 
     case choice
     when 0
-      options = TextMate.input("Name the new controller for the scaffold:", "", :title => "Scaffold Controller Name")
+      options = TextMate::UI.request_string(
+        :title => "Scaffold Controller Name", 
+        :prompt => "Name the new controller for the scaffold:",
+        :button1 => 'Continue'
+      )
       options = "'#{options}'"
     when 1
-      options = TextMate.input("List any actions you would like created for the controller:",
-        "index new create edit update destroy", :title => "Controller Actions")
+      options = TextMate::UI.request_string(
+        :title => "Controller Actions", 
+        :default => "index new create edit update destroy",
+        :prompt => "List any actions you would like created for the controller:",
+        :button1 => 'Create'
+      )
     end
 
     # add the --svn option, if needed
@@ -49,9 +59,13 @@ if choice = TextMate.choose("Generate:", Generator.names.map { |name| Inflector.
 
     output = ruby(command)
     $logger.debug "Output: #{output}"
-    TextMate.refresh_project_drawer
+    TextMate.rescan_project
     files = files_from_generator_output(output)
     files.each { |f| TextMate.open(File.join(rails_root, f)) }
-    TextMate.textbox("Done generating #{Generator.generators[choice].name}", output, :title => "Done")
+    TextMate::UI.simple_notification(
+      :title => 'Generator Complete',
+      :summary => "Done generating #{Generator.generators[choice].name}",
+      :log => output
+    )
   end
 end
