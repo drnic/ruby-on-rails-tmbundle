@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${RAILS_TEMPLATE_START_RUBY_EXPR}f.text_field :${1:attribute}${RAILS_TEMPLATE_END_RUBY_EXPR}</string>
+	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}f.text_field :${1:attribute}${TM_RAILS_TEMPLATE_END_RUBY_EXPR}</string>
 	<key>name</key>
 	<string>f.text_field (fftf)</string>
 	<key>scope</key>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${RAILS_TEMPLATE_START_RUBY_EXPR}image_submit_tag("${1:agree.png}"${2:${3:, :id =&gt; "${4:${1/^(\w+)(\.\w*)?$/$1/}}"}${5:, :name =&gt; "${6:${1/^(\w+)(\.\w*)?$/$1/}}"}${7:, :class =&gt; "${8:${1/^(\w+)(\.\w*)?$/$1/}-button}"}${9:, :disabled =&gt; ${10:false}}})${RAILS_TEMPLATE_END_RUBY_EXPR}</string>
+	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}image_submit_tag("${1:agree.png}"${2:${3:, :id =&gt; "${4:${1/^(\w+)(\.\w*)?$/$1/}}"}${5:, :name =&gt; "${6:${1/^(\w+)(\.\w*)?$/$1/}}"}${7:, :class =&gt; "${8:${1/^(\w+)(\.\w*)?$/$1/}-button}"}${9:, :disabled =&gt; ${10:false}}})${TM_RAILS_TEMPLATE_END_RUBY_EXPR}</string>
 	<key>name</key>
 	<string>image_submit_tag</string>
 	<key>scope</key>

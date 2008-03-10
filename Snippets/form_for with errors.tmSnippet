@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${RAILS_TEMPLATE_START_RUBY_EXPR}error_messages_for :${1:model}${RAILS_TEMPLATE_END_RUBY_EXPR}
+	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}error_messages_for :${1:model}${TM_RAILS_TEMPLATE_END_RUBY_EXPR}
 
-${RAILS_TEMPLATE_START_RUBY_INLINE}form_for @${2:$1} do |f|${RAILS_TEMPLATE_END_RUBY_INLINE}
+${TM_RAILS_TEMPLATE_START_RUBY_INLINE}form_for @${2:$1} do |f|${TM_RAILS_TEMPLATE_END_RUBY_INLINE}
   $0
-${RAILS_TEMPLATE_END_RUBY_BLOCK}</string>
+${TM_RAILS_TEMPLATE_END_RUBY_BLOCK}</string>
 	<key>name</key>
 	<string>form_for with errors</string>
 	<key>scope</key>

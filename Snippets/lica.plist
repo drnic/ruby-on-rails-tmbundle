@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${RAILS_TEMPLATE_START_RUBY_EXPR}link_to "${1:link text...}", :controller =&gt; "${2:items}", :action =&gt; "${3:index}"${RAILS_TEMPLATE_END_RUBY_EXPR}</string>
+	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}link_to "${1:link text...}", :controller =&gt; "${2:items}", :action =&gt; "${3:index}"${TM_RAILS_TEMPLATE_END_RUBY_EXPR}</string>
 	<key>name</key>
 	<string>link_to (controller, action)</string>
 	<key>scope</key>
