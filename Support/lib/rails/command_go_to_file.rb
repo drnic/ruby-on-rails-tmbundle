@@ -168,6 +168,8 @@ class CommandGoToFile
     end
 
     generated_code, openatline, openatcol = case choice
+    when :model
+      ["class #{Inflector.singularize rails_path.controller_name.camelize} < ActiveRecord::Base\n\nend", 1, 0]
     when :controller 
       ["class #{rails_path.controller_name.camelize}Controller < ApplicationController\n\nend", 1, 0]
     when :helper
