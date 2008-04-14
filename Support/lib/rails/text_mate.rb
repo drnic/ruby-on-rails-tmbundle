@@ -21,14 +21,6 @@ module TextMate
       open_url "txmt://open?" + options.join("&")
     end
 
-    # Todo: Delete before next Textmate version push.
-    def rescan_project
-      `osascript &>/dev/null \
-    	   -e 'tell app "SystemUIServer" to activate'; \
-    	 osascript &>/dev/null \
-    	   -e 'tell app "TextMate" to activate' &`
-    end
-
     # Always return something, or nil, for selected_text
     def selected_text
       env(:selected_text)
