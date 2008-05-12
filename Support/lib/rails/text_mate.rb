@@ -5,6 +5,7 @@
 # Description:
 #   Helper module for accesing TextMate facilities such as environment variables.
 
+require 'uri'
 module TextMate
   class <<self
     def open_url(url)
@@ -15,7 +16,7 @@ module TextMate
     def open(filename, line_number = nil, column_number = nil)
       filename = filename.filepath if filename.is_a? RailsPath
       options = []
-      options << "url=file://#{filename}"
+      options << "url=file://#{URI.escape(filename)}"
       options << "line=#{line_number + 1}" if line_number
       options << "column=#{column_number + 1}" if column_number
       open_url "txmt://open?" + options.join("&")
