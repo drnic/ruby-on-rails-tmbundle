@@ -29,7 +29,7 @@ Added so far:
       * javascript_include_tag - jit
       * stylesheet_link_tag - slt
     * Models
-      * has_many :though (hmt)
+      * has_many :through (hmt)
       * association snippets give better defaults (e.g. bt + hm)
       * validates_format_of (vf,vfif) [Dean Strelau]
       * validates_numericality_of (vn,vnif) [Tom Morris]
