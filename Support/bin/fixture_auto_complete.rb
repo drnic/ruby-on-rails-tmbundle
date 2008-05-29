@@ -8,11 +8,12 @@ DIALOG = ENV['DIALOG']
 def parse_line
   current_line = TextMate.current_line
   if RailsPath.new.file_type == :fixture
-    line_parts = current_line.split(":")
-    [:fixture] + line_parts.map { |p| p.strip }
+    if fixture_finder = current_line.match(/^([\s\t]+)\b([a-z_]+)\:([a-z_]*)/)
+      [:fixture] + fixture_finder[1..3]
+    end
   else
-    if fixture_finder = current_line.match(/\b([a-z_]+)\(\:([a-z_]*)\)/)
-      [:test] + fixture_finder[1..2]
+    if fixture_finder = current_line.match(/^([\s\t]+).*\b([a-z_]+)\(\:([a-z_]*)\)/)
+      [:test] + fixture_finder[1..3]
     end
   end
 end
@@ -51,7 +52,7 @@ def filter_fixtures(fixtures, filter)
   end
 end
 
-filetype, ref, filter = parse_line
+filetype, start_line_gap, ref, filter = parse_line
 filter = "" if filter.nil?
 foreign_fixtures = load_referenced_fixture_file(ref).keys
 candidates = filter_fixtures(foreign_fixtures, filter)
@@ -71,8 +72,8 @@ if ARGV[0] == "preserve"
   print selected_fixture
 else
   if filetype == :fixture
-    print "  #{ref}: #{selected_fixture}"
+    print "#{start_line_gap}#{ref}: #{selected_fixture}"
   else
-    print "    @#{Inflector.singularize ref} = #{ref}(:#{selected_fixture})"
+    print "#{start_line_gap}@#{Inflector.singularize ref} = #{ref}(:#{selected_fixture})"
   end
 end
