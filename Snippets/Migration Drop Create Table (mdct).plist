@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>Drop / Create Table</string>
 	<key>scope</key>
-	<string>meta.rails.migration - meta.rails.migration.create_table</string>
+	<string>meta.rails.migration - meta.rails.migration.create_table - meta.rails.migration.change_table</string>
 	<key>tabTrigger</key>
 	<string>mtab</string>
 	<key>uuid</key>

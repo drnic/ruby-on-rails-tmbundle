@@ -165,6 +165,27 @@
 			<array>
 				<dict>
 					<key>begin</key>
+					<string>(^\s*)(?=change_table)\b</string>
+					<key>comment</key>
+					<string>Uses lookahead to match methods change_table; includes 'source.ruby' to avoid infinite recursion</string>
+					<key>contentName</key>
+					<string>meta.rails.migration.change_table</string>
+					<key>end</key>
+					<string>^\1(?=end)\b</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.ruby</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(^\s*)(?=create_table)\b</string>
 					<key>comment</key>
 					<string>Uses lookahead to match methods create_table; includes 'source.ruby' to avoid infinite recursion</string>
