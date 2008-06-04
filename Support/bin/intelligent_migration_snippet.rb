@@ -41,6 +41,13 @@ marcc$0',
 end',
       :down => 'drop_table :$1' },
 
+  'change_change_table' =>
+    { :up   => 'change_table :${1:table_name} do |t|
+  t.$0
+end',
+      :down => 'change_table :$1 do |t|
+end' },
+
   'add_remove_index' =>
     { :up   => 'add_index :${1:table_name}, :${2:column_name}$0',
       :down => 'remove_index :$1, :$2' },
