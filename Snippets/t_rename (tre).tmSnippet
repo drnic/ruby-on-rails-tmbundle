@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>t.time :${1:title}
-$0</string>
+	<string>t.rename(:${1:old_column_name}, :${2:new_column_name})
+t.$0</string>
 	<key>name</key>
-	<string>Table column time</string>
+	<string>t.rename (tre)</string>
 	<key>scope</key>
 	<string>meta.rails.migration.create_table, meta.rails.migration.change_table</string>
 	<key>tabTrigger</key>
-	<string>tcti</string>
+	<string>t.</string>
 	<key>uuid</key>
-	<string>4F5DDD37-D532-11DC-BD8E-00112475D960</string>
+	<string>9D4E30E2-4A61-4941-B9F3-BEE97552747A</string>
 </dict>
 </plist>

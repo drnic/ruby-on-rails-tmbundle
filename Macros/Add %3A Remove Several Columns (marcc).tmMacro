@@ -33,7 +33,7 @@
 	<key>name</key>
 	<string>Add / Remove Several Columns (marcc)</string>
 	<key>scope</key>
-	<string>meta.rails.migration - meta.rails.migration.create_table</string>
+	<string>meta.rails.migration - meta.rails.migration.create_table - meta.rails.migration.change_table</string>
 	<key>scopeType</key>
 	<string>local</string>
 	<key>tabTrigger</key>
