@@ -134,6 +134,16 @@
 				<key>name</key>
 				<string>link_to</string>
 			</dict>
+			<key>3DF64504-EE4E-4EA2-BE81-80D8DE446656</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
+					<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+				</array>
+				<key>name</key>
+				<string>Scopes</string>
+			</dict>
 			<key>4D3A01D4-ACA8-49AF-B1DD-428B823964C3</key>
 			<dict>
 				<key>items</key>
@@ -193,6 +203,7 @@
 					<string>------------------------------------</string>
 					<string>CD88AD5A-7F20-4D4C-882A-31E1CDFDFD16</string>
 					<string>B89CD2E9-4271-41BB-8AF6-A747553D99EB</string>
+					<string>3DF64504-EE4E-4EA2-BE81-80D8DE446656</string>
 					<string>A26B8A37-FAC0-4F44-B18D-6BE30D84F27E</string>
 					<string>7D9194BB-2BCC-4E20-84C8-0990B77D5515</string>
 				</array>
@@ -835,6 +846,8 @@
 		<string>A017AB39-A875-40DC-8ACF-7E3551057CA0</string>
 		<string>FE430ECD-5D40-4D95-A73B-F064C73992DE</string>
 		<string>59CD3A41-8164-4FB4-B462-D7ACE86BCDBF</string>
+		<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
+		<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
 		<string>D975E5C1-42C2-40F1-8960-0DA533B18113</string>
 		<string>36E2A3EE-E9CC-4B7F-A4CF-AFAF970B8699</string>
 		<string>38D5CA05-E219-4399-A244-609AF40B1D0B</string>
