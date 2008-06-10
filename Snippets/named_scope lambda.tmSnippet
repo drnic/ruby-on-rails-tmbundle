@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>named_scope :name, lambda { |${1:param}| { :conditions =&gt; ${3:['${4:${5:field} = ?}', ${6:$1}]} } }
+	<string>named_scope :${1:name}, lambda { |${2:param}| { :conditions =&gt; ${3:['${4:${5:field} = ?}', ${6:$2}]} } }
 </string>
 	<key>name</key>
 	<string>named_scope lambda</string>
