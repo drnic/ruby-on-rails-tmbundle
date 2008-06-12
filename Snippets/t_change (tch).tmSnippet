@@ -8,7 +8,7 @@ t.$0</string>
 	<key>name</key>
 	<string>t.change (tch)</string>
 	<key>scope</key>
-	<string>meta.rails.migration.create_table, meta.rails.migration.change_table</string>
+	<string>meta.rails.migration.change_table</string>
 	<key>tabTrigger</key>
 	<string>t.</string>
 	<key>uuid</key>
