@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>t.rename :${1:old_column_name}, :${2:new_column_name}
+	<string>t.change :${1:name}${2:, :${3:string}${4:, :${5:limit} =&gt; ${6:80}}}
 t.$0</string>
 	<key>name</key>
-	<string>t.rename (tre)</string>
+	<string>t.change (tch)</string>
 	<key>scope</key>
 	<string>meta.rails.migration.create_table, meta.rails.migration.change_table</string>
 	<key>tabTrigger</key>
 	<string>t.</string>
 	<key>uuid</key>
-	<string>9D4E30E2-4A61-4941-B9F3-BEE97552747A</string>
+	<string>19761681-17E6-4DF1-8C08-73C337D29481</string>
 </dict>
 </plist>

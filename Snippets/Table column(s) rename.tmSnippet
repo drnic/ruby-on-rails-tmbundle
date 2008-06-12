@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>t.rename(:${1:old_column_name}, :${2:new_column_name})
+	<string>t.rename :${1:old_column_name}, :${2:new_column_name}
 $0</string>
 	<key>name</key>
 	<string>Table column(s) rename</string>
