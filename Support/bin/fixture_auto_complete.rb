@@ -52,6 +52,11 @@ def filter_fixtures(fixtures, filter)
   end
 end
 
+# 'foo' => ':foo' and 'foo-bar' => ':"foo-bar"'
+def symbolize_name(name)
+  name.to_sym.inspect
+end
+
 filetype, start_line_gap, ref, filter = parse_line
 filter = "" if filter.nil?
 foreign_fixtures = load_referenced_fixture_file(ref).keys
@@ -74,6 +79,6 @@ else
   if filetype == :fixture
     print "#{start_line_gap}#{ref}: #{selected_fixture}"
   else
-    print "#{start_line_gap}@#{Inflector.singularize ref} = #{ref}(:#{selected_fixture})"
+    print "#{start_line_gap}@#{Inflector.singularize ref} = #{ref}(#{symbolize_name selected_fixture})"
   end
 end
