@@ -221,11 +221,14 @@
 					<string>25F8F5D8-2BD1-45D8-8B2A-9F2EA4F73AA2</string>
 					<string>FD8CC811-2AD3-480F-B975-DF959DC96C67</string>
 					<string>20375601-B13F-4314-B8E4-362706566636</string>
+					<string>20FC02C5-32A3-4F20-B163-FF75C9FDFABF</string>
 					<string>------------------------------------</string>
 					<string>A66D3FEE-D537-11DC-BD8E-00112475D960</string>
 					<string>B5104C6E-E4BF-11DC-A11A-00112475D960</string>
 					<string>7592CA99-75D7-48B6-9133-00B9F148FF43</string>
 					<string>67FD2F8F-5F25-45F2-A451-2F39977A9EDE</string>
+					<string>93964B1A-33AB-4B4F-A92C-5138402EDB7C</string>
+					<string>BAEAEAA9-ECE9-4B42-B3FA-8249EEFACB6C</string>
 				</array>
 				<key>name</key>
 				<string>Tables</string>
@@ -341,6 +344,15 @@
 				</array>
 				<key>name</key>
 				<string>Columns</string>
+			</dict>
+			<key>93964B1A-33AB-4B4F-A92C-5138402EDB7C</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>9D4E30E2-4A61-4941-B9F3-BEE97552747A</string>
+				</array>
+				<key>name</key>
+				<string>Change columns t. drop-down list</string>
 			</dict>
 			<key>9EB71DE4-93D3-466C-B1D8-54892538FF3A</key>
 			<dict>
@@ -484,6 +496,15 @@
 				</array>
 				<key>name</key>
 				<string>form_for f. drop-down list</string>
+			</dict>
+			<key>BAEAEAA9-ECE9-4B42-B3FA-8249EEFACB6C</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>DF30226E-1111-448A-B669-7CA34EE83909</string>
+				</array>
+				<key>name</key>
+				<string>Change columns helpers</string>
 			</dict>
 			<key>CD88AD5A-7F20-4D4C-882A-31E1CDFDFD16</key>
 			<dict>
@@ -632,6 +653,7 @@
 		<string>6F2AB859-46E3-4FF5-A9A7-E9A813AB5DE1</string>
 		<string>964436B8-E578-11DC-8177-00112475D960</string>
 		<string>25F8F5D8-2BD1-45D8-8B2A-9F2EA4F73AA2</string>
+		<string>20FC02C5-32A3-4F20-B163-FF75C9FDFABF</string>
 		<string>A2135370-67A1-488D-B43C-B4F221127C2F</string>
 		<string>18C76913-061C-4D65-866D-67AA3724AFEF</string>
 		<string>7BC860E6-7561-4E6E-983B-507D7A6F6228</string>
@@ -755,6 +777,8 @@
 		<string>A677FFD4-E4BE-11DC-A11A-00112475D960</string>
 		<string>EDA6568B-D533-11DC-BD8E-00112475D960</string>
 		<string>B6D9225C-E4BE-11DC-A11A-00112475D960</string>
+		<string>DF30226E-1111-448A-B669-7CA34EE83909</string>
+		<string>9D4E30E2-4A61-4941-B9F3-BEE97552747A</string>
 		<string>20375601-B13F-4314-B8E4-362706566636</string>
 		<string>F60D0630-CBF5-4283-9D20-FA46C787A88D</string>
 		<string>FE9C4B4E-860D-49F0-AAF7-5582B98F5F54</string>
