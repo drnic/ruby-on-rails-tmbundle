@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>find(:last${1:, :conditions =&gt; ['${2:${3:field} = ?}', ${5:true}]})</string>
+	<key>name</key>
+	<string>find(:last)</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>finl</string>
+	<key>uuid</key>
+	<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
+</dict>
+</plist>
