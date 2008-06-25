@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>class ${1:Model}Sweeper &lt; ActionController::Caching::Sweeper
+  observe ${1:Model}
+
+  def after_save(${1/./\l$0/})
+    expire_cache(${1/./\l$0/})
+  end
+
+  def after_destroy(${1/./\l$0/})
+    expire_cache(${1/./\l$0/})
+  end
+
+  private
+
+    def expire_cache(${1/./\l$0/})
+      $0
+    end
+
+end</string>
+	<key>name</key>
+	<string>Create sweeper class</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>sweeper</string>
+	<key>uuid</key>
+	<string>FF022038-CA5D-4045-909E-BF509343A5C7</string>
+</dict>
+</plist>
