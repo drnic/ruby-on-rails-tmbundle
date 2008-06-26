@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>class ${1:Model}sController &lt; ApplicationController
+  before_filter :find_${1/./\l$0/}, :only =&gt; [:show, :edit, :update, :destroy]
+
+  # GET /${1/./\l$0/}s
+  # GET /${1/./\l$0/}s.xml
+  def index
+    @${1/./\l$0/}s = ${1:Model}.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml =&gt; @${1/./\l$0/}s }
+    end
+  end
+
+  # GET /${1/./\l$0/}s/1
+  # GET /${1/./\l$0/}s/1.xml
+  def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml =&gt; @${1/./\l$0/} }
+    end
+  end
+
+  # GET /${1/./\l$0/}s/new
+  # GET /${1/./\l$0/}s/new.xml
+  def new
+    @${1/./\l$0/} = ${1:Model}.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml =&gt; @${1/./\l$0/} }
+    end
+  end
+
+  # GET /${1/./\l$0/}s/1/edit
+  def edit
+  end
+
+  # POST /${1/./\l$0/}s
+  # POST /${1/./\l$0/}s.xml
+  def create
+    @${1/./\l$0/} = ${1:Model}.new(params[:${1/./\l$0/}])
+
+    respond_to do |format|
+      if @${1/./\l$0/}.save
+        flash[:notice] = '${1:Model} was successfully created.'
+        format.html { redirect_to(@${1/./\l$0/}) }
+        format.xml  { render :xml =&gt; @${1/./\l$0/}, :status =&gt; :created, :location =&gt; @${1/./\l$0/} }
+      else
+        format.html { render :action =&gt; "new" }
+        format.xml  { render :xml =&gt; @${1/./\l$0/}.errors, :status =&gt; :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /${1/./\l$0/}s/1
+  # PUT /${1/./\l$0/}s/1.xml
+  def update
+    respond_to do |format|
+      if @${1/./\l$0/}.update_attributes(params[:${1/./\l$0/}])
+        flash[:notice] = '${1:Model} was successfully updated.'
+        format.html { redirect_to(@${1/./\l$0/}) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action =&gt; "edit" }
+        format.xml  { render :xml =&gt; @${1/./\l$0/}.errors, :status =&gt; :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /${1/./\l$0/}s/1
+  # DELETE /${1/./\l$0/}s/1.xml
+  def destroy
+    @${1/./\l$0/}.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(${1/./\l$0/}s_url) }
+      format.xml  { head :ok }
+    end
+  end
+
+  private
+    def find_${1/./\l$0/}
+      @${1/./\l$0/} = ${1:Model}.find(params[:id])
+    end
+
+end
+</string>
+	<key>name</key>
+	<string>Create resources controller class</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>resources</string>
+	<key>uuid</key>
+	<string>F90BFB23-5706-484B-8108-B376A988C0A0</string>
+</dict>
+</plist>

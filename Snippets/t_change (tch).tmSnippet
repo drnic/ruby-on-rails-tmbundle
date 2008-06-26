@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>named_scope :${1:name}${2:, :joins =&gt; :${3:table}}, :conditions =&gt; ${4:['${5:${6:field} = ?}', ${7:true}]}
-</string>
+	<string>t.change :${1:name}${2:, :${3:string}${4:, :${5:limit} =&gt; ${6:80}}}
+t.$0</string>
 	<key>name</key>
-	<string>named_scope</string>
+	<string>t.change (tch)</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>meta.rails.migration.change_table</string>
 	<key>tabTrigger</key>
-	<string>nc</string>
+	<string>t.</string>
 	<key>uuid</key>
-	<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
+	<string>19761681-17E6-4DF1-8C08-73C337D29481</string>
 </dict>
 </plist>

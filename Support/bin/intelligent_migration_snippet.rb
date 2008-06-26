@@ -34,6 +34,14 @@ mntc$0',
 marcc$0',
       :down => 'remove_column :$1, :$2' },
 
+  'add_remove_timestamps' =>
+    { :up   => 'add_timestamps :${1:table_name}$0',
+      :down => 'remove_timestamps :$1' },
+
+  'remove_add_timestamps' =>
+    { :up   => 'remove_timestamps :${1:table_name}$0',
+      :down => 'add_timestamps :$1' },
+
   'create_drop_table' =>
     { :up   => 'create_table :${1:table_name}, :force => true do |t|
   t.$0
