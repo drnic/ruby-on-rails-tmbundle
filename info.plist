@@ -63,6 +63,7 @@
 			<string>9EB71DE4-93D3-466C-B1D8-54892538FF3A</string>
 			<string>------------------------------------</string>
 			<string>964436B8-E578-11DC-8177-00112475D960</string>
+			<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
 		</array>
 		<key>submenus</key>
 		<dict>
@@ -455,6 +456,7 @@
 					<string>053490FE-73BA-11D9-B752-000D932CD5BA</string>
 					<string>0C137FBF-73BA-11D9-B752-000D932CD5BA</string>
 					<string>18D3C1C3-73BA-11D9-B752-000D932CD5BA</string>
+					<string>BC194AE7-FA60-4E65-9503-6920D1666A29</string>
 				</array>
 				<key>name</key>
 				<string>redirect_to</string>
@@ -491,7 +493,6 @@
 					<string>F396B7BD-8255-48B1-904A-06E7D7CC2741</string>
 					<string>3E3AF538-171B-4108-AB92-827AD7E24C77</string>
 					<string>9D58B6C9-BA52-48B3-B639-D5CB894AF810</string>
-					<string>3E3AF538-171B-4108-AB92-827AD7E24C77</string>
 				</array>
 				<key>name</key>
 				<string>Associations</string>
@@ -701,6 +702,7 @@
 		<string>053490FE-73BA-11D9-B752-000D932CD5BA</string>
 		<string>0C137FBF-73BA-11D9-B752-000D932CD5BA</string>
 		<string>18D3C1C3-73BA-11D9-B752-000D932CD5BA</string>
+		<string>BC194AE7-FA60-4E65-9503-6920D1666A29</string>
 		<string>7BBD3F57-57A5-4CD0-8E79-B931021FC110</string>
 		<string>9ECBF20C-003E-41D9-A881-4BAC0656F9DC</string>
 		<string>7D99041D-C3B7-4940-AE64-6B1758CDB47C</string>
@@ -894,6 +896,7 @@
 		<string>87EF33FE-E918-11DC-A399-00112475D960</string>
 		<string>C0FD2646-E924-11DC-A399-00112475D960</string>
 		<string>56151E60-589F-4CE7-8062-3E087732E2F1</string>
+		<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
 	</array>
 	<key>uuid</key>
 	<string>467A60E0-6227-11D9-BFB1-000D93589AF6</string>
