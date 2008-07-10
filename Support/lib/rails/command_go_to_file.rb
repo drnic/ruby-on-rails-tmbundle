@@ -39,7 +39,8 @@ class CommandGoToFile
           modules = pieces
         end
 
-        partial = File.join(current_file.rails_root, 'app', 'views', modules, "_#{partial_name}.html.erb")
+        ext = current_file.default_extension_for(:view)
+        partial = File.join(current_file.rails_root, 'app', 'views', modules, "_#{partial_name}#{ext}")
         TextMate.open(partial)
 
       # Example: render :action => 'login'
