@@ -233,8 +233,8 @@ class RailsPath
       when :xml, :rss, :atom then ".#{view_format}.builder"
       when :js  then '.js.rjs'
       else 
-        rails_view_ext = ENV['RAILS_VIEW_EXT'] || (wants_haml ? '.haml' : '.erb')
-        ".#{view_format}#{rails_view_ext}"
+        rails_view_ext = ENV['RAILS_VIEW_EXT'] || (wants_haml ? 'haml' : 'erb')
+        ".#{view_format}.#{rails_view_ext}"
       end
     when :fixture    then '.yml'
     else '.rb'

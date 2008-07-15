@@ -11,18 +11,18 @@
   def index
     @${1/./\l$0/}s = ${1:Model}.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml =&gt; @${1/./\l$0/}s }
+    respond_to do |wants|
+      wants.html # index.html.erb
+      wants.xml  { render :xml =&gt; @${1/./\l$0/}s }
     end
   end
 
   # GET /${1/./\l$0/}s/1
   # GET /${1/./\l$0/}s/1.xml
   def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml =&gt; @${1/./\l$0/} }
+    respond_to do |wants|
+      wants.html # show.html.erb
+      wants.xml  { render :xml =&gt; @${1/./\l$0/} }
     end
   end
 
@@ -31,9 +31,9 @@
   def new
     @${1/./\l$0/} = ${1:Model}.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml =&gt; @${1/./\l$0/} }
+    respond_to do |wants|
+      wants.html # new.html.erb
+      wants.xml  { render :xml =&gt; @${1/./\l$0/} }
     end
   end
 
@@ -46,14 +46,14 @@
   def create
     @${1/./\l$0/} = ${1:Model}.new(params[:${1/./\l$0/}])
 
-    respond_to do |format|
+    respond_to do |wants|
       if @${1/./\l$0/}.save
         flash[:notice] = '${1:Model} was successfully created.'
-        format.html { redirect_to(@${1/./\l$0/}) }
-        format.xml  { render :xml =&gt; @${1/./\l$0/}, :status =&gt; :created, :location =&gt; @${1/./\l$0/} }
+        wants.html { redirect_to(@${1/./\l$0/}) }
+        wants.xml  { render :xml =&gt; @${1/./\l$0/}, :status =&gt; :created, :location =&gt; @${1/./\l$0/} }
       else
-        format.html { render :action =&gt; "new" }
-        format.xml  { render :xml =&gt; @${1/./\l$0/}.errors, :status =&gt; :unprocessable_entity }
+        wants.html { render :action =&gt; "new" }
+        wants.xml  { render :xml =&gt; @${1/./\l$0/}.errors, :status =&gt; :unprocessable_entity }
       end
     end
   end
@@ -61,14 +61,14 @@
   # PUT /${1/./\l$0/}s/1
   # PUT /${1/./\l$0/}s/1.xml
   def update
-    respond_to do |format|
+    respond_to do |wants|
       if @${1/./\l$0/}.update_attributes(params[:${1/./\l$0/}])
         flash[:notice] = '${1:Model} was successfully updated.'
-        format.html { redirect_to(@${1/./\l$0/}) }
-        format.xml  { head :ok }
+        wants.html { redirect_to(@${1/./\l$0/}) }
+        wants.xml  { head :ok }
       else
-        format.html { render :action =&gt; "edit" }
-        format.xml  { render :xml =&gt; @${1/./\l$0/}.errors, :status =&gt; :unprocessable_entity }
+        wants.html { render :action =&gt; "edit" }
+        wants.xml  { render :xml =&gt; @${1/./\l$0/}.errors, :status =&gt; :unprocessable_entity }
       end
     end
   end
@@ -78,9 +78,9 @@
   def destroy
     @${1/./\l$0/}.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(${1/./\l$0/}s_url) }
-      format.xml  { head :ok }
+    respond_to do |wants|
+      wants.html { redirect_to(${1/./\l$0/}s_url) }
+      wants.xml  { head :ok }
     end
   end
 
