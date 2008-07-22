@@ -28,6 +28,10 @@ mntc$0',
   'change_column' =>
     { :up   => 'change_column :${1:table_name}, :${2:column_name}, :${4:string}$5',
       :down => 'change_column :$1, :$2, :${6:string}$7' },
+  
+  'change_column_default' =>
+    { :up   => 'change_column_default :${1:table_name}, :${2:column_name}, ${4:"${5:new default}"}',
+      :down => 'change_column_default :$1, :$2, ${6:"${7:old default}"}' },
 
   'add_remove_column' =>
     { :up   => 'add_column :${1:table_name}, :${2:column_name}, :${3:string}$0',
