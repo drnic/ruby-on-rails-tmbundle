@@ -24,6 +24,10 @@ mncc$0',
     { :up   => 'rename_table :${1:old_table_name}, :${2:new_table_name}
 mntc$0',
       :down => 'rename_table :$2, :$1' },
+  
+  'change_column' =>
+    { :up   => 'change_column :${1:table_name}, :${2:column_name}, :${4:string}$5',
+      :down => 'change_column :$1, :$2, :${6:string}$7' },
 
   'add_remove_column' =>
     { :up   => 'add_column :${1:table_name}, :${2:column_name}, :${3:string}$0',
