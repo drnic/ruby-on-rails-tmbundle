@@ -78,8 +78,7 @@ end' },
 }
 
 def indent(code)
-  spaces = ' ' * (2 * ENV['TM_TAB_SIZE'].to_i)
-  lines = code.to_a.collect { |s| spaces + s }
+  lines = code.to_a.collect { |s| "\t\t" + s }
   lines.to_s + "\n"
 end
 
