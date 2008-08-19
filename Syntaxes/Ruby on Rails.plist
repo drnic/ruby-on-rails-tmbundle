@@ -42,7 +42,7 @@
 		|   [#] .*? \(end\) \s*+ $    # Sune’s special marker
 		)</string>
 	<key>keyEquivalent</key>
-	<string>^@e</string>
+	<string>^~R</string>
 	<key>name</key>
 	<string>Ruby on Rails</string>
 	<key>patterns</key>
