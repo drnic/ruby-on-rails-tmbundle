@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>render (partial, locals)</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>source.ruby.rails, text.html.ruby, text.haml</string>
 	<key>tabTrigger</key>
 	<string>rpl</string>
 	<key>uuid</key>
