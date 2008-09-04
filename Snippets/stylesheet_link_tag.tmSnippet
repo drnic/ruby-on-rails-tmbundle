@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>stylesheet_link_tag</string>
 	<key>scope</key>
-	<string>text.html.ruby</string>
+	<string>text.html.ruby, text.haml</string>
 	<key>tabTrigger</key>
 	<string>slt</string>
 	<key>uuid</key>
