@@ -45,6 +45,34 @@ module TextMate
       ENV['TM_' + var.to_s.upcase]
     end
 
+    # SizzlerWA, 2008-12-10:
+    #
+    # Handles failure when Shift-Ctrl-h is used in a view file
+    # (turn selected into partial) that was giving error messages
+    # like:
+    #
+    #  /Users/yourusername/Library/Application Support/TextMate/Bundles/Ruby on Rails.tmbundle/Support/lib/rails/text_mate.rb:64:in `method_missing': undefined method `rescan_project' for TextMate:Module (NoMethodError)
+    # from /Users/yourusername/Library/Application Support/TextMate/Bundles/Ruby on Rails.tmbundle/Support/bin/create_partial_from_selection.rb:46
+    #
+    # This implementation just uses osascript to invoke two
+    # AppleScript commands that basically send focus to
+    # SystemUIServer and then back to TextMate to force TextMate
+    # to rescan the project, both using the activate command.
+    # This is preferable to the user seeing the error above or
+    # having to defocus and refocus TextMate themselves.
+    #
+    # This implementation of rescan_project was copied verbatim
+    # from
+    #
+    #   Public Clone URL: git://gist.github.com/15748.git
+    #              Owner: pieter
+    def rescan_project
+        `osascript &>/dev/null \
+	        -e 'tell app "SystemUIServer" to activate'; \
+	        osascript &>/dev/null \
+	        -e 'tell app "TextMate" to activate' &`
+    end
+
     # Forward to the TM_* environment variables if method is missing.  Some useful variables include:
     #   selected_text, current_line, column_number, line_number, support_path
     def method_missing(method, *args)
