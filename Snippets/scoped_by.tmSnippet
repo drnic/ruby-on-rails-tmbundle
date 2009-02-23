@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>scoped_by_${1:attribute}(${2:id})</string>
+	<key>name</key>
+	<string>scoped_by</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>sb</string>
+	<key>uuid</key>
+	<string>7CC002AE-83BA-4294-B87D-DE9790839D97</string>
+</dict>
+</plist>

@@ -141,6 +141,7 @@
 				<array>
 					<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
 					<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+					<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
 				</array>
 				<key>name</key>
 				<string>Scopes</string>
@@ -420,6 +421,8 @@
 					<string>A017AB39-A875-40DC-8ACF-7E3551057CA0</string>
 					<string>FE430ECD-5D40-4D95-A73B-F064C73992DE</string>
 					<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
+					<string>------------------------------------</string>
+					<string>7CC002AE-83BA-4294-B87D-DE9790839D97</string>
 				</array>
 				<key>name</key>
 				<string>Finders</string>
@@ -872,8 +875,10 @@
 		<string>A017AB39-A875-40DC-8ACF-7E3551057CA0</string>
 		<string>FE430ECD-5D40-4D95-A73B-F064C73992DE</string>
 		<string>59CD3A41-8164-4FB4-B462-D7ACE86BCDBF</string>
+		<string>7CC002AE-83BA-4294-B87D-DE9790839D97</string>
 		<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
 		<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+		<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
 		<string>D975E5C1-42C2-40F1-8960-0DA533B18113</string>
 		<string>36E2A3EE-E9CC-4B7F-A4CF-AFAF970B8699</string>
 		<string>38D5CA05-E219-4399-A244-609AF40B1D0B</string>
