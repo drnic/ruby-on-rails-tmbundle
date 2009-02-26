@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>accepts_nested_attributes_for :${1:object}</string>
+	<string>accepts_nested_attributes_for :${1:association_name}${2:${3:, :allow_destroy =&gt; true}${4:, :reject_if =&gt; proc { |obj| ${5:obj.blank?} }}}
+</string>
 	<key>name</key>
 	<string>accepts_nested_attributes_for</string>
 	<key>scope</key>
@@ -11,6 +12,6 @@
 	<key>tabTrigger</key>
 	<string>anaf</string>
 	<key>uuid</key>
-	<string>4A90D6BA-F725-46EB-B32F-3E3BBE99A15D</string>
+	<string>D414D70D-BD2D-4C15-BDA6-1AAEABF7791F</string>
 </dict>
 </plist>
