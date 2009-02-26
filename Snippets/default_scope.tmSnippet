@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>default_scope ${1::order} =&gt; ${2:'created_at DESC'}</string>
+	<string>default_scope :${1:order} =&gt; ${2:'created_at DESC'}${3:, :joins =&gt; :${4:table}}</string>
 	<key>name</key>
 	<string>default_scope</string>
 	<key>scope</key>
