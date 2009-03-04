@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>find_in_batches(${1::conditions =&gt; {:${2:field} =&gt; ${3:true}\}}) do |${4:${TM_CURRENT_WORD/(\w+)\./\L$1/g}}s|
+	$4s.each do |$4|
+		$0
+	end
+end</string>
+	<key>name</key>
+	<string>find_in_batches</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>finb</string>
+	<key>uuid</key>
+	<string>B660FC85-F69A-43BC-A72A-748CBEA0AA9A</string>
+</dict>
+</plist>
