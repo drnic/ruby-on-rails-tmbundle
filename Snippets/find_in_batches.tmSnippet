@@ -3,15 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>accepts_nested_attributes_for :${1:association_name}${2:${3:, :allow_destroy =&gt; true}${4:, :reject_if =&gt; proc { |obj| ${5:obj.blank?} \}}}
-</string>
+	<string>find_in_batches(${1::conditions =&gt; {:${2:field} =&gt; ${3:true}\}}) do |${4:${TM_CURRENT_WORD/(\w+)\./\L$1/g}}s|
+	$4s.each do |$4|
+		$0
+	end
+end</string>
 	<key>name</key>
-	<string>accepts_nested_attributes_for</string>
+	<string>find_in_batches</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>anaf</string>
+	<string>finb</string>
 	<key>uuid</key>
-	<string>D414D70D-BD2D-4C15-BDA6-1AAEABF7791F</string>
+	<string>B660FC85-F69A-43BC-A72A-748CBEA0AA9A</string>
 </dict>
 </plist>

@@ -63,8 +63,7 @@
 			<string>9EB71DE4-93D3-466C-B1D8-54892538FF3A</string>
 			<string>------------------------------------</string>
 			<string>964436B8-E578-11DC-8177-00112475D960</string>
-			<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
-			<string>7C7FC66A-D566-40D3-B9DA-FCEA4EFF98C6</string>
+			<string>32F30207-D827-46D9-889A-451C35269D52</string>
 		</array>
 		<key>submenus</key>
 		<dict>
@@ -142,6 +141,7 @@
 				<array>
 					<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
 					<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+					<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
 				</array>
 				<key>name</key>
 				<string>Scopes</string>
@@ -419,6 +419,10 @@
 					<string>59CD3A41-8164-4FB4-B462-D7ACE86BCDBF</string>
 					<string>A017AB39-A875-40DC-8ACF-7E3551057CA0</string>
 					<string>FE430ECD-5D40-4D95-A73B-F064C73992DE</string>
+					<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
+					<string>B660FC85-F69A-43BC-A72A-748CBEA0AA9A</string>
+					<string>------------------------------------</string>
+					<string>7CC002AE-83BA-4294-B87D-DE9790839D97</string>
 				</array>
 				<key>name</key>
 				<string>Finders</string>
@@ -495,6 +499,7 @@
 					<string>F396B7BD-8255-48B1-904A-06E7D7CC2741</string>
 					<string>3E3AF538-171B-4108-AB92-827AD7E24C77</string>
 					<string>9D58B6C9-BA52-48B3-B639-D5CB894AF810</string>
+					<string>------------------------------------</string>
 					<string>D414D70D-BD2D-4C15-BDA6-1AAEABF7791F</string>
 				</array>
 				<key>name</key>
@@ -513,6 +518,7 @@
 					<string>5DBA8F72-DD6C-4CBF-83FD-76301E159BA9</string>
 					<string>79BC2303-3D9D-4E21-AF85-73B388B7B56D</string>
 					<string>C315EC5D-A7F3-49CB-9795-21B78BB42FF4</string>
+					<string>BBE5B6F2-A8F2-4714-9186-4FCD21A5B432</string>
 				</array>
 				<key>name</key>
 				<string>form_for f. drop-down list</string>
@@ -593,6 +599,7 @@
 					<string>99FEFD9B-5A07-46E3-950D-5C474E42B695</string>
 					<string>C8BA285D-E12E-4AB8-A941-514C963E8226</string>
 					<string>3000E569-4E19-4566-B08E-A3FFFAAC9075</string>
+					<string>16645C58-C7C8-4E72-923F-3B44932F946D</string>
 				</array>
 				<key>name</key>
 				<string>form_for helpers</string>
@@ -608,6 +615,7 @@
 					<string>BA9F12E8-9151-4975-8E8A-9644290E6038</string>
 					<string>E3C11C94-8472-45CC-9258-1E5EEC7657A8</string>
 					<string>------------------------------------</string>
+					<string>7C7FC66A-D566-40D3-B9DA-FCEA4EFF98C6</string>
 					<string>F0F6DACA-6A0B-11D9-BDC2-000D932CD5BA</string>
 					<string>D0E29200-E910-11DC-A399-00112475D960</string>
 					<string>9FB9848E-EA5A-11DC-9DE5-00112475D960</string>
@@ -713,6 +721,8 @@
 		<string>7D99041D-C3B7-4940-AE64-6B1758CDB47C</string>
 		<string>15BDD7B6-5C15-4684-93C7-A05E3D2221AC</string>
 		<string>7C7FC66A-D566-40D3-B9DA-FCEA4EFF98C6</string>
+		<string>BBE5B6F2-A8F2-4714-9186-4FCD21A5B432</string>
+		<string>16645C58-C7C8-4E72-923F-3B44932F946D</string>
 		<string>402C251E-595B-4A58-8EB9-41989040F280</string>
 		<string>B31822D9-2048-4D16-B2AF-00E0B4E5C368</string>
 		<string>CC1BCD1C-2479-4335-B511-17B880316A75</string>
@@ -870,8 +880,11 @@
 		<string>A017AB39-A875-40DC-8ACF-7E3551057CA0</string>
 		<string>FE430ECD-5D40-4D95-A73B-F064C73992DE</string>
 		<string>59CD3A41-8164-4FB4-B462-D7ACE86BCDBF</string>
+		<string>B660FC85-F69A-43BC-A72A-748CBEA0AA9A</string>
+		<string>7CC002AE-83BA-4294-B87D-DE9790839D97</string>
 		<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
 		<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+		<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
 		<string>D975E5C1-42C2-40F1-8960-0DA533B18113</string>
 		<string>36E2A3EE-E9CC-4B7F-A4CF-AFAF970B8699</string>
 		<string>38D5CA05-E219-4399-A244-609AF40B1D0B</string>
@@ -906,6 +919,7 @@
 		<string>C0FD2646-E924-11DC-A399-00112475D960</string>
 		<string>56151E60-589F-4CE7-8062-3E087732E2F1</string>
 		<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
+		<string>32F30207-D827-46D9-889A-451C35269D52</string>
 	</array>
 	<key>uuid</key>
 	<string>467A60E0-6227-11D9-BFB1-000D93589AF6</string>

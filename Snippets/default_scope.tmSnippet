@@ -3,15 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>accepts_nested_attributes_for :${1:association_name}${2:${3:, :allow_destroy =&gt; true}${4:, :reject_if =&gt; proc { |obj| ${5:obj.blank?} \}}}
-</string>
+	<string>default_scope :${1:order} =&gt; ${2:'created_at DESC'}${3:, :joins =&gt; :${4:table}}</string>
 	<key>name</key>
-	<string>accepts_nested_attributes_for</string>
+	<string>default_scope</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>anaf</string>
+	<string>dc</string>
 	<key>uuid</key>
-	<string>D414D70D-BD2D-4C15-BDA6-1AAEABF7791F</string>
+	<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
 </dict>
 </plist>
