@@ -58,6 +58,7 @@
 			<string>083B7598-7DA0-4BDE-BBD3-290F06927E48</string>
 			<string>------------------------------------</string>
 			<string>4D3A01D4-ACA8-49AF-B1DD-428B823964C3</string>
+			<string>6ECA11FE-E8C1-4EC0-93F3-B4472752E60D</string>
 			<string>E34453D0-68EB-408C-AE49-990663DE18F7</string>
 			<string>8113246B-122E-4F4A-9B5A-98390900839E</string>
 			<string>9EB71DE4-93D3-466C-B1D8-54892538FF3A</string>
@@ -614,8 +615,8 @@
 					<string>15BDD7B6-5C15-4684-93C7-A05E3D2221AC</string>
 					<string>BA9F12E8-9151-4975-8E8A-9644290E6038</string>
 					<string>E3C11C94-8472-45CC-9258-1E5EEC7657A8</string>
-					<string>------------------------------------</string>
 					<string>7C7FC66A-D566-40D3-B9DA-FCEA4EFF98C6</string>
+					<string>------------------------------------</string>
 					<string>F0F6DACA-6A0B-11D9-BDC2-000D932CD5BA</string>
 					<string>D0E29200-E910-11DC-A399-00112475D960</string>
 					<string>9FB9848E-EA5A-11DC-9DE5-00112475D960</string>
@@ -628,7 +629,7 @@
 					<string>F7744F07-306C-4951-AB5A-3D69BA5516B7</string>
 				</array>
 				<key>name</key>
-				<string>ERb Templates</string>
+				<string>View Templates</string>
 			</dict>
 			<key>F4DD75AA-A954-4FBE-A03F-28718335414E</key>
 			<dict>
