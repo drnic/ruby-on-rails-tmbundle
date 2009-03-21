@@ -9,7 +9,7 @@
 	<key>keyEquivalent</key>
 	<string>^~R</string>
 	<key>name</key>
-	<string>RJS</string>
+	<string>Ruby on Rails (RJS)</string>
 	<key>patterns</key>
 	<array>
 		<dict>
