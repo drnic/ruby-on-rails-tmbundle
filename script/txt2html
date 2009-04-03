@@ -16,7 +16,7 @@ ENV['rakefile_just_config'] = "true"
 load File.dirname(__FILE__) + '/../Rakefile'
 
 version  = APP_VERSION
-download = 'http://railsbundle.com/dist/JavaScript Unit Testing.tar.gz'
+download = 'http://railsbundle.com/dist/Ruby on Rails.tmbundle.tar.gz'
 
 class Fixnum
   def ordinal
