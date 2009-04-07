@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>find_each(${1::conditions =&gt; {:${2:field} =&gt; ${3:true}\}}) do |${4:${TM_CURRENT_WORD/(\w+)\./\L$1/g}}|
+	$0
+end</string>
+	<key>name</key>
+	<string>find_each</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>fine</string>
+	<key>uuid</key>
+	<string>B105C480-FB21-4511-9AD0-D5B4FED3BA21</string>
+</dict>
+</plist>
