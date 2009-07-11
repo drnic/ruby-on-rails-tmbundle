@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>config.gem "${1:name}"${2:, :lib =&gt; ${3:"${4:$1}"}}${5:, :version =&gt; "${6:&gt;= 1.0.0}"}${7:, :source =&gt; "${8:http://gems.github.com}"}</string>
+	<key>name</key>
+	<string>config.gem</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>config.gem</string>
+	<key>uuid</key>
+	<string>47A6800A-DC7E-4F72-AA0D-CEE2488E1618</string>
+</dict>
+</plist>
