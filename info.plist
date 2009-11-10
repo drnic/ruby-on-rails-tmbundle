@@ -54,6 +54,7 @@
 			<string>5103D78F-C1FA-46F4-B6C7-39FC59EC591B</string>
 			<string>2005C9DA-00DD-43D7-9F59-169CC8E953FC</string>
 			<string>054985A5-E001-462A-8674-47C02C751A80</string>
+			<string>5BB42460-A269-4088-B892-595072CCF4F6</string>
 			<string>A1D9600C-4E0B-4ABF-9C0A-19AD7A168A15</string>
 			<string>083B7598-7DA0-4BDE-BBD3-290F06927E48</string>
 			<string>------------------------------------</string>
@@ -65,6 +66,8 @@
 			<string>------------------------------------</string>
 			<string>964436B8-E578-11DC-8177-00112475D960</string>
 			<string>32F30207-D827-46D9-889A-451C35269D52</string>
+			<string>B105C480-FB21-4511-9AD0-D5B4FED3BA21</string>
+			<string>FF022038-CA5D-4045-909E-BF509343A5C7</string>
 		</array>
 		<key>submenus</key>
 		<dict>
@@ -197,6 +200,15 @@
 				</array>
 				<key>name</key>
 				<string>render</string>
+			</dict>
+			<key>5BB42460-A269-4088-B892-595072CCF4F6</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>47A6800A-DC7E-4F72-AA0D-CEE2488E1618</string>
+				</array>
+				<key>name</key>
+				<string>Environment</string>
 			</dict>
 			<key>5CCEA099-4B20-4BC3-96B9-BD9BF57279F5</key>
 			<dict>
