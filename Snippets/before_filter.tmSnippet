@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>before_filter :${1:method}${2:${3:, :only =&gt; ${4:[:${5:action}, :${6:action}]}}${7:, :except =&gt; ${8:[:${9:action}, :${10:action}]}}}</string>
+	<key>name</key>
+	<string>before_filter</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>bf</string>
+	<key>uuid</key>
+	<string>B782A467-2C4D-48EB-AF39-518AFED4C056</string>
+</dict>
+</plist>
