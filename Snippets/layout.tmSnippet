@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>layout "${1:template_name}"${2:${3:, :only =&gt; ${4:[:${5:action}, :${6:action}]}}${7:, :except =&gt; ${8:[:${9:action}, :${10:action}]}}}</string>
+	<key>name</key>
+	<string>layout</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>layout</string>
+	<key>uuid</key>
+	<string>CCF4C4A1-28EF-499D-AD81-4A4FD2FEF5B6</string>
+</dict>
+</plist>
