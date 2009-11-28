@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>config.gem "${1:name}"${2:, :lib =&gt; ${3:"${4:$1}"}}${5:, :version =&gt; "${6:&gt;= 1.0.0}"}${7:, :source =&gt; "${8:http://gemcutter.org}"}</string>
+	<string>layout "${1:template_name}"${2:${3:, :only =&gt; ${4:[:${5:action}, :${6:action}]}}${7:, :except =&gt; ${8:[:${9:action}, :${10:action}]}}}</string>
 	<key>name</key>
-	<string>config.gem</string>
+	<string>layout</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>config.gem</string>
+	<string>layout</string>
 	<key>uuid</key>
-	<string>47A6800A-DC7E-4F72-AA0D-CEE2488E1618</string>
+	<string>CCF4C4A1-28EF-499D-AD81-4A4FD2FEF5B6</string>
 </dict>
 </plist>
