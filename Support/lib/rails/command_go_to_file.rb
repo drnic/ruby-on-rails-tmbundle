@@ -3,10 +3,14 @@ class CommandGoToFile
     current_file = RailsPath.new
 
     choice = args.empty? ? current_file.best_match : args.shift
-
     if choice.nil?
       puts "This file is not associated with any other files"
     elsif rails_path = current_file.rails_path_for(choice.to_sym)    
+      # look for alternative erb file for projects using erb and haml
+      if !rails_path.exists? && rails_path.extension == "haml"
+        erb_rails_path = RailsPath.new(File.join(rails_path.path_name, "#{rails_path.file_name}.#{rails_path.content_type}.erb"))
+        rails_path = erb_rails_path if erb_rails_path.exists?
+      end
       if !rails_path.exists?
         rails_path, openatline, openatcol = create_file(rails_path, choice.to_sym)
         if rails_path.nil?
@@ -14,7 +18,6 @@ class CommandGoToFile
         end
         TextMate.rescan_project
       end
-
       TextMate.open rails_path, openatline, openatcol
     else
       puts "#{current_file.basename} does not have a #{choice}"
