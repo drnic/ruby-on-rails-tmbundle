@@ -2,7 +2,7 @@
 require ENV['TM_BUNDLE_SUPPORT'] + '/lib/rails_bundle_tools'
 
 def prepend(text, prefix)
-  text.to_a.map { |line| prefix + line }.join
+  text.split("\n").collect {|line| prefix + line + "\n"}.join
 end
 
 def unprepend(text, prefix)
