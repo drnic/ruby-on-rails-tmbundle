@@ -55,3 +55,7 @@ To install without Git:
 * Plugins
   * Footnote
     * footnote-edge uses .erb for templates [thx Stephen Bannasch]
+
+* Ian's extra notes: 
+  * I've noticed that the install plugin command doesn't work under Ruby 1.9.*
+  * And I've also just discovered that the migration macros don't work either. This looks like it has stopped working because it makes use of the to_a method which has been deprecated in most of the classes in Ruby 1.9. So I'll fix this first if I find some time.
