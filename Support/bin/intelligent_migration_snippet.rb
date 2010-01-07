@@ -78,15 +78,13 @@ end' },
 }
 
 def indent(code)
-  lines = []
-  lines << code.split("\n").collect { |s| "\t\t" + s }
-  lines.to_s + "\n"
+  lines = code.split("\n")
+  lines.collect! { |s| "\t\t" + s }
+  lines.join + "\n"
 end
 
 def insert_migration(snippet, text)
-  lines = []
-  lines << text.split("\n")
-
+  lines = text.split("\n")
   up_code = indent(snippet[:up])
   down_code = indent(snippet[:down])
 
@@ -101,7 +99,7 @@ def insert_migration(snippet, text)
       break
     end
   end
-  lines.each {|x| x}
+  lines.join
 end
 
 snippet = ARGV.shift
