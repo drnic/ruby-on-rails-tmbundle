@@ -14,11 +14,11 @@
 	<key>keyEquivalent</key>
 	<string>^f</string>
 	<key>name</key>
-	<string>Jump to Definition</string>
+	<string>Jump to Method Definition</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
-	<string>source.ruby.rails, text.html.ruby, text.haml</string>
+	<string>source.ruby.rails, text.html.ruby, text.haml, source.ruby</string>
 	<key>uuid</key>
 	<string>AECD46CF-9031-4059-B386-262DBABD97B1</string>
 </dict>
