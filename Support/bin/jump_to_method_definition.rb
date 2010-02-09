@@ -9,6 +9,8 @@ require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/htmloutput"
 @term = Regexp.escape(@original_term)
 @found = []
 @root = RailsPath.new.rails_root
+DEF_REGEX = "^\s*def (self\.)?#{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)"
+SYMBOL_REGEX = "^\s*(belongs_to|has_many|has_one|has_and_belongs_to_many|scope|named_scope) :#{@term}[\,]?"
 
 def find_in_file_or_directory(file_or_directory, match_string)
   if File.directory?(file_or_directory)
@@ -33,8 +35,8 @@ def find_in_file(file, match_string)
 end
 
 # First, search the local project for any potentially matching method.
-find_in_file_or_directory(@root, "^\s*def (self\.)?#{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)") 
-find_in_file_or_directory(@root, "^\s*(belongs_to|has_many|has_one|has_and_belongs_to_many|scope|named_scope) :#{@term}[\,]?")
+find_in_file_or_directory(@root, DEF_REGEX) 
+find_in_file_or_directory(@root, SYMBOL_REGEX)
 
 # Second, if this is a route, we know this is in routes.rb
 if path = @term.match(/(new_|edit_)?(.*?)_(path|url)/)
@@ -46,7 +48,7 @@ end
 
 # Third, search the Gems directory, pulling only the most recent gems, but only if we haven't yet found a match.
 Gem.latest_load_paths.each do |directory|
-  find_in_file_or_directory(directory, "^\s*def (self\.)?#{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)")
+  find_in_file_or_directory(directory, DEF_REGEX)
 end
 
 # Render results sensibly.
