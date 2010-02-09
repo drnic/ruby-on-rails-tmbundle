@@ -60,9 +60,10 @@ elsif @found.size == 1
 else
   TextMate::HTMLOutput.show(
     :title      => "Definitions for #{@original_term}",
-    :subtitle   => "#{@found.size} Definitions Found"
+    :sub_title   => "#{@found.size} Definitions Found"
   ) do |io|
-    io << "<div class='executor'><table border='0' cellspacing='5' cellpading'0'>" 
+    io << "<div class='executor'><table border='0' cellspacing='5' cellpading'0'>"
+    io << "<pre>Found #{@found.size} definitions for #{@original_term}:</pre>"
     io << "<thead><td><h4>Location</h4></td><td><h4>Line</h4></td><td><h4>Definition</h4></td></thead><tbody>"
     @found.each do |location|
       io << "<tr><td><a class='near' href='txmt://open?url=file://#{location[:filename]}&line=#{location[:line_number]}'>#{location[:filename].gsub("#{@root}/",'')}</a></td>"
