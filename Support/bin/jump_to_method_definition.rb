@@ -33,7 +33,7 @@ def find_in_file(file, match_string)
 end
 
 # First, search the local project for any potentially matching method.
-find_in_file_or_directory(@root, "^\s*def #{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)") 
+find_in_file_or_directory(@root, "^\s*def (self\.)?#{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)") 
 find_in_file_or_directory(@root, "^\s*(belongs_to|has_many|has_one|has_and_belongs_to_many|scope|named_scope) :#{@term}[\,]?")
 
 # Second, if this is a route, we know this is in routes.rb
@@ -46,7 +46,7 @@ end
 
 # Third, search the Gems directory, pulling only the most recent gems, but only if we haven't yet found a match.
 Gem.latest_load_paths.each do |directory|
-  find_in_file_or_directory(directory, "^\s*def #{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)")
+  find_in_file_or_directory(directory, "^\s*def (self\.)?#{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)")
 end
 
 # Render results sensibly.
