@@ -12,7 +12,7 @@ require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/htmloutput"
 
 def find_in_file_or_directory(file_or_directory, match_string)
   match_string.gsub!("'","'\"'\"'")
-  found = `grep -RnPH '#{match_string}' #{file_or_directory} 2>/dev/null`
+  found = `find #{file_or_directory} -name "*.rb" -not -path "*/.*/*" -prune -print0 | xargs -0 grep -RnPH '#{match_string}' 2>/dev/null`
   return if found.empty?
   found.split(/\n/).each do |line|
     filename, line_number = line.split(':')
@@ -33,10 +33,8 @@ find_in_file_or_directory(@root, "^\s*def #{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$
 find_in_file_or_directory(@root, "^\s*(belongs_to|has_many|has_one|has_and_belongs_to_many|scope|named_scope) :#{@term}[\,]?")
 
 # Third, search the Gems directory, pulling only the most recent gems, but only if we haven't yet found a match.
-if @found.empty?
-  Gem.latest_load_paths.each do |directory|
-    find_in_file_or_directory(directory, "^\s*def #{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)")
-  end
+Gem.latest_load_paths.each do |directory|
+  find_in_file_or_directory(directory, "^\s*def #{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)")
 end
 
 # Render results sensibly.
