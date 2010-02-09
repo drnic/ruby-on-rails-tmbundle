@@ -10,21 +10,22 @@ require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/htmloutput"
 @found = []
 @root = RailsPath.new.rails_root
 
-def find_in_file_or_directory(file_or_directory, match_string)
-  if File.directory?(file_or_directory)
-    Dir.glob(File.join(file_or_directory,'**','*.rb')).each do |file|
-      find_in_file(file, match_string)
+DEF_REGEX = "^\s*def (self\.)?#{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)"
+SYMBOL_REGEX = "^\s*(belongs_to|has_many|has_one|has_and_belongs_to_many|scope|named_scope) :#{@term}[\,]?"
+
+def find_in_directory(directory, &block)
+  Dir.glob(File.join(directory,'**','*.rb')).each do |file|
+    find_in_file(file) do |line|
+      yield line
     end
-  else
-    find_in_file(file_or_directory, match_string)
   end
 end
 
-def find_in_file(file, match_string)
+def find_in_file(file, &block)
   begin
     File.open(file) do |f|
       f.each_line do |line|
-        @found << {:file => f.path, :line => f.lineno} if line.match(match_string)
+        @found << {:file => f.path, :line => f.lineno} if yield line
       end
     end
   rescue Errno::ENOENT
@@ -33,20 +34,25 @@ def find_in_file(file, match_string)
 end
 
 # First, search the local project for any potentially matching method.
-find_in_file_or_directory(@root, "^\s*def (self\.)?#{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)") 
-find_in_file_or_directory(@root, "^\s*(belongs_to|has_many|has_one|has_and_belongs_to_many|scope|named_scope) :#{@term}[\,]?")
+find_in_directory(@root) do |line|
+  line.match(DEF_REGEX) || line.match(SYMBOL_REGEX)
+end
 
 # Second, if this is a route, we know this is in routes.rb
 if path = @term.match(/(new_|edit_)?(.*?)_(path|url)/)
   path = path[2].split('_').first
   filename = File.join(@root,"config","routes.rb")
-  find_in_file_or_directory(filename, "[^\.].resource[s]? (:|')#{path}(s|es)?[']?")
+  find_in_file(filename) do |line|
+    line.match("[^\.].resource[s]? (:|')#{path}(s|es)?[']?")
+  end
 end
 
 
 # Third, search the Gems directory, pulling only the most recent gems, but only if we haven't yet found a match.
 Gem.latest_load_paths.each do |directory|
-  find_in_file_or_directory(directory, "^\s*def (self\.)?#{@term}([\(]{1}[^\)]*[\)]{1}\s*$|\s*$)")
+  find_in_directory(directory) do |line|
+    line.match DEF_REGEX
+  end
 end
 
 # Render results sensibly.
@@ -58,7 +64,7 @@ elsif @found.size == 1
 else
   TextMate::HTMLOutput.show(
     :title      => "Definitions for #{@original_term}",
-    :subtitle   => "#{@found.size} Definitions Found"
+    :sub_title   => "#{@found.size} Definitions Found"
   ) do |io|
     io << "<div class='executor'><table border='0' cellspacing='4' cellpading'0'><tbody>"
     @found.each do |location|
