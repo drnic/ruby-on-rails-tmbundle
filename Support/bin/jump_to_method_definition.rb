@@ -67,7 +67,7 @@ else
     @found.each do |location|
       io << "<tr><td><a class='near' href='txmt://open?url=file://#{location[:filename]}&line=#{location[:line_number]}'>#{location[:filename].gsub("#{@root}/",'')}</a></td>"
       io << "<td>#{location[:line_number]}</td>"
-      io << "<td><strong>#{location[:line].gsub(/(def |named_scope \:|scope \:|has_many \:|has_one \:|belongs_to \:|has_and_belongs_to_many \:)/,'')}</strong><td?</tr>"
+      io << "<td><strong>#{location[:line].gsub(/(def |named_scope \:|scope \:|has_many \:|has_one \:|belongs_to \:|has_and_belongs_to_many \:)/,'').strip}</strong><td?</tr>"
     end
     io << "</tbody></table></div>"
   end
