@@ -56,7 +56,7 @@ if @found.empty?
   TextMate.exit_show_tool_tip("Could not find definition for '#{@original_term}'")
 elsif @found.size == 1  
   TextMate.open(File.join(@found[0][:filename]), @found[0][:line_number] - 1)
-  TextMate.exit_show_tool_tip("Found definition for '#{@original_term}' in #{@found[0][:filename]}")
+  TextMate.exit_show_tool_tip("Found definition for '#{@original_term}' in #{@found[0][:filename].gsub("#{@root}/",'')}")
 else
   TextMate::HTMLOutput.show(
     :title      => "Definitions for #{@original_term}",
@@ -65,7 +65,7 @@ else
     io << "<div class='executor'><table border='0' cellspacing='5' cellpading'0'>" 
     io << "<thead><td><h4>Location</h4></td><td><h4>Line</h4></td><td><h4>Definition</h4></td></thead><tbody>"
     @found.each do |location|
-      io << "<tr><td><a class='near' href='txmt://open?url=file://#{location[:filename]}&line=#{location[:line_number]}'>#{location[:filename]}</a></td>"
+      io << "<tr><td><a class='near' href='txmt://open?url=file://#{location[:filename]}&line=#{location[:line_number]}'>#{location[:filename].gsub("#{@root}/",'')}</a></td>"
       io << "<td>#{location[:line_number]}</td>"
       io << "<td><strong>#{location[:line].gsub(/(def |named_scope \:|scope \:|has_many \:|has_one \:|belongs_to \:|has_and_belongs_to_many \:)/,'')}</strong><td?</tr>"
     end
