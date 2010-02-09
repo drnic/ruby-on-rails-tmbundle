@@ -16,7 +16,6 @@ def find_in_file_or_directory(file_or_directory, match_string)
   return if found.empty?
   found.split(/\n/).each do |line|
     filename, line_number = line.split(':')
-    next if filename.split('/').any?{|directory| directory.match(/^\./)} # Ignore hidden directories like .svn, .rsync, etc.
     @found << {:file => filename, :line => line_number.to_i}
   end
 end
