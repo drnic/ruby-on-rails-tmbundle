@@ -100,7 +100,7 @@ class FindMethod
     find_in_directory(@root, method_regexp_for(@term))
     find_in_directory(File.join(@root,'app','models'), association_regexp_for(@term))
 
-    if path = @term.match(/(new_|edit_)?(.*?)_(path|url)/)
+    if path = @term.match(/(new_|edit_)?(.*?)_(path|url)/) # This might be a magic method from routes, so check routes.rb for sensible permutations
       path = path[2].split('_').first
       find_in_file(File.join(@root,"config","routes.rb"), path_regexp_for(path))
     end
@@ -117,6 +117,7 @@ class FindMethod
   end
   
   def render_results
+    @found_methods.uniq!
     if @found_methods.empty?
       TextMate.exit_show_tool_tip("Could not find definition for '#{@term}'")
     elsif @found_methods.size == 1  
