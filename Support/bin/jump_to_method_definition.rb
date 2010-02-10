@@ -88,7 +88,7 @@ class FindMethod
         find_in_file(File.join(@root,"app","controllers","#{@filepath.controller_name}_controller.rb"), variable_regexp_for(@term))
         action = @filepath.action_name
         if line_number = found_in_file(probable_controller, method_regexp_for(action))
-          @found_methods = [@found_methods.sort {|m1, m2| (line_number - m1[:line_number]) <=> (line_number - m2[:line_number])}.first]
+          @found_methods = [@found_methods.sort {|m1, m2| (line_number - m1[:line_number]).abs <=> (line_number - m2[:line_number]).abs}.first]
         end
       end
     else
