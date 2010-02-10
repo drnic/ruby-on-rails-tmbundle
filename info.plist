@@ -27,7 +27,7 @@
 		<string>43304E62-66F7-424D-8AF6-33E0237BF349</string>
 	</array>
 	<key>description</key>
-	<string>&lt;a href="http://www.rubyonrails.com/"&gt;Ruby on Rails&lt;/a&gt; is a full-stack framework for developing database-backed web applications, in Ruby, according to the Model-View-Control pattern.</string>
+	<string>&lt;a href=&quot;http://www.rubyonrails.com/&quot;&gt;Ruby on Rails&lt;/a&gt; is a full-stack framework for developing database-backed web applications, in Ruby, according to the Model-View-Control pattern.</string>
 	<key>mainMenu</key>
 	<dict>
 		<key>excludedItems</key>
@@ -38,6 +38,7 @@
 		<key>items</key>
 		<array>
 			<string>D4D18AD6-11DA-47F2-AAD8-F2F350EE2BB9</string>
+			<string>6909D8A7-461B-4D29-956F-8E633DD49A90</string>
 			<string>5FBC0312-D9B1-11DC-94E9-00112475D960</string>
 			<string>------------------------------------</string>
 			<string>4904EDC7-5ED3-4132-AAB2-C2AD87C97EFE</string>
@@ -243,6 +244,16 @@
 				<string>Run Tests</string>
 			</dict>
 			<key>6909D8A7-461B-4D29-956F-8E633DD49A90</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>F41D482A-6F6C-4A36-BDBF-057BA5B91A18</string>
+					<string>333C0A60-3815-469D-AAA5-B31252541D45</string>
+				</array>
+				<key>name</key>
+				<string>Cucumber</string>
+			</dict>
+			<key>6909D8A7-461B-4D29-956F-8E633DD49A91</key>
 			<dict>
 				<key>items</key>
 				<array>
@@ -687,6 +698,8 @@
 		<string>5EEA0C71-B34B-4408-953B-F47AAD343CCC</string>
 		<string>F758BFD1-00CA-4742-BE71-032580080F5C</string>
 		<string>DC549A45-D9B0-11DC-94E9-00112475D960</string>
+		<string>333C0A60-3815-469D-AAA5-B31252541D45</string>
+		<string>F41D482A-6F6C-4A36-BDBF-057BA5B91A18</string>
 		<string>190401C2-D9B1-11DC-94E9-00112475D960</string>
 		<string>2C60CBA1-D9B1-11DC-94E9-00112475D960</string>
 		<string>F4EA552D-D9B0-11DC-94E9-00112475D960</string>
