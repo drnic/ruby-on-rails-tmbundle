@@ -58,7 +58,8 @@ class Buffer
 
   def text=(buffer)
     @text = buffer.gsub("\r\n", "\n")
-    @lines = @text.to_a
+    @lines = @text.split("\n")
+    @lines.collect! {|x| x + "\n"}
   end
 
   def =~(other)

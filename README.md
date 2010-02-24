@@ -55,3 +55,6 @@ To install without Git:
 * Plugins
   * Footnote
     * footnote-edge uses .erb for templates [thx Stephen Bannasch]
+
+* Ian's extra notes:
+  * I've noticed that the install plugin command doesn't work under Ruby 1.9.*
