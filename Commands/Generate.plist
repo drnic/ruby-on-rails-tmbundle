@@ -6,8 +6,8 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>RUBYLIB="$TM_BUNDLE_SUPPORT/lib:$RUBYLIB"
-"${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/bin/generate.rb" &amp;&gt;/dev/null &amp;
-#"${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/bin/generate.rb"
+#"${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/bin/generate.rb" &amp;&gt;/dev/null &amp;
+"${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/bin/generate.rb"
 </string>
 	<key>input</key>
 	<string>none</string>
