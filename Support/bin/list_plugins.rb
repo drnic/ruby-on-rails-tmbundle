@@ -7,15 +7,6 @@
 # Description:
 #   Retrieves plugin data from agilewebdevelopment.com and allows you to install directly.
 
-if RUBY_VERSION =~ /^1\.6\./ then
-  puts <<-HTML
-    <p>Sorry, but this function requires Ruby 1.8.</p>
-    <p>If you do have Ruby 1.8 installed (default for Tiger users) then you need to setup the path variable in <tt> ~/.MacOSX/environment.plist</tt>.</p>
-    <p>For detailed instructions see <a href="http://macromates.com/textmate/manual/shell_commands#search_path">the manual</a> (scroll down to the paragraph starting with <em>Important</em>.)</p>
-    HTML
-  abort
-end
-
 require ENV['TM_SUPPORT_PATH'] + '/lib/escape' # we use e_sh in the rhtml template
 require 'rails_bundle_tools'
 require "erb"
@@ -39,4 +30,4 @@ $tags = [
 ]
 
 template_file = "#{TextMate.bundle_support}/templates/list_plugins.rhtml"
-print ERB.new(File.open(template_file), 0, '<>').result
+print ERB.new(File.read(template_file), 0, '%<>').result
