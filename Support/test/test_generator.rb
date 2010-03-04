@@ -6,8 +6,6 @@ require "rails/generate"
 
 class TestBinGenerate < Test::Unit::TestCase
   def setup
-    TextMate.line_number = '1'
-    TextMate.column_number = '1'
     TextMate.project_directory = File.expand_path(File.dirname(__FILE__) + '/app_fixtures')
   end
   

@@ -1,4 +1,3 @@
-
 class Generator
   @@list = []
   attr_accessor :name, :question, :default_answer
