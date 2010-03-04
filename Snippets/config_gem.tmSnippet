@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>config.gem "${1:name}"${2:${3:, :lib =&gt; ${4:"${5:$1}"}}${6:, :version =&gt; "${7:&gt;= 1.0.0}"}${8:, :source =&gt; "${9:http://gemcutter.org}"}}</string>
+	<string>config.gem "${1:name}"${2:${3:, :lib =&gt; ${4:"${5:$1}"}}${6:, :version =&gt; "${7:&gt;= 1.0.0}"}}</string>
 	<key>name</key>
 	<string>config.gem</string>
 	<key>scope</key>
