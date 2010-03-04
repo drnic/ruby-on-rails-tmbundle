@@ -17,8 +17,16 @@ class TestBinGenerate < Test::Unit::TestCase
     assert_equal(expected, actual)
   end
 
+  def test_known_generators_in_final_list
+    Generator.setup
+    list = Generator.names
+    expected = %w[scaffold controller model mailer migration plugin]
+    expected.each { |try| assert(list.include?(try), "Missing generator '#{try}'") }
+  end
+
   def test_find_generator_names
-    list = Generator.find_generator_names
+    Generator.setup
+    list = Generator.names
     assert_equal(Array, list.class)
     list.each do |name|
       assert_equal(String, name.class)
@@ -27,8 +35,9 @@ class TestBinGenerate < Test::Unit::TestCase
   end
 
   def test_generators
-    generators = Generator.setup_generators
-    assert(generators.length > 6, "Failure message.")
+    Generator.setup
+    generators = Generator.generators
+    assert(generators.length > 6, "There should be lots of generators.")
     assert_equal(Array, generators.class)
     generators.each do |gen|
       assert_equal(Generator, gen.class)
