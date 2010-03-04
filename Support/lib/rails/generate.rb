@@ -1,20 +1,31 @@
 class Generator
   @@list = []
-  attr_accessor :name, :question, :default_answer
+  attr_accessor :name, :default_answer
 
-  def initialize(name, question, default_answer = "")
-    @name, @question, @default_answer = name, question, default_answer
+  def initialize(name, default_answer = "")
+    @name, @default_answer = name, default_answer
+  end
+  
+  def question
+    @question || begin
+      FileUtils.chdir(RailsPath.new.rails_root) do
+        output = ruby "script/generate #{name}"
+        output =~ /^(Usage.*)$/
+        @question = $1 || "Arguments for #{name} generator:"
+      end
+    end
+    @question
   end
 
-  def self.[](name, question, default_answer = "")
-    g = new(name, question, default_answer)
+  def self.[](name, default_answer = "")
+    g = new(name, default_answer)
   end
 
   def self.setup
     known_generator_names = known_generators.map { |gen| gen.name }
     new_generator_names = find_generator_names - known_generator_names
     @@list = known_generators + new_generator_names.map do |name|
-      Generator[name, "Arguments for #{name} generator:", ""]
+      Generator[name]
     end
   end
 
@@ -45,12 +56,12 @@ class Generator
 
   def self.known_generators
     [
-      Generator["scaffold",   "Name of the model to scaffold:", "User"],
-      Generator["controller", "Name the new controller:",       "admin/user_accounts"],
-      Generator["model",      "Name the new model:",            "User"],
-      Generator["mailer",     "Name the new mailer:",           "Notify"],
-      Generator["migration",  "Name the new migration:",        "CreateUserTable"],
-      Generator["plugin",     "Name the new plugin:",           "ActsAsPlugin"]
+      Generator["scaffold",   "User"],
+      Generator["controller", "admin/user_accounts"],
+      Generator["model",      "User"],
+      Generator["mailer",     "Notify"],
+      Generator["migration",  "CreateUserTable"],
+      Generator["plugin",     "ActsAsPlugin"]
     ]
   end
 end

@@ -42,4 +42,9 @@ class TestBinGenerate < Test::Unit::TestCase
       assert_no_match(/[ \t\n]/, gen.name, "generator names should not contain spaces")
     end
   end
+  
+  def test_question
+    model = Generator["model"]
+    assert_equal("Usage: script/generate model ModelName [field:type, field:type]", model.question)
+  end
 end

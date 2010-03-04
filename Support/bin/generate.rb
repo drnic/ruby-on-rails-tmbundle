@@ -9,6 +9,7 @@
 
 require 'rails_bundle_tools'
 require 'fileutils'
+
 require File.dirname(__FILE__) + "/../lib/rails/generate"
 
 # Look for (created) files and return an array of them
