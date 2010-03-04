@@ -1,109 +1,41 @@
-# Don't change this file!
-# Configure your app in config/environment.rb and config/environments/*.rb
+# Be sure to restart your server when you modify this file
 
-RAILS_ROOT = "#{File.dirname(__FILE__)}/.." unless defined?(RAILS_ROOT)
+# Specifies gem version of Rails to use when vendor/rails is not present
+RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
-module Rails
-  class << self
-    def boot!
-      unless booted?
-        preinitialize
-        pick_boot.run
-      end
-    end
+# Bootstrap the Rails environment, frameworks, and default configuration
+require File.join(File.dirname(__FILE__), 'boot')
 
-    def booted?
-      defined? Rails::Initializer
-    end
+Rails::Initializer.run do |config|
+  # Settings in config/environments/* take precedence over those specified here.
+  # Application configuration should go into files in config/initializers
+  # -- all .rb files in that directory are automatically loaded.
 
-    def pick_boot
-      (vendor_rails? ? VendorBoot : GemBoot).new
-    end
+  # Add additional load paths for your own custom dirs
+  # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
-    def vendor_rails?
-      File.exist?("#{RAILS_ROOT}/vendor/rails")
-    end
+  # Specify gems that this application depends on and have them installed with rake gems:install
+  # config.gem "bj"
+  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
+  # config.gem "sqlite3-ruby", :lib => "sqlite3"
+  # config.gem "aws-s3", :lib => "aws/s3"
 
-    # FIXME : Ruby 1.9
-    def preinitialize
-      load(preinitializer_path) if File.exists?(preinitializer_path)
-    end
+  # Only load the plugins named here, in the order given (default is alphabetical).
+  # :all can be used as a placeholder for all plugins not explicitly named
+  # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
-    def preinitializer_path
-      "#{RAILS_ROOT}/config/preinitializer.rb"
-    end
-  end
+  # Skip frameworks you're not going to use. To use Rails without a database,
+  # you must remove the Active Record framework.
+  # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
 
-  class Boot
-    def run
-      load_initializer
-      Rails::Initializer.run(:set_load_path)
-    end
-  end
+  # Activate observers that should always be running
+  # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
-  class VendorBoot < Boot
-    def load_initializer
-      require "#{RAILS_ROOT}/vendor/rails/railties/lib/initializer"
-    end
-  end
+  # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+  # Run "rake -D time" for a list of tasks for finding time zone names.
+  config.time_zone = 'UTC'
 
-  class GemBoot < Boot
-    def load_initializer
-      self.class.load_rubygems
-      load_rails_gem
-      require 'initializer'
-    end
-
-    def load_rails_gem
-      if version = self.class.gem_version
-        gem 'rails', version
-      else
-        gem 'rails'
-      end
-    rescue Gem::LoadError => load_error
-      $stderr.puts %(Missing the Rails #{version} gem. Please `gem install -v=#{version} rails`, update your RAILS_GEM_VERSION setting in config/environment.rb for the Rails version you do have installed, or comment out RAILS_GEM_VERSION to use the latest version installed.)
-      exit 1
-    end
-
-    class << self
-      def rubygems_version
-        Gem::RubyGemsVersion if defined? Gem::RubyGemsVersion
-      end
-
-      def gem_version
-        if defined? RAILS_GEM_VERSION
-          RAILS_GEM_VERSION
-        elsif ENV.include?('RAILS_GEM_VERSION')
-          ENV['RAILS_GEM_VERSION']
-        else
-          parse_gem_version(read_environment_rb)
-        end
-      end
-
-      def load_rubygems
-        require 'rubygems'
-
-        unless rubygems_version >= '0.9.4'
-          $stderr.puts %(Rails requires RubyGems >= 0.9.4 (you have #{rubygems_version}). Please `gem update --system` and try again.)
-          exit 1
-        end
-
-      rescue LoadError
-        $stderr.puts %(Rails requires RubyGems >= 0.9.4. Please install RubyGems and try again: http://rubygems.rubyforge.org)
-        exit 1
-      end
-
-      def parse_gem_version(text)
-        $1 if text =~ /^[^#]*RAILS_GEM_VERSION\s*=\s*["']([!~<>=]*\s*[\d.]+)["']/
-      end
-
-      private
-        def read_environment_rb
-          File.read("#{RAILS_ROOT}/config/environment.rb")
-        end
-    end
-  end
+  # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+  # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+  # config.i18n.default_locale = :de
 end
-
-# All that for this:
-Rails.boot!

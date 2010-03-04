@@ -1,7 +1,16 @@
 require File.dirname(__FILE__) + '/test_helper'
+
+require 'text_mate_mock'
+require "rails/rails_path"
 require "rails/generate"
 
 class TestBinGenerate < Test::Unit::TestCase
+  def setup
+    TextMate.line_number = '1'
+    TextMate.column_number = '1'
+    TextMate.project_directory = File.expand_path(File.dirname(__FILE__) + '/app_fixtures')
+  end
+  
   def test_known_generators
     expected = %w[scaffold controller model mailer migration plugin]
     actual = Generator.known_generators.map { |gen| gen.name }
