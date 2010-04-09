@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>gem "${1:name}"${2:${3:, "${4:1.0}"}${5:, :require =&gt; ${6:"${7:$1}"}${8:, :group =&gt; :${9:test}}}}$0</string>
+	<key>name</key>
+	<string>gem</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>gem</string>
+	<key>uuid</key>
+	<string>5C773E3D-436E-4A28-8399-859CE41E504F</string>
+</dict>
+</plist>

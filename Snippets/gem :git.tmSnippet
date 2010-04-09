@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>config.gem "${1:name}"${2:${3:, :lib =&gt; ${4:"${5:$1}"}}${6:, :version =&gt; "${7:&gt;= 1.0.0}"}}</string>
+	<string>gem "${1:paperclip}", :git =&gt; "${2:git://github.com/thoughtbot/paperclip.git}"${3:, :branch =&gt; "${4:rails3}"}$0</string>
 	<key>name</key>
-	<string>config.gem</string>
+	<string>gem :git</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>tabTrigger</key>
-	<string>config.gem</string>
+	<string>gemg</string>
 	<key>uuid</key>
-	<string>47A6800A-DC7E-4F72-AA0D-CEE2488E1618</string>
+	<string>675DD92F-42F1-4B55-B56A-5D4ABC1375C4</string>
 </dict>
 </plist>
