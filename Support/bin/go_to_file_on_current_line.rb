@@ -7,7 +7,7 @@
 # Description:
 #   Makes an intelligent decision on which file to go to based on the current line or current context.
 
-require 'rails_bundle_tools'             
+require 'rails_bundle_tools'
 require 'rails/command_go_to_file'
 
 CommandGoToFile.on_current_line

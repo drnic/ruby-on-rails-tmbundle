@@ -1,12 +1,14 @@
 #!/usr/bin/env ruby -W0
 
-require 'rubygems'
 require "yaml"
-require "#{ENV["TM_SUPPORT_PATH"]}/lib/ui"
+require 'rails_bundle_tools'
 
 PROJECT    = ENV['TM_PROJECT_DIRECTORY']
 CACHE_DIR  = File.expand_path("tmp/textmate/", PROJECT)
 CACHE_FILE = File.join(CACHE_DIR, "cache.yml")
+
+RELOAD_MESSAGE = "Reload database schema..."
+LINE = "---"
 
 def load_and_cache_all_models
   begin
@@ -20,25 +22,26 @@ def load_and_cache_all_models
 
       Dir.glob(Rails.root.join("app/models/*.rb")) do |file|
         klass = File.basename(file, '.*').camelize.constantize rescue nil
-        
+      
         if klass and klass.class == Class and klass.ancestors.include?(ActiveRecord::Base)
           cache[klass.name.underscore] = { 
             :associations => klass.reflections.stringify_keys.keys, 
             :columns      => klass.column_names 
-          } rescue nil
+          }
         end
       end
+      
+      File.open(CACHE_FILE, 'w') { |out| YAML.dump(cache, out ) }
     end
     
   rescue Exception => e
-    TextMate::UI.tool_tip(e.message)
+    @error = "Fix it: #{e.message}"
   ensure
-    File.open(CACHE_FILE, 'w') { |out| YAML.dump(cache, out ) }
     return cache
   end
 end
 
-def show_options
+def show_options(second_time = false)
   begin
     Dir.mkdir(CACHE_DIR) unless File.exists?(CACHE_DIR)
     cache = if File.exist?(CACHE_FILE)
@@ -50,30 +53,45 @@ def show_options
 
     word = ENV['TM_CURRENT_WORD'].scan(/\w*/).select { |x| !x.empty? }.last
     if word.nil? || word.empty?
-      TextMate::UI.tool_tip("Place cursor on class name (or variation) to show its schema")
-      exit
+      return TextMate::UI.tool_tip("Place cursor on class name (or variation) to show its schema")
     end
 
-    require 'active_support/inflector'
-    klass = word.singularize.underscore
+    klass = Inflector.singularize(Inflector.underscore(word))
 
     if cache[klass]
       columns      = cache[klass][:columns]
       associations = cache[klass][:associations]
 
-      options = associations + ["---"] + columns + ["---", "Reload..."]
+      options = associations + [LINE] + columns + [LINE, RELOAD_MESSAGE]
       selected = TextMate::UI.menu(options)
       return if selected.nil?
       
-      if options[selected] == "Reload..."
-        $".delete_if { |x| x.start_with?('active_support') }
+      if options[selected] == RELOAD_MESSAGE
         load_and_cache_all_models
-        show_options
+        show_options(true)
       else
         STDOUT << options[selected]
       end
     else
-      TextMate::UI.tool_tip("'#{klass}' is not an Active Record derived class or was not recognised as a class")
+      options = [
+        @error || "'#{Inflector.camelize(klass)}' is not an Active Record derived class or was not recognised as a class.", 
+        LINE, 
+        RELOAD_MESSAGE
+      ]
+      selected = TextMate::UI.menu(options)
+      return if selected.nil?
+
+      if options[selected] == RELOAD_MESSAGE
+        load_and_cache_all_models
+        show_options(true)
+      else
+        if @error && @error =~ /^#{PROJECT}(.+?)[:]?(\d+)/
+          TextMate.open(File.join(PROJECT, $1), $2.to_i)
+        else
+          klass_file = File.join(PROJECT, "/app/models/#{klass}.rb")
+          TextMate.open(klass_file) if File.exist?(klass_file)
+        end
+      end
     end
 
   rescue Exception => e
