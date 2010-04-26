@@ -41,7 +41,7 @@ def load_and_cache_all_models
   end
 end
 
-def show_options(second_time = false)
+def show_options
   begin
     Dir.mkdir(CACHE_DIR) unless File.exists?(CACHE_DIR)
     cache = if File.exist?(CACHE_FILE)
@@ -68,7 +68,7 @@ def show_options(second_time = false)
       
       if options[selected] == RELOAD_MESSAGE
         load_and_cache_all_models
-        show_options(true)
+        show_options
       else
         STDOUT << options[selected]
       end
@@ -83,7 +83,7 @@ def show_options(second_time = false)
 
       if options[selected] == RELOAD_MESSAGE
         load_and_cache_all_models
-        show_options(true)
+        show_options
       else
         if @error && @error =~ /^#{PROJECT}(.+?)[:]?(\d+)/
           TextMate.open(File.join(PROJECT, $1), $2.to_i)
