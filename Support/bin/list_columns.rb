@@ -25,8 +25,8 @@ def load_and_cache_all_models
       
         if klass and klass.class == Class and klass.ancestors.include?(ActiveRecord::Base)
           cache[klass.name.underscore] = { 
-            :associations => klass.reflections.stringify_keys.keys, 
-            :columns      => klass.column_names 
+            :associations => klass.reflections.stringify_keys.keys,
+            :columns      => klass.column_names
           }
         end
       end
