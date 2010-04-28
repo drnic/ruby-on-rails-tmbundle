@@ -3,11 +3,10 @@
 require "yaml"
 require 'rails_bundle_tools'
 
-PROJECT    = ENV['TM_PROJECT_DIRECTORY']
-CACHE_DIR  = File.expand_path("tmp/textmate/", PROJECT)
+CACHE_DIR  = File.expand_path("tmp/textmate/", TextMate.project_directory)
 CACHE_FILE = File.join(CACHE_DIR, "cache.yml")
 
-RELOAD_MESSAGE = "Reload database schema..."
+RELOAD_MESSAGE = "Reload database schema…"
 LINE = "---"
 
 def load_and_cache_all_models
@@ -18,7 +17,7 @@ def load_and_cache_all_models
     File.delete(CACHE_FILE) if File.exists?(CACHE_FILE)
 
     TextMate.call_with_progress(:title => "Contacting database", :message => "Fetching database schema…") do
-      require "#{PROJECT}/config/environment"
+      require "#{TextMate.project_directory}/config/environment"
 
       Dir.glob(Rails.root.join("app/models/*.rb")) do |file|
         klass = File.basename(file, '.*').camelize.constantize rescue nil
@@ -27,7 +26,7 @@ def load_and_cache_all_models
           cache[klass.name.underscore] = { 
             :associations => klass.reflections.stringify_keys.keys,
             :columns      => klass.column_names
-          }
+          } rescue nil
         end
       end
       
@@ -85,10 +84,10 @@ def show_options
         load_and_cache_all_models
         show_options
       else
-        if @error && @error =~ /^#{PROJECT}(.+?)[:]?(\d+)/
-          TextMate.open(File.join(PROJECT, $1), $2.to_i)
+        if @error && @error =~ /^#{TextMate.project_directory}(.+?)[:]?(\d+)/
+          TextMate.open(File.join(TextMate.project_directory, $1), $2.to_i)
         else
-          klass_file = File.join(PROJECT, "/app/models/#{klass}.rb")
+          klass_file = File.join(TextMate.project_directory, "/app/models/#{klass}.rb")
           TextMate.open(klass_file) if File.exist?(klass_file)
         end
       end
