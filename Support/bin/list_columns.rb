@@ -49,8 +49,10 @@ def show_options
     else
       load_and_cache_all_models
     end
+    
+    word = ENV['TM_CURRENT_LINE'][0..ENV['TM_COLUMN_NUMBER'].to_i]
+    word = word.scan(/\w*/).select { |x| !x.empty? }.last
 
-    word = ENV['TM_CURRENT_WORD'].scan(/\w*/).select { |x| !x.empty? }.last
     if word.nil? || word.empty?
       return TextMate::UI.tool_tip("Place cursor on class name (or variation) to show its schema")
     end
