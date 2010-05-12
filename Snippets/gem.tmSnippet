@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>gem "${1:name}"${2:${3:, "${4:1.0}"}${5:, :require =&gt; ${6:"${7:$1}"}${8:, :group =&gt; :${9:test}}}}$0</string>
+	<string>gem '${1:name}'${2:${3:, "${4:1.0}"}${5:, :require =&gt; ${6:"${7:$1}"}${8:, :group =&gt; :${9:test}}}}</string>
 	<key>name</key>
 	<string>gem</string>
 	<key>scope</key>

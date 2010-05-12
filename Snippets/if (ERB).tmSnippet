@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>gem '${1:paperclip}', :git =&gt; "${2:git://github.com/thoughtbot/paperclip.git}"${3:, :branch =&gt; "${4:rails3}"}</string>
+	<string>&lt;% if ${1:condition} %&gt;$0</string>
 	<key>name</key>
-	<string>gem :git</string>
+	<string>if (ERB)</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>text.html.ruby</string>
 	<key>tabTrigger</key>
-	<string>gemg</string>
+	<string>if</string>
 	<key>uuid</key>
-	<string>675DD92F-42F1-4B55-B56A-5D4ABC1375C4</string>
+	<string>1ED49D4D-D4A0-4CF0-8ED2-DCE70854B839</string>
 </dict>
 </plist>
