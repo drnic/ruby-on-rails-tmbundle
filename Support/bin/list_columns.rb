@@ -3,6 +3,7 @@
 require "yaml"
 require "rails_bundle_tools"
 require "progress"
+require "current_word"
 
 CACHE_DIR  = File.expand_path("tmp/textmate/", TextMate.project_directory)
 CACHE_FILE = File.join(CACHE_DIR, "cache.yml")
@@ -50,9 +51,10 @@ def cache
   @cache = File.exist?(CACHE_FILE) ? YAML.load(File.read(CACHE_FILE)) : load_and_cache_all_models
 end
 
+# Returns the last word before the cursor
+# 
 def word
-  return @word if @word
-  @word = ENV['TM_CURRENT_LINE'][0..ENV['TM_COLUMN_NUMBER'].to_i].scan(/\w*/).select { |x| !x.empty? }.last
+  @word ||= Word.current_word('a-zA-Z0-9.', :left).split('.').last
 end
 
 def display_menu(klass)
