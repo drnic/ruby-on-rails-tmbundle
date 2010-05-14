@@ -5,7 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>RUBYLIB="$TM_BUNDLE_SUPPORT/lib:$RUBYLIB"
+	<string>#!/usr/bin/env bash
+. "$TM_BUNDLE_SUPPORT/lib/rvm_textmate"
+
+RUBYLIB="$TM_BUNDLE_SUPPORT/lib:$RUBYLIB"
 "${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/bin/list_columns.rb"</string>
 	<key>fallbackInput</key>
 	<string>word</string>
