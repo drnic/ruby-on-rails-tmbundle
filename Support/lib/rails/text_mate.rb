@@ -102,8 +102,7 @@ module TextMate
         end
       end
       dialog_command = "\"#{cocoa_dialog_command}\" #{command} #{options_list.join(' ')}"
-      # $logger.debug "Dialog command: #{dialog_command}"
-      `#{dialog_command}`.to_a.map { |v| v.strip }
+      `#{dialog_command}`.split
     end
 
     def choose(text, choices = ["none"], options = {})
