@@ -2,7 +2,7 @@
 
 require "rails_bundle_tools"
 
-RVM_MESSAGE = "To execute this command you need to set the default ruby environment for this project.\n(a project .rvmrc file will be created)\n\nChoose the default environment for this project: "
+@rvm_message ||= "To execute this command you need to set the default ruby environment for this project.\n(a project .rvmrc file will be created)\n\nChoose the default environment for this project: "
 
 # assemble a list of all RVM settings available
 ruby_versions = `rvm list strings`.split
@@ -15,6 +15,6 @@ options = ruby_versions.collect do |ruby|
 end.flatten
 
 # creates the .rvmrc file with the environment configuration chosen.
-if selected = TextMate.choose(RVM_MESSAGE, options, :title => "RVM environment")
+if selected = TextMate.choose(@rvm_message, options, :title => "RVM environment")
   File.open("#{TextMate.project_directory}/.rvmrc", 'w') {|f| f.write("rvm #{options[selected]}") }
 end
