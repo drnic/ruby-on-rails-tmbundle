@@ -6,7 +6,7 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env bash
-. "$TM_BUNDLE_SUPPORT/lib/rvm_textmate"
+. "$TM_BUNDLE_SUPPORT/lib/rvm/rvm_textmate"
 
 RUBYLIB="$TM_BUNDLE_SUPPORT/lib:$RUBYLIB"
 "${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/bin/list_columns.rb"</string>
