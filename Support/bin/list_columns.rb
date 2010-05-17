@@ -51,6 +51,13 @@ def cache
   @cache = File.exist?(CACHE_FILE) ? YAML.load(File.read(CACHE_FILE)) : load_and_cache_all_models
 end
 
+def clone_cache(klass, new_word)
+  cached_model = cache[klass]
+  cache[new_word] = cached_model
+  
+  File.open(CACHE_FILE, 'w') { |out| YAML.dump(cache, out ) }
+end
+
 # Returns the last word before the cursor
 # 
 def word
@@ -108,7 +115,8 @@ def show_options
         show_options
       else
         klass = Inflector.singularize(Inflector.underscore(options[selected].split[1].delete('…')))
-        display_menu(klass)
+        clone_cache(klass, word)
+        display_menu(word)
       end
     end
 
