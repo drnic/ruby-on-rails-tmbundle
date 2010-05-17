@@ -81,6 +81,8 @@ def show_options
 
     if cache[klass]
       display_menu(klass)
+    elsif cache[klass_without_undescore = klass.split('_').last]
+      display_menu(klass_without_undescore)
     else
       options = [
         @error || "'#{Inflector.camelize(klass)}' is not an Active Record derived class or was not recognised as a class.", 
