@@ -15,6 +15,6 @@ options = ruby_versions.collect do |ruby|
 end.flatten
 
 # creates the .rvmrc file with the environment configuration chosen.
-if selected = TextMate.choose(@rvm_message, options, :title => "RVM environment")
+if selected = TextMate.choose(@rvm_message, options, :title => "RVM Environment")
   File.open("#{TextMate.project_directory}/.rvmrc", 'w') {|f| f.write("rvm #{options[selected]}") }
 end

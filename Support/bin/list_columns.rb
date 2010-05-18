@@ -8,7 +8,7 @@ require "current_word"
 CACHE_DIR  = File.expand_path("tmp/textmate/", TextMate.project_directory)
 CACHE_FILE = File.join(CACHE_DIR, "cache.yml")
 
-RELOAD_MESSAGE = "Reload database schema…"
+RELOAD_MESSAGE = "Reload database schema..."
 LINE = "---"
 
 def load_and_cache_all_models
@@ -17,7 +17,7 @@ def load_and_cache_all_models
 
     File.delete(CACHE_FILE) if File.exists?(CACHE_FILE)
 
-    TextMate.call_with_progress(:title => "Contacting database", :message => "Fetching database schema…") do
+    TextMate.call_with_progress(:title => "Contacting database", :message => "Fetching database schema...") do
       begin
         require "#{TextMate.project_directory}/config/environment"
 
@@ -94,7 +94,7 @@ def show_options
       options = [
         @error || "'#{Inflector.camelize(klass)}' is not an Active Record derived class or was not recognised as a class.", 
         LINE,
-        cache.keys.map { |model_name| "Use #{Inflector.camelize(model_name)}…" },
+        cache.keys.map { |model_name| "Use #{Inflector.camelize(model_name)}..." },
         LINE,
         RELOAD_MESSAGE
       ].flatten
@@ -114,7 +114,7 @@ def show_options
         load_and_cache_all_models
         show_options
       else
-        klass = Inflector.singularize(Inflector.underscore(options[selected].split[1].delete('…')))
+        klass = Inflector.singularize(Inflector.underscore(options[selected].split[1].delete('...')))
         clone_cache(klass, word)
         display_menu(word)
       end
