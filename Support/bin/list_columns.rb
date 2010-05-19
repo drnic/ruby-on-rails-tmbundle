@@ -83,6 +83,7 @@ def show_options
   begin
     return TextMate::UI.tool_tip("Place cursor on class name (or variation) to show its schema") if word.nil? || word.empty?
     
+    # Check if Rails is installed.
     unless `rails -v 2> /dev/null` =~ /^Rails \d\.\d\.\d/
       rvm = File.open("#{TextMate.project_directory}/.rvmrc").read if File.exists?("#{TextMate.project_directory}/.rvmrc")
       return TextMate::UI.tool_tip("You don't have Rails installed in this gemset (#{rvm.sub('rvm use', '').strip}).")
