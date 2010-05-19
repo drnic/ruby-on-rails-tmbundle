@@ -14,13 +14,12 @@ LINE = "---"
 def load_and_cache_all_models
   begin
     cache = {}
-
     File.delete(CACHE_FILE) if File.exists?(CACHE_FILE)
-
+    
     TextMate.call_with_progress(:title => "Contacting database", :message => "Fetching database schema...") do
       begin
         require "#{TextMate.project_directory}/config/environment"
-
+        
         Dir.glob(Rails.root.join("app/models/*.rb")) do |file|
           klass = File.basename(file, '.*').camelize.constantize rescue nil
       
@@ -82,6 +81,7 @@ end
 
 def show_options
   begin
+    return TextMate::UI.tool_tip("You don't have Rails installed in this gemset.") unless `rails -v 2> /dev/null` =~ /^Rails \d\.\d\.\d/
     return TextMate::UI.tool_tip("Place cursor on class name (or variation) to show its schema") if word.nil? || word.empty?
 
     klass = Inflector.singularize(Inflector.underscore(word))
