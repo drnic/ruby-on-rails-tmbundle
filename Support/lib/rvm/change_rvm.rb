@@ -2,10 +2,11 @@
 
 require "rails_bundle_tools"
 
-@rvm_version = File.open("#{TextMate.project_directory}/.rvmrc").read if File.exists?("#{TextMate.project_directory}/.rvmrc")
+rvm_version = File.open("#{TextMate.project_directory}/.rvmrc").read if File.exists?("#{TextMate.project_directory}/.rvmrc")
 
-if @rvm_version
-  @rvm_message = "This project is already configured to use #{@rvm_version}\n\nChange the default environment for this project: "
+if rvm_version
+  rvm_version.sub!('rvm use', '').strip!
+  @rvm_message = "This project is already configured to use #{rvm_version}\n\nChange the default environment for this project: "
 else
   @rvm_message = "Choose the default environment for this project: "
 end
