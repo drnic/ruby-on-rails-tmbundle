@@ -270,9 +270,9 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(^\s*)ActionController::Routing::Routes</string>
+			<string>(^\s*)\w*::Application.routes.draw|(^\s*)\w*::Application.routes.draw|(^\s*)ActionController::Routing::Routes</string>
 			<key>comment</key>
-			<string>Uses ActionController::Routing::Routes to determine it is a routes file; includes 'source.ruby' to avoid infinite recursion</string>
+			<string>Uses ::Application.routes.draw to determine it is a routes file; includes 'source.ruby' to avoid infinite recursion</string>
 			<key>end</key>
 			<string>^\1(?=end)\b</string>
 			<key>name</key>

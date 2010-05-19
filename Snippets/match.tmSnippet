@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>match '${1:${2:controller}${3:/${4:action}${5:/${6::id}${7:(.:format)}}}}'${8: =&gt; '${9:$2}#${10:$4}'${11:, :as =&gt; :${12:$10}}}</string>
+	<key>name</key>
+	<string>match</string>
+	<key>scope</key>
+	<string>meta.rails.routes</string>
+	<key>tabTrigger</key>
+	<string>match</string>
+	<key>uuid</key>
+	<string>856B8A7A-86FA-4424-B4D9-3D57D5C3E590</string>
+</dict>
+</plist>
