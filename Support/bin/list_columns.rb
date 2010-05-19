@@ -20,7 +20,7 @@ def load_and_cache_all_models
       begin
         require "#{TextMate.project_directory}/config/environment"
         
-        Dir.glob(Rails.root.join("app/models/*.rb")) do |file|
+        Dir.glob(File.join(Rails.root, "app/models/*.rb")) do |file|
           klass = File.basename(file, '.*').camelize.constantize rescue nil
       
           if klass and klass.class == Class and klass.ancestors.include?(ActiveRecord::Base)
