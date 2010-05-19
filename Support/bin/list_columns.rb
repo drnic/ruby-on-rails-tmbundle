@@ -60,7 +60,11 @@ end
 # Returns the last word before the cursor
 # 
 def word
-  @word ||= Word.current_word('a-zA-Z0-9.', :left).split('.').last
+  return @word if @word  
+  current_word = Word.current_word('a-zA-Z0-9.', :left)
+
+  @separator = current_word.end_with?('.') ? '' : '.'
+  @word      = current_word.split('.').last
 end
 
 def display_menu(klass)
@@ -75,7 +79,7 @@ def display_menu(klass)
     load_and_cache_all_models
     show_options
   else
-    STDOUT << options[selected]
+    STDOUT << "#{@separator}#{options[selected]}"
   end
 end
 

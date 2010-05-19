@@ -22,6 +22,8 @@ RUBYLIB="$TM_BUNDLE_SUPPORT/lib:$RUBYLIB"
 	<string>afterSelectedText</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>.</string>
 	<key>uuid</key>
 	<string>CF489B31-5DD2-4B83-B503-AD3ECF7BDEB7</string>
 </dict>
