@@ -88,16 +88,9 @@ def show_options
     return TextMate::UI.tool_tip("Place cursor on class name (or variation) to show its schema") if word.nil? || word.empty?
     
     # Check if Rails is installed.
-    unless `rails -v 2> /dev/null` =~ /^Rails (\d\.?){3}(\w+)?$/
-      message = "You don't have Rails installed in this gemset."
-      
-      if File.exists?("#{TextMate.project_directory}/.rvmrc") && 
-        if rvm = File.open("#{TextMate.project_directory}/.rvmrc").read
-          message += " (#{rvm.sub('rvm use', '').strip})"
-        end
-      end
-      
-      return TextMate::UI.tool_tip(message)
+    unless rails_present?
+      rvm = File.open("#{TextMate.project_directory}/.rvmrc").read if File.exists?("#{TextMate.project_directory}/.rvmrc")
+      return TextMate::UI.tool_tip("You don't have Rails installed in this gemset (#{rvm.sub('rvm use', '').strip}).")
     end
     
     klass = Inflector.singularize(Inflector.underscore(word))
@@ -139,6 +132,10 @@ def show_options
   rescue Exception => e
     TextMate::UI.tool_tip(e.message)
   end
+end
+
+def rails_present?
+  (`rails -v 2> /dev/null` =~ /^Rails \d\.\d\.\d/) || (`bundle exec rails -v 2> /dev/null` =~ /^Rails \d\.\d\.\d/)
 end
 
 show_options
