@@ -83,12 +83,18 @@ def display_menu(klass)
   end
 end
 
+def rails_present?
+  regex = /^Rails (\d\.?){3}(\w+)?$/
+  rails_version = "rails -v 2> /dev/null"
+  return `#{rails_version}` =~ regex || `bundle exec #{rails_version}` =~ regex
+end
+
 def show_options
   begin
     return TextMate::UI.tool_tip("Place cursor on class name (or variation) to show its schema") if word.nil? || word.empty?
     
     # Check if Rails is installed.
-    unless `rails -v 2> /dev/null` =~ /^Rails (\d\.?){3}(\w+)?$/
+    unless rails_present?
       message = "You don't have Rails installed in this gemset."
       
       if File.exists?("#{TextMate.project_directory}/.rvmrc") && 
