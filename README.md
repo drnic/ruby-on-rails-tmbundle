@@ -17,3 +17,5 @@ To install without Git:
     rm carlosbrando-ruby-on-rails-tmbundle*.tar.gz
     mv carlosbrando-ruby-on-rails-tmbundle* "Ruby on Rails.tmbundle"
     osascript -e 'tell app "TextMate" to reload bundles'
+
+Ruby 1.8.7 is required.
