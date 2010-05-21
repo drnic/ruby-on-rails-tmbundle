@@ -18,4 +18,4 @@ To install without Git:
     mv carlosbrando-ruby-on-rails-tmbundle* "Ruby on Rails.tmbundle"
     osascript -e 'tell app "TextMate" to reload bundles'
 
-Ruby 1.8.7 is required.
+Ruby 1.8.7 or greater is required.
