@@ -9,8 +9,7 @@ rubies = `rvm list strings`.split
 
 options = rubies.collect do |ruby|
   gemsets = `rvm #{ruby} gemset list`.split("\n")
-  gemsets.shift
-  gemsets.delete_if { |vg| vg == '*' }
+  gemsets.reject! { |e| e.empty? || e =~ /^<i>/ }
   
   [ruby, gemsets.map { |g| "#{ruby}@#{g}" }]
 end.flatten
