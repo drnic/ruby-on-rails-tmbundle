@@ -5,6 +5,8 @@ require "rails_bundle_tools"
 require "progress"
 require "current_word"
 
+load "#{TextMate.bundle_support}/lib/rvm/check_rvm_version.rb"
+
 CACHE_DIR  = File.expand_path("tmp/textmate/", TextMate.project_directory)
 CACHE_FILE = File.join(CACHE_DIR, "cache.yml")
 

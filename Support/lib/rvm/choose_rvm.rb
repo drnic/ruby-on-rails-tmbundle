@@ -2,6 +2,8 @@
 
 require "rails_bundle_tools"
 
+load "#{TextMate.bundle_support}/lib/rvm/check_rvm_version.rb"
+
 @rvm_message ||= "To execute this command you need to set the default ruby environment for this project.\n(a project .rvmrc file will be created)\n\nChoose the default environment for this project: "
 
 # assemble a list of all RVM settings available
