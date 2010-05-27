@@ -14,7 +14,7 @@
 	<key>name</key>
 	<string>Set RVM…</string>
 	<key>output</key>
-	<string>discard</string>
+	<string>afterSelectedText</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>uuid</key>

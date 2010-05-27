@@ -2,5 +2,5 @@ if [[ -f "$HOME/.rvm/scripts/rvm" ]]; then
   . "$HOME/.rvm/scripts/rvm"
 
   RUBYLIB="$TM_BUNDLE_SUPPORT/lib:$RUBYLIB"
-  "${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/lib/rvm/change_rvm.rb"
+  "${TM_RUBY:=ruby}" -- "${TM_BUNDLE_SUPPORT}/lib/rvm/rvm.rb"
 fi
