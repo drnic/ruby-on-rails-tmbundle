@@ -62,7 +62,7 @@ module TextMate
     def display_menu(klass)
       columns      = cache[klass][:columns]
       associations = cache[klass][:associations]
-
+      
       options = associations + [nil] + columns + [nil, RELOAD_MESSAGE]
       selected = TextMate::UI.menu(options)
       return if selected.nil?
@@ -70,7 +70,7 @@ module TextMate
       if options[selected] == RELOAD_MESSAGE
         cache_attributes and run!
       else
-        TextMate.exit_insert_text "#{@separator}#{options[selected]}"
+        TextMate.exit_insert_text(options[selected])
       end
     end
    
@@ -106,12 +106,7 @@ module TextMate
     end
     
     def current_word
-      return @current_word if @current_word  
-      
-      current_word = Word.current_word('a-zA-Z0-9.', :left)
-      @separator = current_word.end_with?('.') ? '' : '.'
-      
-      return @current_word = current_word.split('.').last
+      @current_word ||= Word.current_word('a-zA-Z0-9.', :left).split('.').last
     end
     
     def rails_present?
