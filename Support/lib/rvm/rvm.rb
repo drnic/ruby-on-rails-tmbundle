@@ -6,9 +6,9 @@ require File.join(TextMate.support_path, "lib", "osx", "plist")
 
 module TextMate
   class RVM
-    CURRENT_RVM_VERSION = "0.1.33"
-    OK = '1'
-    NEW_GEMSET = '3'
+    CURRENT_RVM_VERSION = "0.1.36"
+    BUTTON_OK = '1'
+    BUTTON_NEW_GEMSET = '3'
     
     def choose!(message = nil)
       TextMate.exit_show_tool_tip("RVM is outdated. Update with 'rvm update'.") if outdated?
@@ -16,9 +16,9 @@ module TextMate
       button, selected = TextMate.standard_choose(message || formatted_message, gemsets, :title => "RVM Environment", :button3 => "Set a new gemset...")
 
       case button
-      when OK
+      when BUTTON_OK
         create_rvmrc(gemsets[selected.to_i])
-      when NEW_GEMSET
+      when BUTTON_NEW_GEMSET
         parameters = { 
           "rubies"       => rubies, 
           "selectedRuby" => gemsets[selected.to_i].split('@').first, 
@@ -61,13 +61,13 @@ module TextMate
     end
     
     def rubies
-      @rubies ||= `rvm list strings`.split
+      @rubies ||= `rvm list strings`.split.reject { |e| e == 'default' }
     end
     
     def gemsets
       @gemsets ||= rubies.collect do |ruby|
         gemsets = `rvm #{ruby} gemset list`.split("\n")
-        gemsets.reject! { |e| e.empty? || e =~ /^<i>/ }
+        gemsets.reject! { |e| e.empty? || e =~ /^info/ }
 
         [ruby, gemsets.map { |g| "#{ruby}@#{g}" }]
       end.flatten
