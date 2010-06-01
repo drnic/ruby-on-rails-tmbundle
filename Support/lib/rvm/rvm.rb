@@ -6,7 +6,7 @@ require File.join(TextMate.support_path, "lib", "osx", "plist")
 
 module TextMate
   class RVM
-    CURRENT_RVM_VERSION = "0.1.36"
+    CURRENT_RVM_VERSION = "0.1.37"
     BUTTON_OK = '1'
     BUTTON_NEW_GEMSET = '3'
     
