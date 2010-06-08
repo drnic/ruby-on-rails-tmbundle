@@ -19,7 +19,7 @@ RUBYLIB="$TM_BUNDLE_SUPPORT/lib:$RUBYLIB"
 	<key>name</key>
 	<string>List columns of a model</string>
 	<key>output</key>
-	<string>afterSelectedText</string>
+	<string>discard</string>
 	<key>scope</key>
 	<string>source.ruby.rails</string>
 	<key>uuid</key>
