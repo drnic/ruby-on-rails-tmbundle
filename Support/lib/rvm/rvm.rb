@@ -6,7 +6,7 @@ require File.join(TextMate.support_path, "lib", "osx", "plist")
 
 module TextMate
   class RVM
-    CURRENT_RVM_VERSION = "0.1.37"
+    CURRENT_RVM_VERSION = "0.1.38"
     BUTTON_OK = '1'
     BUTTON_NEW_GEMSET = '3'
     
@@ -42,7 +42,7 @@ module TextMate
     def version
       @version ||= if installed?
         rvm_version = File.open("#{TextMate.project_directory}/.rvmrc").read
-        rvm_version.sub('rvm use', '').strip
+        rvm_version[/use\s+(.*)/, 1].gsub('"', '')
       end
       
       return @version
