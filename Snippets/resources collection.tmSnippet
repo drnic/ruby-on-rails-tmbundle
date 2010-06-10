@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>collection do
+  ${1:get :${2:action}}
+  ${3:put :${4:action}}
+  ${5:post :${6:action}}
+  ${7:delete :${8:action}}
+end</string>
+	<key>name</key>
+	<string>collection routes</string>
+	<key>scope</key>
+	<string>meta.rails.routes</string>
+	<key>tabTrigger</key>
+	<string>col</string>
+	<key>uuid</key>
+	<string>0ECA205B-6766-43B7-8B7C-A17956E1213E</string>
+</dict>
+</plist>
