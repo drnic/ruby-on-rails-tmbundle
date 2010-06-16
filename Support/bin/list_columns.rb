@@ -88,15 +88,7 @@ module TextMate
           require "#{TextMate.project_directory}/config/environment"
 
           Dir.glob(File.join(Rails.root, "app/models/**/*.rb")) do |file|
-            begin
-              klass = file.sub(Rails.root.to_s + '/app/models/', '').sub('.rb', '').camelize.constantize
-            rescue LoadError
-              begin
-                klass = File.basename(file, '.*').camelize.constantize
-              rescue LoadError
-                klass = nil
-              end
-            end
+            klass = File.basename(file, '.*').camelize.constantize rescue nil
 
             if klass and klass.class.is_a?(Class) and klass.ancestors.include?(ActiveRecord::Base)
               _cache[klass.name.underscore] = { :associations => klass.reflections.stringify_keys.keys, :columns => klass.column_names }
