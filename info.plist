@@ -27,6 +27,8 @@
 		<string>43304E62-66F7-424D-8AF6-33E0237BF349</string>
 		<string>786980D8-FA69-4542-85A3-5E48CFAA6814</string>
 		<string>47A6800A-DC7E-4F72-AA0D-CEE2488E1618</string>
+		<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
+		<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
 	</array>
 	<key>description</key>
 	<string>&lt;a href="http://www.rubyonrails.com/"&gt;Ruby on Rails&lt;/a&gt; is a full-stack framework for developing database-backed web applications, in Ruby, according to the Model-View-Control pattern.</string>
@@ -144,8 +146,10 @@
 			<dict>
 				<key>items</key>
 				<array>
-					<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
-					<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+					<string>8F87F3C7-8ABB-4778-9786-64CF95E99160</string>
+					<string>5D01527E-48FA-4A3D-A10B-A383C8AE3942</string>
+					<string>CEA1D76C-DEB0-4ADB-840D-220E569D5B8F</string>
+					<string>------------------------------------</string>
 					<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
 				</array>
 				<key>name</key>
@@ -936,8 +940,9 @@
 		<string>B660FC85-F69A-43BC-A72A-748CBEA0AA9A</string>
 		<string>B105C480-FB21-4511-9AD0-D5B4FED3BA21</string>
 		<string>7CC002AE-83BA-4294-B87D-DE9790839D97</string>
-		<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
-		<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+		<string>8F87F3C7-8ABB-4778-9786-64CF95E99160</string>
+		<string>5D01527E-48FA-4A3D-A10B-A383C8AE3942</string>
+		<string>CEA1D76C-DEB0-4ADB-840D-220E569D5B8F</string>
 		<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
 		<string>7B15B396-1F41-4529-9253-32761E94448C</string>
 		<string>D975E5C1-42C2-40F1-8960-0DA533B18113</string>

@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>has_many :dependent =&gt; :destroy</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>meta.rails.model</string>
 	<key>tabTrigger</key>
 	<string>hmd</string>
 	<key>uuid</key>

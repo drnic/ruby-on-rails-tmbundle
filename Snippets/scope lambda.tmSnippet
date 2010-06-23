@@ -3,15 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>named_scope :${1:name}, lambda { |${2:param}| { :conditions =&gt; ${3:['${4:${5:field} = ?}', ${6:$2}]} } }
-</string>
+	<string>scope :${1:name}, lambda { |${2:param}| ${3:where(${4::${5:field} =&gt; ${6:"${7:value}"}})} }</string>
 	<key>name</key>
-	<string>named_scope lambda</string>
+	<string>scope lambda</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>meta.rails.model</string>
 	<key>tabTrigger</key>
-	<string>ncl</string>
+	<string>scopel</string>
 	<key>uuid</key>
-	<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+	<string>5D01527E-48FA-4A3D-A10B-A383C8AE3942</string>
 </dict>
 </plist>

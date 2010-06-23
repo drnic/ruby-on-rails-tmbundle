@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>has_one</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>meta.rails.model</string>
 	<key>tabTrigger</key>
 	<string>ho</string>
 	<key>uuid</key>

@@ -3,14 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>default_scope ${1:order(${2:'${3:created_at DESC}'})}</string>
+	<string>scope :${1:name}, ${2:where(${3::${4:field} =&gt; ${5:'${6:value}'}})} do
+  def ${7:method_name}
+    $0
+  end
+end</string>
 	<key>name</key>
-	<string>default_scope</string>
+	<string>scope with extension</string>
 	<key>scope</key>
 	<string>meta.rails.model</string>
 	<key>tabTrigger</key>
-	<string>dscope</string>
+	<string>scopee</string>
 	<key>uuid</key>
-	<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
+	<string>CEA1D76C-DEB0-4ADB-840D-220E569D5B8F</string>
 </dict>
 </plist>
