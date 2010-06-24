@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>wants.${1:js|xml|html}${2: { $0 \}}</string>
+	<string>format.${1:html|xml|json|js|any} { $0 }</string>
 	<key>name</key>
-	<string>wants.format</string>
+	<string>format (respond_with)</string>
 	<key>scope</key>
 	<string>meta.rails.controller</string>
 	<key>tabTrigger</key>
-	<string>wants</string>
+	<string>format</string>
 	<key>uuid</key>
-	<string>3F26FDB4-ACF9-4856-9312-6A4D78DC8564</string>
+	<string>32AB6C81-2C22-45E0-B5FE-23CD3E420E70</string>
 </dict>
 </plist>

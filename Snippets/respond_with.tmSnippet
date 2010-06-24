@@ -3,19 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>respond_to do |wants|
-	wants.html do
-		$TM_SELECTED_TEXT
-	end
-	wants.${1:js} { $0 }
-end</string>
-	<key>keyEquivalent</key>
-	<string>@H</string>
+	<string>respond_with(${1:@${2:model}})${3: do |format|
+  format.${4:html} { $0 \}
+end}</string>
 	<key>name</key>
-	<string>respond_to (html)</string>
+	<string>respond_with</string>
 	<key>scope</key>
 	<string>meta.rails.controller</string>
+	<key>tabTrigger</key>
+	<string>resw</string>
 	<key>uuid</key>
-	<string>3BDD0D52-443E-4F5F-AE09-ABCC2ABE9A42</string>
+	<string>DDE1BA27-6259-4F87-A840-6A6E92C8594A</string>
 </dict>
 </plist>

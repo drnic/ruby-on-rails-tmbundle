@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>respond_to do |wants|
-	wants.${1:html}${2: { $0 \}}
-end</string>
+	<string>respond_to :${1:html, :${2:xml, :${3:json}}}$0</string>
 	<key>name</key>
 	<string>respond_to</string>
 	<key>scope</key>
