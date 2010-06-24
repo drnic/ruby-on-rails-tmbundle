@@ -29,6 +29,10 @@
 		<string>47A6800A-DC7E-4F72-AA0D-CEE2488E1618</string>
 		<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
 		<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
+		<string>E2CE2E3B-8A61-4866-9AF5-A12F44CF7233</string>
+		<string>86CFB156-E72B-440F-9C7D-08A3375C3ADB</string>
+		<string>BA0DE6C7-EAD3-42C9-8ABB-2B9A5F2FE225</string>
+		<string>BCB25D36-2D3F-41E9-B2CF-37D6E883E8D1</string>
 	</array>
 	<key>description</key>
 	<string>&lt;a href="http://www.rubyonrails.com/"&gt;Ruby on Rails&lt;/a&gt; is a full-stack framework for developing database-backed web applications, in Ruby, according to the Model-View-Control pattern.</string>
@@ -917,11 +921,7 @@
 		<string>F5CBBE16-F5CC-4EDA-8BC6-30281BD7D854</string>
 		<string>5CE8838A-BF2C-497E-B87A-E90C3BC482E0</string>
 		<string>A1776279-5396-4FE9-9218-8BF2C88C5271</string>
-		<string>E2CE2E3B-8A61-4866-9AF5-A12F44CF7233</string>
-		<string>86CFB156-E72B-440F-9C7D-08A3375C3ADB</string>
 		<string>44FBD811-70A9-462B-AC56-F975ADAD62AF</string>
-		<string>BA0DE6C7-EAD3-42C9-8ABB-2B9A5F2FE225</string>
-		<string>BCB25D36-2D3F-41E9-B2CF-37D6E883E8D1</string>
 		<string>523BE8A6-0845-493D-A9B6-532F73D21950</string>
 		<string>3F4B502B-5F68-4687-88E9-6EF3BDF9677D</string>
 		<string>1C20EEBE-B4BA-48C8-9B33-7B5BB00D958C</string>

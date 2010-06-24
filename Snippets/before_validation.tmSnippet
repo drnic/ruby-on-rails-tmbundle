@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>before_validation </string>
+	<string>before_validation :${1:field}${2:, :on =&gt; :${3:create|update}${4:${5:, :allow_blank =&gt; true}${6:, :allow_nil =&gt; true}}}$0</string>
 	<key>name</key>
 	<string>before_validation</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>meta.rails.model</string>
 	<key>tabTrigger</key>
 	<string>befv</string>
 	<key>uuid</key>
