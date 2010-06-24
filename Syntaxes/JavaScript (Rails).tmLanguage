@@ -46,7 +46,7 @@
 			<key>end</key>
 			<string>-?%&gt;</string>
 			<key>name</key>
-			<string>source.ruby.rails.erb</string>
+			<string>source.ruby.rails.embedded.html</string>
 			<key>patterns</key>
 			<array>
 				<dict>
