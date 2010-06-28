@@ -62,8 +62,10 @@ module TextMate
     def display_menu(klass)
       columns      = cache[klass][:columns]
       associations = cache[klass][:associations]
+
+      options = associations.empty? ? [] : associations + [nil]
+      options += columns + [nil, RELOAD_MESSAGE]
       
-      options = associations + [nil] + columns + [nil, RELOAD_MESSAGE]
       selected = TextMate::UI.menu(options)
       return if selected.nil?
 

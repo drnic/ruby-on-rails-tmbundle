@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>require File.dirname(__FILE__) + '/../test_helper'
+	<string>require 'test_helper'
 
 class ${1:Model}ControllerTest &lt; ActionController::TestCase
-	deft$0
+	test$0
 end
 </string>
 	<key>name</key>
