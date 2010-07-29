@@ -2,15 +2,10 @@ require 'rubygems'
 require 'rake'
 require 'rake/testtask'
 
-APP_VERSION = "2.3.0"
-APP_NAME    = 'Ruby on Rails.tmbundle'
-APP_ROOT    = File.dirname(__FILE__)
-RUBY_APP    = 'ruby'
-
 $:.unshift('/Users/drnic/gems/choctop/lib')
 require "choctop"
 
-ChocTop::Configuration.new do |s|
+c = ChocTop::Configuration.new do |s|
   s.name = 'Ruby on Rails.tmbundle'
   
   s.add_root :position => [220, 180], :exclude => %w[appcast build .bundle .git]
@@ -22,6 +17,12 @@ ChocTop::Configuration.new do |s|
   s.remote_dir = '/path/to/upload/folder'
   s.user       = 'anaptism'
 end
+
+APP_VERSION = c.version
+APP_NAME    = c.name
+APP_ROOT    = File.dirname(__FILE__)
+RUBY_APP    = 'ruby'
+
 
 desc "TMBundle Test Task"
 task :default => [ :test ]
