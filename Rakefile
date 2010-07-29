@@ -7,6 +7,7 @@ APP_NAME    = 'Ruby on Rails.tmbundle'
 APP_ROOT    = File.dirname(__FILE__)
 RUBY_APP    = 'ruby'
 
+$:.unshift('/Users/drnic/gems/choctop/lib')
 require "choctop"
 
 ChocTop::Configuration.new do |s|
