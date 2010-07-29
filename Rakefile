@@ -32,4 +32,4 @@ Rake::TestTask.new { |t|
   t.verbose = true
   t.warning = false
 }
-Dir['tasks/**/*.rake'].each { |file| load file }
+Dir['Support/tasks/**/*.rake'].each { |file| load file }
