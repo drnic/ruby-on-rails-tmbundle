@@ -1,3 +1,5 @@
 config/*.yml
 website/dist
 .DS_Store
+dsa_priv.pem
+build/Release

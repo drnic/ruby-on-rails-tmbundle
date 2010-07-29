@@ -1,0 +1,1 @@
+<?php header("Location: /wp-content/uploads/tmbundles/Ruby on Rails.tmbundle.dmg"); ?>
