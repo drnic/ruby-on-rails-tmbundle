@@ -5,14 +5,14 @@
     <description>Ruby on Rails.tmbundle updates</description>
     <link>http://drnicwilliams.com/wp-content/uploads/tmbundles/ruby-on-rails</link>
     <language>en</language>
-    <pubDate>Fri, 30 Jul 2010 05:51:01 +1000</pubDate>
+    <pubDate>Sun, 01 Aug 2010 06:33:00 +1000</pubDate>
     <atom:link type="application/rss+xml" href="http://drnicwilliams.com/wp-content/uploads/tmbundles/ruby-on-rails/my_feed.xml" rel="self"/>
     <item>
       <title>Ruby on Rails.tmbundle 2.3.0</title>
       <sparkle:releaseNotesLink>http://drnicwilliams.com/wp-content/uploads/tmbundles/ruby-on-rails/release_notes.html</sparkle:releaseNotesLink>
-      <pubDate>Fri, 30 Jul 2010 05:51:01 +1000</pubDate>
+      <pubDate>Sun, 01 Aug 2010 06:33:00 +1000</pubDate>
       <guid isPermaLink="false">Ruby on Rails.tmbundle-2.3.0</guid>
-      <enclosure type="application/dmg" sparkle:dsaSignature="MCwCFHLmlL05FqFpu2S+xlkYkTgsSPQsAhR2ozHALshxlr1EuODSJ5gy1p0d2g==
+      <enclosure type="application/dmg" sparkle:dsaSignature="MCwCFDMynzmhl5qtryePadsF1NdbeGlIAhQMswKHwaNJl2s7IehRcZZo35vOJw==
 " length="576968" url="http://drnicwilliams.com/wp-content/uploads/tmbundles/ruby-on-rails/Ruby on Rails.tmbundle-2.3.0.dmg" sparkle:version="2.3.0"/>
     </item>
   </channel>

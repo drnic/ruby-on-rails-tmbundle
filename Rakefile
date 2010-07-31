@@ -14,7 +14,7 @@ c = ChocTop::Configuration.new do |s|
   s.defaults :textmate
 
   s.base_url   = 'http://drnicwilliams.com/wp-content/uploads/tmbundles/ruby-on-rails'
-  s.remote_dir = '/path/to/upload/folder'
+  s.remote_dir = '/users/home/anaptism/domains/drnicwilliams.com/web/public/wp-content/uploads/tmbundles/ruby-on-rails'
   s.user       = 'anaptism'
 end
 
