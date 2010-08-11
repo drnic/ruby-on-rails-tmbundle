@@ -64,7 +64,7 @@ reports = {
   "db:migrate" => "Migration Report"
 }
 
-puts html_head(:window_title => "#{task} — RakeMate", :page_title => 'RakeMate', :sub_title => 'Rake')
+puts html_head(:window_title => "#{task} - RakeMate", :page_title => 'RakeMate', :sub_title => 'Rake')
 puts <<-HTML
     <div id="report_title">#{reports[task] || "Rake Report"}</div>
     <div id="rake_command">#{command}</div>
