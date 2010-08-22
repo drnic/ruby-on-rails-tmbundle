@@ -25,7 +25,6 @@
 		<string>86DD56A8-C655-49DA-997B-8929E5D9407E</string>
 		<string>F0A39EAD-6D01-437B-9A79-468E0571CB3D</string>
 		<string>43304E62-66F7-424D-8AF6-33E0237BF349</string>
-		<string>786980D8-FA69-4542-85A3-5E48CFAA6814</string>
 	</array>
 	<key>description</key>
 	<string>&lt;a href="http://www.rubyonrails.com/"&gt;Ruby on Rails&lt;/a&gt; is a full-stack framework for developing database-backed web applications, in Ruby, according to the Model-View-Control pattern.</string>
@@ -67,8 +66,6 @@
 			<string>------------------------------------</string>
 			<string>964436B8-E578-11DC-8177-00112475D960</string>
 			<string>32F30207-D827-46D9-889A-451C35269D52</string>
-			<string>B105C480-FB21-4511-9AD0-D5B4FED3BA21</string>
-			<string>FF022038-CA5D-4045-909E-BF509343A5C7</string>
 		</array>
 		<key>submenus</key>
 		<dict>
@@ -216,8 +213,6 @@
 				<key>items</key>
 				<array>
 					<string>1970AE74-3949-40B3-B263-727AA3FF167A</string>
-					<string>------------------------------------</string>
-					<string>5694BA8B-64EC-4B1B-A00D-6366D28500C5</string>
 					<string>------------------------------------</string>
 					<string>CD88AD5A-7F20-4D4C-882A-31E1CDFDFD16</string>
 					<string>B89CD2E9-4271-41BB-8AF6-A747553D99EB</string>
@@ -438,6 +433,7 @@
 					<string>A017AB39-A875-40DC-8ACF-7E3551057CA0</string>
 					<string>FE430ECD-5D40-4D95-A73B-F064C73992DE</string>
 					<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
+					<string>B105C480-FB21-4511-9AD0-D5B4FED3BA21</string>
 					<string>B660FC85-F69A-43BC-A72A-748CBEA0AA9A</string>
 					<string>------------------------------------</string>
 					<string>7CC002AE-83BA-4294-B87D-DE9790839D97</string>
@@ -636,7 +632,6 @@
 					<string>------------------------------------</string>
 					<string>F0F6DACA-6A0B-11D9-BDC2-000D932CD5BA</string>
 					<string>D0E29200-E910-11DC-A399-00112475D960</string>
-					<string>4EA6FBD1-CDEA-4DF6-9F70-A1EDA35AC3D7</string>
 					<string>9FB9848E-EA5A-11DC-9DE5-00112475D960</string>
 					<string>245AD020-669A-46E1-8123-4B9CFDF8075A</string>
 					<string>AC385ABF-96CD-4FCB-80AD-BF37D6EE79D2</string>
@@ -763,7 +758,6 @@
 		<string>F0F6DACA-6A0B-11D9-BDC2-000D932CD5BA</string>
 		<string>D0E29200-E910-11DC-A399-00112475D960</string>
 		<string>9FB9848E-EA5A-11DC-9DE5-00112475D960</string>
-		<string>4EA6FBD1-CDEA-4DF6-9F70-A1EDA35AC3D7</string>
 		<string>326B57A7-B4A9-447B-A3D2-0EA74158E1E1</string>
 		<string>6BA737F0-63D1-4D82-9381-4331E18B12C5</string>
 		<string>750DEEF9-18A0-40FC-8E54-574CE5EE5565</string>
@@ -900,7 +894,6 @@
 		<string>EC511A43-D3B7-11DC-BA49-00112475D960</string>
 		<string>F8316545-9AE4-4C7F-87ED-A2C00E6637FA</string>
 		<string>43680344-0818-42BF-95B4-58CD2D76545B</string>
-		<string>5694BA8B-64EC-4B1B-A00D-6366D28500C5</string>
 		<string>A017AB39-A875-40DC-8ACF-7E3551057CA0</string>
 		<string>FE430ECD-5D40-4D95-A73B-F064C73992DE</string>
 		<string>59CD3A41-8164-4FB4-B462-D7ACE86BCDBF</string>
@@ -910,12 +903,13 @@
 		<string>1CB65A0D-4FEC-4438-9B4F-8B0BD13FB875</string>
 		<string>4E286CB4-069E-474C-A970-95216FE7DE95</string>
 		<string>83B80B60-6143-4465-B064-0DA25DDDCAA7</string>
-		<string>7B15B396-1F41-4529-9253-32761E94448C</string>
 		<string>D975E5C1-42C2-40F1-8960-0DA533B18113</string>
 		<string>36E2A3EE-E9CC-4B7F-A4CF-AFAF970B8699</string>
 		<string>38D5CA05-E219-4399-A244-609AF40B1D0B</string>
 		<string>7053B86A-9B81-4154-AB3C-61B8035C5D33</string>
 		<string>35E95C81-22F7-4C40-8297-ED21086DDA81</string>
+		<string>7B15B396-1F41-4529-9253-32761E94448C</string>
+		<string>786980D8-FA69-4542-85A3-5E48CFAA6814</string>
 		<string>9671EB7A-89D6-4C23-914F-88CBEE0D177A</string>
 		<string>E0F281EC-5311-41F8-ADD9-2E2D059DA651</string>
 		<string>F57522B2-9F5F-4DF9-AE46-9478AF019C63</string>
@@ -945,7 +939,7 @@
 		<string>56151E60-589F-4CE7-8062-3E087732E2F1</string>
 		<string>8B515110-41D3-11DD-AE16-0800200C9A66</string>
 		<string>32F30207-D827-46D9-889A-451C35269D52</string>
-		<string>AECD46CF-9031-4059-B386-262DBABD97B1</string>
+		<string>FF022038-CA5D-4045-909E-BF509343A5C7</string>
 	</array>
 	<key>uuid</key>
 	<string>467A60E0-6227-11D9-BFB1-000D93589AF6</string>
