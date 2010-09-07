@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>class ${1:Model}Sweeper < ActionController::Caching::Sweeper
+	<string>class ${1:Model}Sweeper &lt; ActionController::Caching::Sweeper
   observe ${1:Model}
 
   def after_save(${1/./\l$0/})
