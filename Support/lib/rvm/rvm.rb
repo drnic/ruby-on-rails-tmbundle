@@ -6,7 +6,7 @@ require File.join(TextMate.support_path, "lib", "osx", "plist")
 
 module TextMate
   class RVM
-    CURRENT_RVM_VERSION = "0.1.38"
+    CURRENT_RVM_VERSION = "1.0.11"
     BUTTON_OK = '1'
     BUTTON_NEW_GEMSET = '3'
     
@@ -42,7 +42,7 @@ module TextMate
     def version
       @version ||= if installed?
         rvm_version = File.open("#{TextMate.project_directory}/.rvmrc").read
-        rvm_version[/use\s+(.*)/, 1].gsub('"', '')
+        rvm_version[/rvm --create \s+(.*)/, 1].gsub('"', '')
       end
       
       return @version
@@ -67,14 +67,14 @@ module TextMate
     def gemsets
       @gemsets ||= rubies.collect do |ruby|
         gemsets = `rvm #{ruby} gemset list`.split("\n")
-        gemsets.reject! { |e| e.empty? || e =~ /^info/ }
+        gemsets.reject! { |e| e.empty? || e == 'global' || e =~ /^gemsets for/ }
 
         [ruby, gemsets.map { |g| "#{ruby}@#{g}" }]
       end.flatten
     end
     
     def create_rvmrc(gemset)
-      `(cd #{TextMate.project_directory}; rvm --create --rvmrc use #{gemset}) > /dev/null`
+      `(cd #{TextMate.project_directory}; rvm --create --rvmrc #{gemset}) > /dev/null`
     end
     
   end
