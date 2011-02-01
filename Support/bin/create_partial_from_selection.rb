@@ -14,7 +14,7 @@ current_file = RailsPath.new
 
 # Make sure we're in a view file
 unless current_file.file_type == :view
-  TextMate.exit_show_tool_tip("The ‘create partial from selection’ action works within view files only.")
+  TextMate.exit_show_tool_tip("The 'create partial from selection' action works within view files only.")
 end
 
 # If text is selected, create a partial out of it
