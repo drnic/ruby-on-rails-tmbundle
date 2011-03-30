@@ -139,7 +139,7 @@ class RailsPath
   end
 
   # This is used in :file_type and :rails_path_for_view
-  VIEW_EXTENSIONS = %w( erb builder rhtml rxhtml rxml rjs haml )
+  VIEW_EXTENSIONS = %w( erb builder rhtml rxhtml rxml rjs haml slim )
 
   def file_type
     return @file_type if @file_type
@@ -256,7 +256,11 @@ class RailsPath
     return nil if action_name.nil?
     line, view_format = respond_to_format
 
-    if view_format
+    formats = []
+    formats << view_format if view_format
+    formats << 'html'
+    
+    formats.each do |view_format|
       VIEW_EXTENSIONS.each do |ext|
         filename_with_extension = "#{action_name}.#{view_format}.#{ext}"
         existing_view = File.join(rails_root, stubs[:view], modules, controller_name, filename_with_extension)
