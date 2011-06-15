@@ -7,6 +7,7 @@
 		<string>rb</string>
 		<string>rxml</string>
 		<string>builder</string>
+                <string>Gemfile</string>
 	</array>
 	<key>foldingStartMarker</key>
 	<string>(?x)^
