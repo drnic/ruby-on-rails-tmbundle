@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>validates :${1:attribute}${2:,  :acceptance =&gt; ${3:true}}${4:,
+                                :confirmation =&gt; ${5:true}}${6:,
+                                :exclusion =&gt; { :in =&gt; ${7:%w( ${8:mov avi} )} \}}${9:,
+                                :inclusion =&gt; { :in =&gt; ${10:%w( ${11:mov avi} )} \}}${12:,
+                                :format =&gt; { :with =&gt; /${13:^[${14:\w\d}]+\$}/ \}}${15:,
+                                :length =&gt; { :minimum =&gt; ${16:0}, :maximum =&gt; ${17:0}, }}${18:,
+                                :numericality =&gt; ${19:true}}${20:,
+                                :presence =&gt; ${21:true}}${22:,
+                                :uniqueness =&gt; ${23:true}}</string>
+	<key>name</key>
+	<string>validates</string>
+	<key>scope</key>
+	<string>source.ruby.rails</string>
+	<key>tabTrigger</key>
+	<string>v</string>
+	<key>uuid</key>
+	<string>996FEA3E-2255-4E7E-A551-BDA730D9E8B2</string>
+</dict>
+</plist>
