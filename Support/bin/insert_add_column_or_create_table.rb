@@ -25,7 +25,7 @@ else
 end
 
 # Find 'self.down' method
-if self_down = buffer.find { /^(\s*)def\s+self\.down\b/ }
+if self_down = buffer.find { /^(\s*)def\s+(self\.|)down\b/ }
   indentation = self_down[1]
 
   # Find the matching create_table clause in the schema.rb file

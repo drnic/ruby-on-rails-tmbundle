@@ -94,7 +94,7 @@ def insert_migration(snippet, text)
   # find the beginning of self.down and insert down code, this is hardly robust.
   # assuming self.down is after self.up in the class
   lines.each_with_index do |line, i|
-    if line =~ /^\s*def\s+self\.down\b/
+    if line =~ /^\s*def\s+(self\.|)down\b/
       lines[i, 1] = [lines[i], down_code]
       break
     end
