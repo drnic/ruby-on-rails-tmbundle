@@ -3,11 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}error_messages_for :${1:model}${TM_RAILS_TEMPLATE_END_RUBY_EXPR}
+	<string>&lt;%= form_for @${1:model} do |f| %&gt;
+  &lt;% if @${2:$1}.errors.any? %&gt;
+    &lt;div id="error_explanation"&gt;
+      &lt;h2&gt;&lt;%= pluralize(@${3:$1}.errors.count, "error") %&gt; prohibited this post from being saved:&lt;/h2&gt;
 
-${TM_RAILS_TEMPLATE_START_RUBY_INLINE}form_for @${2:$1} do |f|${TM_RAILS_TEMPLATE_END_RUBY_INLINE}
+      &lt;ul&gt;
+      &lt;% @post.errors.full_messages.each do |msg| %&gt;
+        &lt;li&gt;&lt;%= msg %&gt;&lt;/li&gt;
+      &lt;% end %&gt;
+      &lt;/ul&gt;
+
+    &lt;/div&gt;
+  &lt;% end %&gt;
+
   $0
-${TM_RAILS_TEMPLATE_END_RUBY_BLOCK}</string>
+
+&lt;% end %&gt;</string>
 	<key>name</key>
 	<string>form_for with errors</string>
 	<key>scope</key>
