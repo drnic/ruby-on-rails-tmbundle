@@ -7,27 +7,9 @@
   <title>
       Peepcode Script
   </title>
-  <script src="javascripts/rounded_corners_lite.inc.js" type="text/javascript"></script>
-
-  <script type="text/javascript">
-    window.onload = function() {
-      settings = {
-          tl: { radius: 10 },
-          tr: { radius: 10 },
-          bl: { radius: 10 },
-          br: { radius: 10 },
-          antiAlias: true,
-          autoPad: true,
-          validTags: ["div"]
-      }
-      var versionBox = new curvyCorners(settings, document.getElementById("version"));
-      versionBox.applyCornersToAll();
-    }
-  </script>
 </head>
 <body>
 <div id="main">
-	
     <h1>Peepcode Script</h1>
     <div id="version" class="clickable" onclick='document.location = "http://railsbundle.com/dist/Ruby on Rails.tmbundle.tar.gz"; return false'>
       <p>Get Version</p>

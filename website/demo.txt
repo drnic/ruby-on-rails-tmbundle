@@ -3,17 +3,17 @@ h1. Step-by-step demonstration
 In this demo we'll create a blog; because that's what blogs are for: being
 demonstrations of web frameworks.
 
-The demonstration uses new features of Rails 2.0 and the snippets in this bundle.
+The demonstration uses new features of Rails 3.1 and the snippets in this bundle.
 
 h2. A New App
 
-<pre>rails blog
+<pre>rails new blog
 cd blog
 mate .</pre>
 
 h2. Add some models
 
-<pre>ruby script/generate model Post subject:string body:text</pre>
+<pre>rails generate model Post subject:string body:text</pre>
 
 This creates a 001_create_posts migration with a create_table:
 
@@ -34,7 +34,7 @@ Here, delete the extraneous <code>t.</code> line (CONTROL SHIFT K). And save the
 
 Run the migrations, either from the prompt:
 
-    rake db:migrate
+<pre>bundle exec rake db:migrate</pre>
 
 or directly from the editor with CONTROL | (Ctrl-Pipeline), and choosing option "Migrate to Current".
 
@@ -48,16 +48,16 @@ Update the <code>test/fixtures/posts.yml</code> file as:
   body: A test article
   published: true
 
-nonpublished:
+unpublished:
   body: Still writing this one</pre>
 
-Note, in Rails 2.0 fixtures no longer have explicit ids. Later on we'll look at snippets for using Foxy Fixtures with auto-completion for associations.
+Later on we'll look at snippets for using Foxy Fixtures with auto-completion for associations.
 
 h2. Public blog controller
 
 Create a controller for our blog, either via the command prompt:
 
-    ruby script/generate controller blog
+<pre>rails generate controller blog</pre>
 
 or directly from the editor with CONTROL |, and choosing option "Call Generate Script", choose "Controller", give it the name "blog", and empty the list of actions.
 
@@ -69,7 +69,7 @@ Let's do some TDD. First, delete the <code>test_truth</code> dummy method.
 
 To create a test to show a list of blog articles:
 
-    deftg
+<code>deftg</code>
 
 and TAB gives:
 
@@ -130,8 +130,12 @@ To navigate to <code>blog_controller.rb</code> there are three options:
 
 Add the <code>index</code> action method:
 
+Type <code>def</code>, press TAB, type <code>index</code>, press TAB to move within the block and type <code>@posts = Post.where()</code>. Move the cursor inside <code>where()</code> and type <code>:</code>, type TAB, type <code>published</code>, type TAB, type <code>true</code>, type TAB then BACKSPACE to remove the comma.
+
+Our action <code>index</code> is now finished:
+
 <pre syntax="ruby">def index
-  @posts = Post.find_all_by_published(true)
+  @posts = Post.where(:published => true)
 end</pre>
 
 h2. Action views
@@ -185,7 +189,15 @@ Our <code>index.html.erb</code> template is now:
 
 </div></pre>
 
-If we run our functional tests they now pass: run either from the command prompt with <code>rake test:functionals</code> or directly from the editor by pressing CONTROL \ and press 2 for "Test Functionals"
+If we run our functional tests by running either from the command prompt with <code>bundle exec rake test:functionals</code> or directly from the editor by pressing CONTROL \ and press 2 for "Test Functionals", the test will fail with error <code>ActionController::RoutingError: No route matches {:controller=>"blog"}</code>. This is due to the legacy wild controller route <code>match ':controller(/:action(/:id(.:format)))'</code> is disabled by default with Rails 3.
+
+We have to add new route to fix this issue. Navigate to file <code>routes.rb</code> with COMMAND T, type <code>route</code>, type ENTER. Move the cursor inside <code>Blog::Application.routes.draw do</code> block, type <code>match</code>, TAB, type <code>blog</code>, TAB twice, type <code>blog</code>, TAB, type <code>index</code>, TAB and BACKSPACE to remove <code>, :as => :index</code>.
+
+Our finished route is:
+
+<pre>match 'blog' => 'blog#index'</pre>
+
+If we run functional tests again, the tests pass.
 
 As yet, we have no way for users to leave comments.
 
@@ -193,9 +205,11 @@ h2. Foxy Fixtures
 
 Create a comment model:
 
-    ruby script/generate model Comment body:text name:string post:references
+    rails generate model Comment body:text name:string post:references
 
 Note: here <code>post:references</code> is effectively the same as <code>post_id:integer</code>. Within the generated migration it creates <code>t.reference :post</code>. There is also a <code>t.</code> and <code>tcr</code> snippet for references, as for other standard datatypes, which helps setup polymorphic associations.
+
+For the demonstration of adding index to migration file, we remove the <code>add_index :comments, :post_id</code> line by moving the cursor to the line and press SHIFT CONTROL K.
 
 The generated <code>create_table</code> in <code>002_create_comments.rb</code> is:
 
@@ -205,9 +219,10 @@ The generated <code>create_table</code> in <code>002_create_comments.rb</code> i
   t.references :post
 
   t.timestamps
-end</pre>
+end
+</pre>
 
-Run <code>rake db:migrate</code>, or directly from the editor with CONTROL | and choose option "Migrate to Current".
+Run <code>bundle exec rake db:migrate</code>, or directly from the editor with CONTROL | and choose option "Migrate to Current".
 
 Now create some comment fixtures so we can look at Foxy Fixtures. Open <code>text/fixtures/comments.yml</code> (COMMAND T, type <code>cy</code>, press RETURN).
 
@@ -223,7 +238,7 @@ two:
   name: MyString
   post:</pre>
 
-The <code>post</code> fields replace the rails1.2 <code>post_id</code> fields. Now, we can specify the <code>post.yml</code> labels for a post. From above we have <code>published</code> and <code>unpublished</code>. It can be hard to remember what fixtures we have, so there is a key-combo helper.
+The <code>post</code> fields replace the Rails 1.2 <code>post_id</code> fields. Now, we can specify the <code>post.yml</code> labels for a post. From above we have <code>published</code> and <code>unpublished</code>. It can be hard to remember what fixtures we have, so there is a key-combo helper.
 
 Put the cursor after <code>post:</code> and press OPTION ESCAPE. A drop-down box appears with the names of the <code>posts.yml</code> fixtures. Select <code>published</code> and press RETURN. Repeat for the 2nd fixture. This gives us:
 
@@ -238,6 +253,8 @@ two:
   post: published</pre>
 
 h2. Associations
+
+When we generate our Comment model with references to Post model, Rails generator automatically create <code>belongs_to :post</code> for Comment model. However, for the purpose of learning, we assume this line of code is not yet created and as is for you to add.
 
 To enable the Foxy Fixtures, we need to add associations to the model classes.
 
@@ -271,18 +288,18 @@ Note: there is also a <code>has_many :through</code> snippet. Type <code>hmt</co
 
 Finally, we can run our tests since adding the <code>Comment</code> model + fixtures (CONTROL \).
 
-<pre>rake test</pre>
+<pre>bundle exec rake test</pre>
 
 h2. Routes
 
 Open the routes file (COMMAND T, type <code>routes</code> and press RETURN).
 
-Change the routes file to:
+Within the <code>Blog::Application.routes.draw</code> block, type <code>res</code>, type TAB, type <code>posts</code>, type TAB to highlight and the block and type BACKSPACE to remove it.
 
-<pre syntax="ruby">ActionController::Routing::Routes.draw do |map|
-  map.resources :posts
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+The routes file is:
+
+<pre syntax="ruby">Blog::Application.routes.draw do
+  resources :posts
 end</pre>
 
 h2. Creating Posts
@@ -291,13 +308,15 @@ From the <code>Post</code> model class (<code>post.rb</code>) you can now quickl
 of the same name. It supports either singular or plural controller names, but
 will default to the plural name, which is the REST/resources preferred name.
 
-To create a <code>PostsController</code>, use the 'Go To' hot key (as above) SHIFT OPTION COMMAND DOWN and select 'Controller'. As there is no <code>post_controller.rb</code> nor <code>posts_controller.rb</code> it will create a <code>posts_controller.rb</code> controller file; which is what we want here.
+To create a <code>PostsController</code>, use the 'Go To' hot key (as above) SHIFT OPTION COMMAND DOWN and select 'Controller'. As there is no <code>post_controller.rb</code> nor <code>posts_controller.rb</code> it will create a <code>posts_controller.rb</code> controller file; which is what we want here. OR if you prefer command, the command is:
 
-Note; at this stage you could use the Rails 2.0 <code>scaffold</code> generator to create the <code>posts_controller.rb</code> (and tests and routes).
+    rails generate controller posts
+
+Note; at this stage you could use the Rails 3.1 <code>scaffold</code> generator to create the <code>posts_controller.rb</code> (and tests and routes).
 
 In the blank file, we need to create a controller class.
 
-Type <code>cla</code> and TAB, and select "Create controller class". Type <code>Posts</code> and TAB,
+Type <code>cla</code> and TAB, and type <code>8</code> or select "Create controller class". Type <code>Posts</code> and TAB,
 <code>post</code> and TAB, and finally, <code>Post</code> and TAB. This leaves the cursor in the middle
 of the generated class:
 
@@ -316,7 +335,7 @@ h2. TDD for Posts controller
 
 Currently there is not a functional test for our <code>posts_controller.rb</code>. To create it, use the 'Go To' hot key (SHIFT OPTION COMMAND DOWN) and select 'Functional Test'. This will create a blank file.
 
-Type <code>cla</code> and TAB, and select "Create functional test class".
+Type <code>cla</code> and TAB, and type <code>9</code> or select "Create functional test class".
 Type <code>Posts</code> and TAB. (The functional test class name
 should match the controller class, with <code>Test</code> suffixed to it).
 
@@ -329,8 +348,21 @@ end</pre>
 
 Instead, we will use the <code>deftg</code> (GET request) and <code>deftp</code> (POST request) snippets.
 
-Create a test for the <code>index</code>, <code>new</code> and <code>edit</code> actions. For <code>index</code> and <code>new</code>, we can delete the <code>@model = models(:fixture_name)</code>,
-etc parts.
+Create a test for the <code>index</code>, <code>new</code> and <code>edit</code> actions. For <code>index</code> and <code>new</code>, we can delete the <code>@model = models(:fixture_name)</code>, <code>, :id => @model.to_param</code>, etc parts.
+
+The test for <code>index</code> and <code>new</code> are:
+
+<pre syntax="ruby">
+def test_should_get_index
+  get :index
+  assert_response :success
+end
+
+def test_should_get_new
+  get :new
+  assert_response :success
+end
+</pre>
 
 To test for the <code>create</code> action, type <code>deftp</code> and TAB. Type <code>create</code> and TAB, type <code>post</code> and TAB, type BACKSPACE and TAB, and again BACKSPACE and TAB. Now enter in a hash of the values to pass in for the test, say <code>:subject => 'Test', :body => 'Some body', :published => '1'</code>. The result should look like:
 
@@ -343,21 +375,20 @@ end</pre>
 On the line after the <code>assert_response</code> expression, we'll test
 for where we want to be redirected to.
 
-If you type <code>art</code> you create an old-style <code>assert_redirected_to :action => "index"</code>
-snippet.
+If you type <code>asrt</code> you are given a list of selection:
 
-In addition there are now various <code>assert_redirected_to</code> snippets that
-use resourceful routes:
+* 1 - <code>assert_redirected_to :action => "index"</code>
+* 2 - <code>assert_redirected_to model_path(@model)</code>
+* 3 - <code>assert_redirected_to models_path</code>
+* 4 - <code>assert_redirected_to parent_child_path(@parent, @child)</code>
+* 5 - <code>assert_redirected_to parent_child_path(@parent)</code>
 
-* artp   - <code>assert_redirected_to model_path(@model)</code>
-* artpp  - <code>assert_redirected_to models_path</code>
-* artnp  - <code>assert_redirected_to parent_child_path(@parent, @child)</code>
-* artnpp - <code>assert_redirected_to parent_child_path(@parent)</code>
+The first choice is to create an old-style <code>assert_redirected_to :action => "index"</code> snippet. Others are <code>assert_redirected_to</code> snippets that use resourceful routes.
 
 As we'll see later, this naming scheme is used for other snippets that
 use resourceful routes, like <code>link_to</code> and <code>redirect_to</code>.
 
-Type <code>artpp</code> and TAB, and type <code>post</code>, to assert that the <code>create</code>
+Type <code>asrt</code>, TAB and type <code>3</code>, and type <code>post</code>, to assert that the <code>create</code>
 action must redirect to the index page.
 
 The final <code>test_should_post_create</code> method is:
@@ -368,7 +399,7 @@ The final <code>test_should_post_create</code> method is:
   assert_redirected_to posts_path
 end</pre>
 
-Running our tests (<code>rake test:functionals</code> or CONTROL \) shows all these new tests failing.
+Running our tests (<code>bundle exec rake test:functionals</code> or CONTROL \) shows all these new tests failing.
 
 h2. Views
 
@@ -397,7 +428,7 @@ with the <code>def</code> snippet:
   end
 end</pre>
 
-Note: the <code>index</code> method could be created by typing <code>def</code>, TAB, <code>index</code>, TAB,  <code>@posts = Post.fina</code>, TAB, BACKSPACE.
+Note: the <code>index</code> method could be created by typing <code>def</code>, TAB, <code>index</code>, TAB, <code>@posts = Post.fina</code>, TAB, BACKSPACE. However, it is recommended that you use <code>Post.all</code> syntax instead of the old-style <code>find(:all)</code>.
 
 Now we need templates for the <code>index</code>, <code>new</code> and <code>edit</code> actions.
 
@@ -450,14 +481,24 @@ and use the 'Go To' hot key (SHIFT OPTION COMMAND DOWN)
 and select 'View'. Press RETURN to accept <code>new.html.erb</code>.
 
 Inside the blank <code>new.html.erb</code> file, type <code>ffe</code> and press TAB, and type <code>post</code>
-and press TAB twice:
+and press TAB thrice:
 
-<pre syntax="html"><%= error_messages_for :post %>
-<% form_for @post do |f| -%>
+<pre syntax="html"><%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<% end -%></pre>
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
 
-<code>form_for</code> is the Rails 2.0 preferred helper for managing forms, and
+    </div>
+  <% end %>
+<% end %></pre>
+
+<code>form_for</code> is the Rails 3 preferred helper for managing forms, and
 there are now snippets for common form_for helpers. There are <code>ff</code> and <code>ffe</code>
 snippets; the former does not have the error messages section.
 
@@ -470,13 +511,25 @@ Type <code>f.</code> and TAB, and select "Text Field". Type <code>subject</code>
 
 This gives us:
 
-<pre syntax="html"><%= error_messages_for :post %>
-<% form_for @post do |f| -%>
+<pre syntax="html"><%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
   </p>
-<% end -%></pre>
+<% end %></pre>
 
 Now repeat for <code>body</code> and <code>published</code> fields.
 
@@ -489,8 +542,20 @@ Start <code>script/server</code> from the prompt and you can now view this form 
 
 The final form is:
 
-<pre syntax="html"><%= error_messages_for :post %>
-<% form_for @post do |f| -%>
+<pre syntax="html"><%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
@@ -506,7 +571,7 @@ The final form is:
   <p>
     <%= f.submit "Submit" %>
   </p>
-<% end -%></pre>
+<% end %></pre>
 
 Note: if you got <code><br></code> when hitting CONTROL RETURN instead of <code><br /></code> then you might want to go to the preferences of TextMate (COMMAND ,), choose tab "Advanced", choose "Shell Variables", click the + sign to add a new shell variable, and give it the name <code>TM_XHTML</code> and a value of <code> /</code>
 
@@ -536,18 +601,25 @@ At the bottom of the <code>new.html.erb</code> we want a link back to the list o
 will be the <code>index</code> action, and will be accessible via the resources route
 <code>posts_path</code>.
 
-There are several <code>link_to</code> snippets that support the resources routes:
+There are several <code>link_to</code> snippets that support the resources routes, all are available as option of <code>lt</code> snippet.
 
-* lip   - <code><%= link_to "link text...", model_path(@model) %></code>
-* lipp  - <code><%= link_to "link text...", models_path %></code>
-* linp  - <code><%= link_to "link text...", parent_child_path(@parent, @child) %></code>
-* linpp - <code><%= link_to "link text...", parent_child_path(@parent) %></code>
-* lim   - <code><%= link_to model.name, model_path(model) %></code>
+* 1 - <%= link_to "link text...", model_path(@model) %>
+* 2 - <%= link_to "link text...", models_path %>
+* 3 - <%= link_to "link text...", parent_child_path(@parent, @child) %>
+* 4 - <%= link_to "link text...", parent_child_path(@parent) %>
+* 5 - <%= link_to "link text...", :action => "index" %>
+* 6 - <%= link_to "link text...", :action => "edit", :id => @item %>
+* 7 - <%= link_to "link text...", :controller => "items" %>
+* 8 - <%= link_to "link text...", :controller => "items", :action => "index" %>
+* 9 - <%= link_to "link text...", :controller => "items", :action => "edit", :id => @item %>
+* 0 - <%= link_to model.name, model_path(model) %>
 
 The tab stop points are in useful places.
 
-So, to create our link to the posts page, type <code>lipp</code> and TAB, type
-<code>Show all posts</code>, press TAB twice and type <code>post</code>.
+So, to create our link to the posts page, type <code>lt</code> and TAB, type
+ 2, and TAB, type <code>Show all posts</code>, press TAB and type <code>posts_path</code>. The finished line is:
+
+<pre syntax="html"><%= link_to "Show all post", posts_path %></pre>
 
 h2. Controllers: <code>respond_to</code> and <code>redirect_to</code>
 
@@ -567,7 +639,16 @@ end</pre>
 
 Place the cursor in the <code>true</code> section of the <code>if</code> statement.
 Type <code>repp</code> and TAB to create a <code>redirect_to</code> expression. Press TAB
-again and replace the selected text with <code>post</code>.
+again and replace the selected text with <code>posts_path</code>. In the end, we have:
+
+<pre syntax="ruby">def create
+  @post = Post.new(params[:post])
+  if @post.save
+    redirect_to(posts_path)
+  else
+
+  end
+end</pre>
 
 Like the various <code>link_to</code> snippets, there are matching <code>redirect_to</code>
 snippets.
@@ -580,60 +661,48 @@ snippets.
 There are tab stops in useful places.
 
 In the <code>false</code> section of the <code>if</code> expression, we'll demonstrate the
-<code>respond_to</code> block. There are two ways to generate a <code>respond_to</code> block.
+<code>respond_with</code> block.
 
-Type <code>rest</code> and TAB, and you get a standard empty block you can work with:
+Type <code>resw</code> and TAB, type <code>@post</code> and you get a standard empty block you can work with:
 
-<pre syntax="ruby">respond_to do |wants|
-  wants.html {  }
+<pre syntax="ruby">respond_with(@post) do |format|
+  format.html {  }
 end</pre>
 
-Press TAB twice to get inside the <code>wants.html</code> block, type <code>ra</code>, press TAB, then type <code>new</code>. The final block is:
+Press TAB thrice to get inside the <code>format.html</code> block, type <code>ra</code>, press TAB, then type <code>new</code>. The final block is:
 
-<pre syntax="ruby">respond_to do |wants|
-  wants.html { render :action => "new" }
+<pre syntax="ruby">respond_with(@post) do |format|
+  format.html { render :action => "new" }
 end</pre>
 
-Alternately, there is the "upgrade" hot key (SHIFT COMMAND H), where you can convert some
-existing selected code, into a <code>respond_to</code> block.
+We revisit the code in <code>true</code>section and repeat the same above steps, change the line to:
 
-Select the whole line containing the <code>redirect_to</code> expression from the
-<code>true</code> section of the <code>if</code> statement (SHIFT COMMAND L).
-
-Press SHIFT COMMAND H and the line is replaced with:
-
-<pre syntax="ruby">respond_to do |wants|
-  wants.html do
-    redirect_to(posts_path)
-  end
-  wants.js {  }
+<pre syntax="ruby">respond_with(@post) do |format|
+  format.html { redirect_to(posts_path) }
 end</pre>
-
-The <code>js</code> is the first tab stop. The point of this hot key is to instantly
-refactor your existing html respond code, and support a second response
-format.
-
-For now remove the line with <code>wants.js</code> (CONTROL SHIFT K).
 
 The completed <code>create</code> action is:
 
 <pre syntax="ruby">def create
   @post = Post.new(params[:post])
   if @post.save
-    respond_to do |wants|
-      wants.html do
-        redirect_to(posts_path)
-      end
+    respond_with(@post) do |format|
+      format.html { redirect_to(posts_path) }
     end
   else
-    respond_to do |wants|
-      wants.html { render :action => "new" }
+    respond_with(@post) do |format|
+      format.html { render :action => "new" }
     end
   end
 end</pre>
 
-Yes you'd probably only have one <code>respond_to</code> block, but this is a
-demo so I am taking the scenic route.
+Yes you'd probably only have one <code>respond_with</code> block, but this is a demo so I am taking the scenic route.
+
+Yet we still need to declare the format that our controller respond to. Move your cursor to the line behind the line <code>class PostsController < ApplicationController</code>, type <code>rest</code>, press TAB twice then BACKSPACE.
+
+The completed <code>respond_to</code> line is:
+
+<pre syntax="ruby">respond_to :html</pre>
 
 h2. Our application so far
 
@@ -683,7 +752,7 @@ Futhermore we'd like to know when a post was published. To do this we'll want th
 
 Start Quick Migration (CONTROL SHIFT M). Let's name it <code>AddPublishedAtForPosts</code>. A new migrations file <code>004_add_published_at_for_posts.rb</code> is created and opened, and the cursor is placed behind the <code>mtab</code> trigger. Again delete <code>mtab</code> and instead enter <code>mcol</code> and press TAB. Choose <code>Add / Remove Column</code> (1). Type <code>posts</code> TAB <code>published_at</code> TAB <code>datetime</code> TAB and RETURN.
 
-Again type <code>mcol</code> and TAB. Choose <code>Remove / Add Column</code> (5). Type <code>posts</code> TAB <code>published</code> and press TAB twice.
+Again type <code>mcol</code> and TAB. Choose <code>Remove / Add Column</code> (8). Type <code>posts</code> TAB <code>published</code> and press TAB twice.
 
 The end result looks like this:
 
@@ -703,9 +772,9 @@ Notice how the <code>Remove / Add Column</code> command automagically determined
 
 Save the file (COMMAND S) and migrate to current (CONTROL |).
 
-Now we need to modify the posts fixtures file. Go there (COMMAND T, type <code>pyml</code>, choose <code>posts.yml</code>). Replace the line <code>published: true</code> by <code>published_at: 2008-1-1</code>.
+Now we need to modify the posts fixtures file. Go there (COMMAND T, type <code>pyml</code>, choose <code>posts.yml</code>). Replace the line <code>published: true</code> by <code>published_at: 2011-9-11</code>.
 
-Modify the posts functional test, first go there (SHIFT OPTION COMMAND DOWN, choose "Go to Functional Test"). Replace <code>:published => '1'</code> by <code>:published_at => Date.new(2008, 1, 1)</code>.
+Modify the posts functional test, first go there (SHIFT OPTION COMMAND DOWN, choose "Go to Functional Test"). Replace <code>:published => '1'</code> by <code>:published_at => Date.new(2011, 9, 11)</code>.
 
 Modify the post model, first go there (SHIFT OPTION COMMAND DOWN, choose "Go to Model"). Have the code look like:
 
@@ -725,7 +794,9 @@ Modify the post model, first go there (SHIFT OPTION COMMAND DOWN, choose "Go to 
   end
 end</pre>
 
-Modify the <code>blog_controller.rb</code> file. Replace <code>Post.find_all_by_published(true)</code> by <code>Post.find(:all, :conditions => "published_at IS NOT NULL")</code>.
+For the <code>if else</code> syntax of <code>published=</code> function, we can use <code>ife</code> snippet.
+
+Modify the <code>blog_controller.rb</code> file. Replace <code>Post.where(:published => true)</code> by <code>Post.find(:all, :conditions => "published_at IS NOT NULL")</code>.
 
 Finally, check your tests again (CONTROL \). All tests should pass.
 
