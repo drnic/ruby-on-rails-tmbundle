@@ -292,7 +292,8 @@ class RailsPath
 
   def wants_haml
     @wants_html ||= File.file?(File.join(rails_root, "vendor/plugins/haml/", "init.rb")) ||
-      File.read(File.join(rails_root, 'config', 'environment.rb')) =~ /haml/
+      File.read(File.join(rails_root, 'config', 'environment.rb')) =~ /haml/ ||
+      File.read(File.join(rails_root, 'Gemfile')) =~ /haml/
   end
 
   def stubs

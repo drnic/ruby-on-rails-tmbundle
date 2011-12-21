@@ -235,6 +235,9 @@ class RailsPathTest < Test::Unit::TestCase
       haml_fixture_path = File.expand_path(File.dirname(__FILE__) + '/fixtures')
       TextMate.project_directory = haml_fixture_path
       assert_equal true, RailsPath.new(haml_fixture_path + '/app/views/posts/index.html.haml').wants_haml
+      haml_fixture_path = File.expand_path(File.dirname(__FILE__) + '/gemfile_fixtures')
+      TextMate.project_directory = haml_fixture_path
+      assert RailsPath.new(haml_fixture_path + '/app/views/posts/index.html.haml').wants_haml
     ensure
       TextMate.project_directory = File.expand_path(File.dirname(__FILE__) + '/app_fixtures')
     end
