@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>respond_to :${1:html}${2:, :${3:xml}${4:, :${5:json}}}$0</string>
+	<string>get '${1:recent}'${2:, :on =&gt; :${3:collection}}</string>
 	<key>name</key>
-	<string>respond_to</string>
+	<string>get :on =&gt; :collection</string>
 	<key>scope</key>
-	<string>meta.rails.controller</string>
+	<string>meta.rails.routes</string>
 	<key>tabTrigger</key>
-	<string>rest</string>
+	<string>get</string>
 	<key>uuid</key>
-	<string>B41D3164-EA53-4DDC-850E-27B82B24061F</string>
+	<string>4B0DBED3-3A95-4BE4-B61B-9CDFB8B8C07A</string>
 </dict>
 </plist>
