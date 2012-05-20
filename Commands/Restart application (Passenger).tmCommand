@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>touch "$TM_PROJECT_DIRECTORY"/tmp/restart.txt</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^~@r</string>
+	<key>name</key>
+	<string>Restart Application (Passenger)</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>6F23C663-F25F-49B6-B0A7-BB7492512BBC</string>
+</dict>
+</plist>
