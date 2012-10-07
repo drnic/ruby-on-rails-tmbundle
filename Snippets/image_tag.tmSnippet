@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}image_tag "$1${2:.png}"${3:${4:, :title =&gt; "${5:title}"}${6:, :class =&gt; "${7:class}"}}${TM_RAILS_TEMPLATE_END_RUBY_EXPR}</string>
+	<string>${TM_RAILS_TEMPLATE_START_RUBY_EXPR}image_tag "$1${2:.png}"${3:${4:, :title =&gt; "${5:title}"}${6:, :class =&gt; }}${TM_RAILS_TEMPLATE_END_RUBY_EXPR}</string>
 	<key>name</key>
 	<string>image_tag</string>
 	<key>scope</key>
