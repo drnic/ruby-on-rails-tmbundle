@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>after_destroy </string>
+	<string>after_destroy ${1::${2:callback_method}}</string>
 	<key>name</key>
 	<string>after_destroy</string>
 	<key>scope</key>
