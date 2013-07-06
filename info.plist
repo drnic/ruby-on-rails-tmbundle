@@ -35,6 +35,7 @@
 		<string>BCB25D36-2D3F-41E9-B2CF-37D6E883E8D1</string>
 		<string>3BDD0D52-443E-4F5F-AE09-ABCC2ABE9A42</string>
 		<string>3F26FDB4-ACF9-4856-9312-6A4D78DC8564</string>
+		<string>EC605540-C431-4FD0-AD91-D913118DACA7</string>
 	</array>
 	<key>description</key>
 	<string>&lt;a href="http://www.rubyonrails.com/"&gt;Ruby on Rails&lt;/a&gt; is a full-stack framework for developing database-backed web applications, in Ruby, according to the Model-View-Control pattern.</string>
@@ -76,8 +77,11 @@
 			<string>AECD46CF-9031-4059-B386-262DBABD97B1</string>
 			<string>CF489B31-5DD2-4B83-B503-AD3ECF7BDEB7</string>
 			<string>FF022038-CA5D-4045-909E-BF509343A5C7</string>
-			<string>996FEA3E-2255-4E7E-A551-BDA730D9E8B2</string>
 			<string>EBDFAC46-411C-4563-872F-48D870205994</string>
+			<string>09CDD0A6-A239-4B5A-9DE3-4CDD6C202A0A</string>
+			<string>DDBF2E72-7B0C-448F-AEDC-DEC91F0DAEFC</string>
+			<string>34ECD96C-7BC3-4023-847E-3022D6B66318</string>
+			<string>99C29ED7-1843-4C10-AC4E-2A14AE5F68F7</string>
 		</array>
 		<key>submenus</key>
 		<dict>
@@ -331,6 +335,7 @@
 			<dict>
 				<key>items</key>
 				<array>
+					<string>996FEA3E-2255-4E7E-A551-BDA730D9E8B2</string>
 					<string>89198999-7E6D-4D97-A20E-45263E1CA993</string>
 					<string>A2477223-AD5A-4723-8052-943CE9BA634D</string>
 					<string>47944705-F605-4ED4-B4C0-9E823EE25138</string>
@@ -686,7 +691,6 @@
 					<string>B9889C00-FC9D-4956-81BF-600145F06976</string>
 					<string>AC385ABF-96CD-4FCB-80AD-BF37D6EE79D2</string>
 					<string>------------------------------------</string>
-					<string>EC605540-C431-4FD0-AD91-D913118DACA7</string>
 					<string>------------------------------------</string>
 					<string>9038B99B-4810-4C0B-B547-F72F2AD5CAFC</string>
 					<string>F7744F07-306C-4951-AB5A-3D69BA5516B7</string>
@@ -765,7 +769,6 @@
 		<string>A7F692C1-778A-48B8-945E-573568BA0403</string>
 		<string>4B3F798E-E3B6-48C8-8C2F-CB8631011638</string>
 		<string>F90BFB23-5706-484B-8108-B376A988C0A0</string>
-		<string>EC605540-C431-4FD0-AD91-D913118DACA7</string>
 		<string>AC8EDA3E-875B-11D9-897C-000393CBCE2E</string>
 		<string>7B02ABF8-8763-11D9-897C-000393CBCE2E</string>
 		<string>D864896E-8763-11D9-897C-000393CBCE2E</string>
@@ -821,9 +824,9 @@
 		<string>F7744F07-306C-4951-AB5A-3D69BA5516B7</string>
 		<string>EBDFAC46-411C-4563-872F-48D870205994</string>
 		<string>9038B99B-4810-4C0B-B547-F72F2AD5CAFC</string>
-		<string>AC385ABF-96CD-4FCB-80AD-BF37D6EE79D2</string>
 		<string>1ED49D4D-D4A0-4CF0-8ED2-DCE70854B839</string>
 		<string>B9889C00-FC9D-4956-81BF-600145F06976</string>
+		<string>AC385ABF-96CD-4FCB-80AD-BF37D6EE79D2</string>
 		<string>2A8FBE48-E196-4019-AE76-BF3ED4B54F47</string>
 		<string>1E5DE984-510C-4992-8AD5-C5FA6D7F2A88</string>
 		<string>053F1D6A-B413-43FF-B697-E3120FD0489F</string>
@@ -1006,6 +1009,10 @@
 		<string>AECD46CF-9031-4059-B386-262DBABD97B1</string>
 		<string>5694BA8B-64EC-4B1B-A00D-6366D28500C5</string>
 		<string>4EA6FBD1-CDEA-4DF6-9F70-A1EDA35AC3D7</string>
+		<string>09CDD0A6-A239-4B5A-9DE3-4CDD6C202A0A</string>
+		<string>DDBF2E72-7B0C-448F-AEDC-DEC91F0DAEFC</string>
+		<string>34ECD96C-7BC3-4023-847E-3022D6B66318</string>
+		<string>99C29ED7-1843-4C10-AC4E-2A14AE5F68F7</string>
 	</array>
 	<key>uuid</key>
 	<string>467A60E0-6227-11D9-BFB1-000D93589AF6</string>
