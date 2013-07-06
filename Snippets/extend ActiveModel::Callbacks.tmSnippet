@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>extend ActiveModel::Callbacks</string>
+	<key>name</key>
+	<string>extend ActiveModel::Callbacks</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>ext</string>
+	<key>uuid</key>
+	<string>DDBF2E72-7B0C-448F-AEDC-DEC91F0DAEFC</string>
+</dict>
+</plist>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>class ${1:Model} &lt; ActiveRecord::Base
+  ${2:attr_accessible :${3:attribute_name}}
+end
+</string>
+	<key>name</key>
+	<string>Create model class</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>tabTrigger</key>
+	<string>cla</string>
+	<key>uuid</key>
+	<string>09CDD0A6-A239-4B5A-9DE3-4CDD6C202A0A</string>
+</dict>
+</plist>
