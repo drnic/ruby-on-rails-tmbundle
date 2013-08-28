@@ -3,14 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>before_create ${1::${2:callback_method}}</string>
+	<string>&lt;% for ${1:object} in ${2:objects} %&gt;
+	$0
+&lt;% end %&gt;</string>
 	<key>name</key>
-	<string>before_create</string>
+	<string>for</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>text.html.ruby</string>
 	<key>tabTrigger</key>
-	<string>befc</string>
+	<string>for</string>
 	<key>uuid</key>
-	<string>D64D8863-DCB6-4397-B5B0-073E0AE04167</string>
+	<string>EBDFAC46-411C-4563-872F-48D870205994</string>
 </dict>
 </plist>

@@ -3,14 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>before_create ${1::${2:callback_method}}</string>
+	<string>class ${1:Model} &lt; ActiveRecord::Base
+  ${2:attr_accessible :${3:attribute_name}}
+end
+</string>
 	<key>name</key>
-	<string>before_create</string>
+	<string>Create model class</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>source.ruby</string>
 	<key>tabTrigger</key>
-	<string>befc</string>
+	<string>cla</string>
 	<key>uuid</key>
-	<string>D64D8863-DCB6-4397-B5B0-073E0AE04167</string>
+	<string>09CDD0A6-A239-4B5A-9DE3-4CDD6C202A0A</string>
 </dict>
 </plist>

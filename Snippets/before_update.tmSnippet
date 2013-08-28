@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>before_update </string>
+	<string>before_update ${1::${2:callback_method}}</string>
 	<key>name</key>
 	<string>before_update</string>
 	<key>scope</key>

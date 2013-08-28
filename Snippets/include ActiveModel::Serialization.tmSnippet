@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>before_create ${1::${2:callback_method}}</string>
+	<string>include ActiveModel::Serialization</string>
 	<key>name</key>
-	<string>before_create</string>
+	<string>include ActiveModel::Serialization</string>
 	<key>scope</key>
-	<string>source.ruby.rails</string>
+	<string>source.ruby</string>
 	<key>tabTrigger</key>
-	<string>befc</string>
+	<string>inc</string>
 	<key>uuid</key>
-	<string>D64D8863-DCB6-4397-B5B0-073E0AE04167</string>
+	<string>34ECD96C-7BC3-4023-847E-3022D6B66318</string>
 </dict>
 </plist>
