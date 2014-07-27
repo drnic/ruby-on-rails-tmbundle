@@ -10,10 +10,10 @@ class FindMethod
   
   def initialize(term, filepath = RailsPath.new)
     @term = term
-    @term = @term + $1 if TextMate.current_line.match(Regexp.new(Regexp.escape(@term) + '(!|\?)'))
+    @term = @term + $1 if TextMate.selected_text.match(Regexp.new(Regexp.escape(@term) + '(!|\?)'))
     @found_methods = []
     @filepath = filepath
-    @root = RailsPath.new.rails_root || TextMate.directory
+    @root = RailsPath.new.rails_root || TextMate.project_directory
     self.find
     self.render_results
   end
